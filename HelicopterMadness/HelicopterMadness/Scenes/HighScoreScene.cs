@@ -30,6 +30,8 @@ namespace HelicopterMadness.Scenes
         private int highestScore;
         private int lowestScore;
 
+        private SpriteFont scoreFont;
+        private Vector2 scoreDim;
 
         private const int TOP_SCORES = 5;
         private const int DUMMY_SCORE = 100;
@@ -101,12 +103,20 @@ namespace HelicopterMadness.Scenes
 
             //TEMP Testing text alignments and what not
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
-            Vector2 scoreDim = headerFont.MeasureString("HIGHSCORES\n\n\n");
+            scoreDim = headerFont.MeasureString("HIGHSCORES");
             Vector2 scorePos = new Vector2(SharedSettings.Stage.X/2 - scoreDim.X/2, 0);
             headerDisplay = new TextDisplay(game,spriteBatch,headerFont,scorePos,Color.Red);
             headerDisplay.Message = "HIGHSCORES";
 
+            //display the actual scores
+             scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
+            Vector2 pos = new Vector2(0,0);
+            
+            
+            scoreDisplay = new TextDisplay(game,spriteBatch,scoreFont,pos, Color.Yellow);
+
             Components.Add(headerDisplay);
+            Components.Add(scoreDisplay);
         }
 
         private void prepDummyList()
@@ -145,6 +155,14 @@ namespace HelicopterMadness.Scenes
         public override void Update(GameTime gameTime)
         {
             // TODO: Remove this or impBlement updates
+            scoreDisplay.Message = "";
+            for (int i = 0; i < TOP_SCORES; i++)
+            {
+                scoreDisplay.Message += i + 1 + ". " + highScoreEntries[i].Name + "..................." + highScoreEntries[i].Score + "\n";
+            }
+
+            Vector2 testDim = scoreFont.MeasureString(scoreDisplay.Message);
+            scoreDisplay.Position = new Vector2(SharedSettings.Stage.X / 2 - testDim.X / 2, scoreDim.Y * 3);
 
             base.Update(gameTime);
         }
