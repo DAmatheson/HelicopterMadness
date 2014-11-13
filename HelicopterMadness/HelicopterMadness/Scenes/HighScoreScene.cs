@@ -7,6 +7,7 @@
 
 using System;
 using System.IO;
+using System.Security.Cryptography;
 using System.Threading;
 using HelicopterMadness.Scenes.BaseScene;
 using HelicopterMadness.Scenes.HighScoreComponents;
@@ -26,7 +27,7 @@ namespace HelicopterMadness.Scenes
         private int lowestScore;
 
 
-        private const int HIGHSCORE_LIMIT = 5;
+        private const int TOP_SCORES = 5;
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
@@ -44,29 +45,45 @@ namespace HelicopterMadness.Scenes
                     {
                         int count = 0;
 
-                        while (!scores.EndOfStream && count < HIGHSCORE_LIMIT )
+                        while (!scores.EndOfStream && count < TOP_SCORES)
                         {
+                            //would this crash if there is no space on the current line?
                             string[] scoreString = scores.ReadLine().Split(' ');
-
                             int score;
-                            int.TryParse(scoreString[1], out score);
+
+                            //skips line if the score string array doesnt have both parts and if the score is not an int
+                            if (scoreString.Length != 2 || !int.TryParse(scoreString[1], out score))
+                            {
+                                continue;
+                            }
+
+                            //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
+                            scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
 
                             highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
                             count++;
 
+                            
                         }
                     }
                 }
                 else
                 {
                     //create list of dummy data
+                    for (int i = 0; i < TOP_SCORES; i++)
+                    {
+
+                        //highScoreEntries[i] = new HighScoreEntry(scoreString[0], score);
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                    
-                throw;
+
             }
+            
+            
+
         }
 
         public int HighestScore
