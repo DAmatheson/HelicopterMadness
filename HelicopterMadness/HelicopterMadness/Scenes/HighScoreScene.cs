@@ -9,6 +9,7 @@ using System.Diagnostics;
 using HelicopterMadness.Scenes.BaseScene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace HelicopterMadness.Scenes
 {
@@ -43,6 +44,12 @@ namespace HelicopterMadness.Scenes
         {
             // TODO: Check if score is higher etc.
             Debug.WriteLine("AddScore was called with a score of: " + score);
+
+            List<KeyValuePair<int, string>> highScoreList = new List<KeyValuePair<int, string>>();
+
+            highScoreList.Add(new KeyValuePair<int, string>(12, "name"));
+
+            highScoreList.Sort((value1, value2) => value1.Key.CompareTo(value2.Key));
         }
     }
 }
