@@ -5,11 +5,15 @@
  *      Drew Matheson, 2014.11.04: Created
  */
 
+using System;
+using System.IO;
+using System.Threading;
 using HelicopterMadness.Scenes.BaseScene;
 using HelicopterMadness.Scenes.HighScoreComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.IO;
 
 namespace HelicopterMadness.Scenes
 {
@@ -21,11 +25,48 @@ namespace HelicopterMadness.Scenes
         private int highestScore;
         private int lowestScore;
 
+
+        private const int HIGHSCORE_LIMIT = 5;
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
             // TODO: Actually build this out
             highScoreEntries = new List<HighScoreEntry>();
+            string scorepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
+
+
+            try
+            {
+                if (File.Exists(scorepath))
+                {
+                    //open file and load into list 
+                    using (StreamReader scores = File.OpenText(scorepath))
+                    {
+                        int count = 0;
+
+                        while (!scores.EndOfStream && count < HIGHSCORE_LIMIT )
+                        {
+                            string[] scoreString = scores.ReadLine().Split(' ');
+
+                            int score;
+                            int.TryParse(scoreString[1], out score);
+
+                            highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
+                            count++;
+
+                        }
+                    }
+                }
+                else
+                {
+                    //create list of dummy data
+                }
+            }
+            catch (Exception)
+            {
+                    
+                throw;
+            }
         }
 
         public int HighestScore
