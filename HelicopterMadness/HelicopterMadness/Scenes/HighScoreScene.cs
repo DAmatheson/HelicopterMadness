@@ -50,6 +50,7 @@ namespace HelicopterMadness.Scenes
             highScoreList.Add(new KeyValuePair<int, string>(12, "name"));
 
             highScoreList.Sort((value1, value2) => value1.Key.CompareTo(value2.Key));
+
         }
     }
 }
