@@ -1,0 +1,125 @@
+/* SceneManager.cs
+ * Purpose: Manage the state of GameScenes
+ * 
+ * Revision History:
+ *      Drew Matheson, 2014.11.05: Created
+ */
+
+using System.Collections.Generic;
+using HelicopterMadness.Scenes;
+using HelicopterMadness.Scenes.BaseScene;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace HelicopterMadness
+{
+    /// <summary>
+    ///     Manages which GameScene is active
+    /// </summary>
+    public class SceneManager : DrawableGameComponent
+    {
+        private readonly Dictionary<MenuItems, GameScene> scenes;
+        private readonly MenuScene menuScene;
+
+        private GameScene enabledScene;
+
+        /// <summary>
+        ///     Initializes a new instance of SceneManager
+        /// </summary>
+        /// <param name="game">The Game the SceneManager belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the SceneManager uses to draw its components</param>
+        public SceneManager(Game game, SpriteBatch spriteBatch)
+            : base(game)
+        {
+            // These must match up with the order and values of the enum MenuItems
+            List<string> menuEntries = new List<string>
+            {
+                "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit"
+            };
+
+            menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
+
+            HowToPlayScene howToPlayScene = new HowToPlayScene(game, spriteBatch);
+            HelpScene helpScene = new HelpScene(game, spriteBatch);
+            CreditScene creditScene = new CreditScene(game, spriteBatch);
+            HighScoreScene highScoreScene = new HighScoreScene(game, spriteBatch);
+            ActionScene actionScene = new ActionScene(game, spriteBatch, highScoreScene.AddScore);
+
+            scenes = new Dictionary<MenuItems, GameScene>
+            {
+                { MenuItems.StartGame, actionScene },
+                { MenuItems.HowToPlay, howToPlayScene },
+                { MenuItems.Help, helpScene },
+                { MenuItems.HighScore, highScoreScene },
+                { MenuItems.Credit, creditScene }
+            };
+
+            HideAllScenes();
+
+            menuScene.Show();
+
+            enabledScene = menuScene;
+        }
+
+        /// <summary>
+        ///     Updates the enabled scene and potentially returns to the main menu
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        public override void Update(GameTime gameTime)
+        {
+            KeyboardState keyState = Keyboard.GetState();
+
+            if (keyState.IsKeyDown(Keys.Escape) && !menuScene.Enabled && !menuScene.Visible)
+            {
+                HideAllScenes();
+
+                menuScene.Show();
+
+                enabledScene = menuScene;
+            }
+
+            enabledScene.Update(gameTime);
+        }
+
+        /// <summary>
+        ///     Draws the enabled scene
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        public override void Draw(GameTime gameTime)
+        {
+            enabledScene.Draw(gameTime);
+        }
+
+        /// <summary>
+        ///     Hides and disables all managed scenes
+        /// </summary>
+        private void HideAllScenes()
+        {
+            foreach (GameScene gameScene in scenes.Values)
+            {
+                gameScene.Hide();
+            }
+        }
+
+        /// <summary>
+        ///     Switches the scene when a menu item is selected
+        /// </summary>
+        /// <param name="selectedItem">The scene to switch to</param>
+        public void OnMenuSelection(MenuItems selectedItem)
+        {
+            menuScene.Hide();
+
+            if (selectedItem == MenuItems.Quit)
+            {
+                Game.Exit();
+            }
+            else
+            {
+                enabledScene = scenes[selectedItem];
+
+                enabledScene.Show();
+            }
+        }
+    }
+}
