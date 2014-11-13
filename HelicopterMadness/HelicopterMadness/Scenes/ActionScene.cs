@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using HelicopterMadness.Scenes.ActionComponents;
 using HelicopterMadness.Scenes.BaseScene;
-using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -41,13 +40,14 @@ namespace HelicopterMadness.Scenes
 
         private int durationScore = 0;
 
-        private readonly UpdateHighScoreDelegate UpdateUpdateHighScore;
+        public ActionSceneStates State
+        {
+            get { return state; }
+        }
 
-        public ActionScene(Game game, SpriteBatch spriteBatch, UpdateHighScoreDelegate scoreDelegate)
+        public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            UpdateUpdateHighScore = scoreDelegate;
-
             Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/Helicopter");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
@@ -135,7 +135,7 @@ namespace HelicopterMadness.Scenes
         ///     Gets the score for the current play of the ActionScene
         /// </summary>
         /// <returns>The score</returns>
-        private int GetScore()
+        public int GetScore()
         {
             return durationScore / 100;
         }
@@ -149,26 +149,26 @@ namespace HelicopterMadness.Scenes
             MouseState mouseState = Mouse.GetState();
             KeyboardState keyboardState = Keyboard.GetState();
 
-            if (state == ActionSceneStates.InPlay &&
+            if (State == ActionSceneStates.InPlay &&
                 keyboardState.NewKeyPress(oldKeyboardState, Keys.Space))
             {
                 PauseGame();
             }
-            else if (state == ActionSceneStates.Paused &&
+            else if (State == ActionSceneStates.Paused &&
                 keyboardState.NewKeyPress(oldKeyboardState, Keys.Space))
             {
                 ResumeGame();
             }
-            else if (state == ActionSceneStates.PreStart &&
+            else if (State == ActionSceneStates.PreStart &&
                 mouseState.LeftMouseNewClick(oldMouseState, Game))
             {
                 StartGame();
             }
-            else if (helicopter.HasCrashed && state != ActionSceneStates.GameOver)
+            else if (helicopter.HasCrashed && State != ActionSceneStates.GameOver)
             {
                 EndGame();
             }
-            else if (state == ActionSceneStates.InPlay)
+            else if (State == ActionSceneStates.InPlay)
             {
                 durationScore += gameTime.ElapsedGameTime.Milliseconds * 
                     ((int)SharedSettings.StageSpeed.X / (int)SharedSettings.DEFAULT_STAGE_SPEED_X);
@@ -178,7 +178,7 @@ namespace HelicopterMadness.Scenes
 
                 UpdateObstaclePositions();
             }
-            else if (state == ActionSceneStates.GameOver &&
+            else if (State == ActionSceneStates.GameOver &&
                 mouseState.LeftMouseNewClick(oldMouseState, Game))
             {
                 ResetToInitialState();
@@ -197,7 +197,7 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         public override void Show()
         {
-            if (state != ActionSceneStates.Paused && state != ActionSceneStates.PreStart)
+            if (State != ActionSceneStates.Paused && State != ActionSceneStates.PreStart)
             {
                 ResetToInitialState();
             }
@@ -210,7 +210,7 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         public override void Hide()
         {
-            if (!helicopter.HasCrashed && state == ActionSceneStates.InPlay)
+            if (!helicopter.HasCrashed && State == ActionSceneStates.InPlay)
             {
                 PauseGame();
             }
@@ -324,8 +324,6 @@ namespace HelicopterMadness.Scenes
             state = ActionSceneStates.GameOver;
 
             midScreenMessage.Message = "Game Over";
-
-            UpdateUpdateHighScore(GetScore());
 
             DisableComponents();
         }

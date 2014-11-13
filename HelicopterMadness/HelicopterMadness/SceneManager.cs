@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using HelicopterMadness.Scenes;
+using HelicopterMadness.Scenes.ActionComponents;
 using HelicopterMadness.Scenes.BaseScene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +21,10 @@ namespace HelicopterMadness
     public class SceneManager : DrawableGameComponent
     {
         private readonly Dictionary<MenuItems, GameScene> scenes;
+
         private readonly MenuScene menuScene;
+        private readonly ActionScene actionScene;
+        private readonly HighScoreScene highScoreScene;
 
         private GameScene enabledScene;
 
@@ -40,11 +44,11 @@ namespace HelicopterMadness
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
 
+            actionScene = new ActionScene(game, spriteBatch);
             HowToPlayScene howToPlayScene = new HowToPlayScene(game, spriteBatch);
             HelpScene helpScene = new HelpScene(game, spriteBatch);
             CreditScene creditScene = new CreditScene(game, spriteBatch);
-            HighScoreScene highScoreScene = new HighScoreScene(game, spriteBatch);
-            ActionScene actionScene = new ActionScene(game, spriteBatch, highScoreScene.AddScore);
+            highScoreScene = new HighScoreScene(game, spriteBatch);
 
             scenes = new Dictionary<MenuItems, GameScene>
             {
@@ -77,6 +81,22 @@ namespace HelicopterMadness
                 menuScene.Show();
 
                 enabledScene = menuScene;
+            }
+
+            if (enabledScene == actionScene && actionScene.State == ActionSceneStates.GameOver)
+            {
+                int gameScore = actionScene.GetScore();
+
+                if (gameScore > highScoreScene.LowestScore)
+                {
+                    enabledScene.Hide();
+
+                    enabledScene = highScoreScene;
+
+                    highScoreScene.Show();
+
+                    highScoreScene.AddScore(actionScene.GetScore());
+                }
             }
 
             enabledScene.Update(gameTime);

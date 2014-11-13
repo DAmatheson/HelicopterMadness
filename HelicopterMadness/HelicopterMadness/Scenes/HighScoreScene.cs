@@ -5,9 +5,8 @@
  *      Drew Matheson, 2014.11.04: Created
  */
 
-using System;
-using System.Diagnostics;
 using HelicopterMadness.Scenes.BaseScene;
+using HelicopterMadness.Scenes.HighScoreComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -16,26 +15,27 @@ namespace HelicopterMadness.Scenes
 {
     // TODO: Comments
     public class HighScoreScene : GameScene
-    {     
+    {
+        private readonly List<HighScoreEntry> highScoreEntries;
+
         private int highestScore;
-
-
-
+        private int lowestScore;
 
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
             // TODO: Actually build this out
-            
-
-
-
+            highScoreEntries = new List<HighScoreEntry>();
         }
 
         public int HighestScore
         {
             get { return highestScore; }
-            set { highestScore = value; }
+        }
+
+        public int LowestScore
+        {
+            get { return lowestScore; }
         }
 
         /// <summary>
@@ -58,14 +58,10 @@ namespace HelicopterMadness.Scenes
 
         public void AddScore(int score)
         {
-            // TODO: Check if score is higher etc.
-            Debug.WriteLine("AddScore was called with a score of: " + score);
-
-            
-            
-
- 
-
+            // TODO:
+            // Update Lowest Score
+            // Update Highest Score
+            // Sort?
         }
     }
 }

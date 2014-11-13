@@ -106,7 +106,7 @@
     <Compile Include="Scenes\ActionScene.cs" />
     <Compile Include="Scenes\ActionComponents\Helicopter.cs" />
     <Compile Include="Scenes\BaseScene\GameScene.cs" />
-    <Compile Include="Scenes\CommonComponents\UpdateHighScoreDelegate.cs" />
+    <Compile Include="Scenes\HighScoreComponents\HighScoreEntry.cs" />
     <Compile Include="TextDisplay.cs" />
     <Compile Include="Scenes\CreditScene.cs" />
     <Compile Include="Scenes\HowToPlayScene.cs" />
@@ -158,7 +158,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scenes\HighScoreComponents\" />
+    <Folder Include="Scenes\CommonComponents\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\app.manifest" />
