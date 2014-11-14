@@ -39,7 +39,7 @@ namespace HelicopterMadness.Scenes
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            // TODO: Actually build this out
+            // TODO: Continue building this out
             highScoreEntries = new List<HighScoreEntry>();
             string scorepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
 
@@ -92,7 +92,7 @@ namespace HelicopterMadness.Scenes
                     }
                     catch (Exception)
                     {
-                        
+                        //todo:hi-scoreex
                         throw;
                     }
                 }
@@ -109,10 +109,8 @@ namespace HelicopterMadness.Scenes
             headerDisplay.Message = "HIGHSCORES";
 
             //display the actual scores
-             scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
-            Vector2 pos = new Vector2(0,0);
-            
-            
+            scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
+            Vector2 pos = new Vector2(0,0);        
             scoreDisplay = new TextDisplay(game,spriteBatch,scoreFont,pos, Color.Yellow);
 
             Components.Add(headerDisplay);
@@ -120,18 +118,15 @@ namespace HelicopterMadness.Scenes
         }
 
         private void prepDummyList()
-        {
-            
+        {        
             //create list of dummy data
             for (int i = 0; i < TOP_SCORES; i++)
             {
                 int score = DUMMY_SCORE;
+                //todo:magicnumber
                 score = score - i * 10;
-                //you tricked my Drew this dont work
-                //highScoreEntries[i] = new HighScoreEntry(DUMMY_NAME, score);
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
             }
-
             highestScore = highScoreEntries[0].Score;
             lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
         }
@@ -154,7 +149,7 @@ namespace HelicopterMadness.Scenes
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Remove this or impBlement updates
+            // TODO: fix this so it only updates once
             scoreDisplay.Message = "";
             for (int i = 0; i < TOP_SCORES; i++)
             {
@@ -180,6 +175,23 @@ namespace HelicopterMadness.Scenes
             // Update Lowest Score
             // Update Highest Score
             // Sort?
+
+            if (score > lowestScore)
+            {
+                //compare it against all highscores and place it where in the list it belongs
+                for (int i = 0; i < TOP_SCORES; i++)
+                {
+                    //some how bring this scene forward and hide away the action scene until score is added
+                    if (score <= highScoreEntries[i].Score) continue;
+                    highScoreEntries.Insert(i, new HighScoreEntry(getName(), score));
+                }
+            }
+        }
+
+        private string getName()
+        {
+            //todo:getusername
+            throw new NotImplementedException();
         }
     }
 }
