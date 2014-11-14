@@ -23,7 +23,7 @@ namespace HelicopterMadness
         ///     Initializes a sprite with the provided parameters
         /// </summary>
         /// <param name="game">The Game the Sprite belongs to</param>
-        /// <param name="spriteBatch">The SpriteBatch the Sprite uses to draw itself</param>
+        /// <param name="spriteBatch">The SpriteBatch the Sprite will draw itself with</param>
         /// <param name="texture">The Texture2D for the Sprite</param>
         /// <param name="position">The position of the Sprite</param>
         protected Sprite(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position)
@@ -34,6 +34,12 @@ namespace HelicopterMadness
             this.position = position;
         }
 
+        /// <summary>
+        ///     Initializes a sprite with the provided parameters and a position of Vector2.Zero
+        /// </summary>
+        /// <param name="game">The Game the Sprite belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the Sprite will draw itself with</param>
+        /// <param name="texture">The texture for the Sprite</param>
         protected Sprite(Game game, SpriteBatch spriteBatch, Texture2D texture)
             : this(game, spriteBatch, texture, Vector2.Zero) { }
 

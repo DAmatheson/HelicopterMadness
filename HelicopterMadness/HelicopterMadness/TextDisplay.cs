@@ -16,7 +16,7 @@ namespace HelicopterMadness
     public class TextDisplay : DrawableGameComponent
     {
         private readonly SpriteBatch spriteBatch;
-        private readonly Color Color;
+        private readonly Color color;
 
         /// <summary>
         ///     Initializes a new instace of TextDisplay with the provided parameters
@@ -34,7 +34,7 @@ namespace HelicopterMadness
 
             Font = font;
             Position = position;
-            Color = color;
+            this.color = color;
 
             Message = string.Empty;
         }
@@ -60,7 +60,7 @@ namespace HelicopterMadness
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.DrawString(Font, Message, Position, Color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(Font, Message, Position, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

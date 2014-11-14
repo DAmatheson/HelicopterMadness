@@ -11,7 +11,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace HelicopterMadness.Scenes.BaseScene
 {
-    // TODO: Comments
+    /// <summary>
+    ///     Base class for a Scene in the game
+    /// </summary>
     public abstract class GameScene : DrawableGameComponent
     {
         private readonly GameComponentCollection components;
@@ -20,6 +22,9 @@ namespace HelicopterMadness.Scenes.BaseScene
 
         protected readonly SpriteBatch spriteBatch;
 
+        /// <summary>
+        ///     Gets the component collection for the GameScene
+        /// </summary>
         protected GameComponentCollection Components
         {
             get
@@ -28,6 +33,11 @@ namespace HelicopterMadness.Scenes.BaseScene
             }
         }
 
+        /// <summary>
+        ///     Initializes a new instance of GameScene with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the GameScene belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the GameScene will draw itself with</param>
         protected GameScene(Game game, SpriteBatch spriteBatch)
             : base(game)
         {

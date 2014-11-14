@@ -10,17 +10,34 @@ using Microsoft.Xna.Framework;
 
 namespace HelicopterMadness
 {
-    // TODO: Comments
+    /// <summary>
+    ///     Contains shared settings used throughout the game
+    /// </summary>
     public static class SharedSettings
     {
+        /// <summary>
+        ///     The default stage X axis movement speed
+        /// </summary>
         public const float DEFAULT_STAGE_SPEED_X = 9f;
 
+        /// <summary>
+        ///     A Vector2 containing the greatest X and Y for the stage
+        /// </summary>
         public static Vector2 Stage;
 
+        /// <summary>
+        ///     A Vector2 containing the X and Y for the center of the stage
+        /// </summary>
         public static Vector2 StageCenter;
 
+        /// <summary>
+        ///     A Vector2 containing the X and Y speed for objects moving on the stage
+        /// </summary>
         public static Vector2 StageSpeed;
 
+        /// <summary>
+        ///     A static random number generator
+        /// </summary>
         public static readonly Random Random = new Random();
     }
 }

@@ -12,9 +12,24 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// </summary>
     public enum ActionSceneStates
     {
+        /// <summary>
+        ///     Represents a Pre Play state for the action scene
+        /// </summary>
         PreStart,
+
+        /// <summary>
+        ///     Represents a In Play state for the action scene
+        /// </summary>
         InPlay,
+
+        /// <summary>
+        ///     Represents a Paused state for the action scene
+        /// </summary>
         Paused,
+
+        /// <summary>
+        ///     Represents a Game Over state for the action scene
+        /// </summary>
         GameOver
     }
 }
