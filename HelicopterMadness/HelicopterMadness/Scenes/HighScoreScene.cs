@@ -23,10 +23,13 @@ namespace HelicopterMadness.Scenes
     {
         private readonly List<HighScoreEntry> highScoreEntries;
         private TextDisplay headerDisplay;
-        private TextDisplay scoreDisplay;
+        private TextDisplay[] scoreDisplay;
+        private TextDisplay newHighScoreDisplay;
+
 
         private int highestScore;
         private int lowestScore;
+        private int newHighScore = -1;
 
         private SpriteFont scoreFont;
         private Vector2 scoreDim;
@@ -57,17 +60,16 @@ namespace HelicopterMadness.Scenes
                                 int score;
 
                                 //skips line if the score string array doesnt have both parts and if the score is not an int
-                                if (scoreString.Length != 2 || !int.TryParse(scoreString[1], out score))
+                                if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
                                 {
-                                    continue;
+                                    scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
+
+                                    //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
+                                    highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
+                                    count++;
                                 }
 
                                 //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
-                                scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
-
-                                //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
-                                highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
-                                count++;
                             }
                         }
 
@@ -83,8 +85,7 @@ namespace HelicopterMadness.Scenes
                             prepDummyList();
                         }
 
-                        highestScore = highScoreEntries[0].Score;
-                        lowestScore = highScoreEntries.Last().Score;
+                        setHighLow();
                         
                     }
                     catch (Exception)
@@ -96,6 +97,7 @@ namespace HelicopterMadness.Scenes
                 else
                 {
                     prepDummyList();
+                    setHighLow();
                 }
 
             //TEMP Testing text alignments and what not
@@ -107,11 +109,22 @@ namespace HelicopterMadness.Scenes
 
             //display the actual scores
             scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
-            Vector2 pos = new Vector2(0,0);        
-            scoreDisplay = new TextDisplay(game,spriteBatch,scoreFont,pos, Color.Yellow);
+            Vector2 pos = new Vector2(0,0);
+            scoreDisplay = new TextDisplay[TOP_SCORES];
+            
+
+            for (int i = 0; i < TOP_SCORES; i++)
+            {
+                scoreDisplay[i] = new TextDisplay(game, spriteBatch, scoreFont, pos, Color.Yellow);
+            }
+            //latests 
 
             Components.Add(headerDisplay);
-            Components.Add(scoreDisplay);
+            for (int i = 0; i < TOP_SCORES; i++)
+            {
+                Components.Add(scoreDisplay[i]);
+            }
+            
         }
 
         private void prepDummyList()
@@ -124,8 +137,6 @@ namespace HelicopterMadness.Scenes
                 score = score - i * 10;
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
             }
-            highestScore = highScoreEntries[0].Score;
-            lowestScore = highScoreEntries.Last().Score;
         }
 
         public int HighestScore
@@ -146,14 +157,43 @@ namespace HelicopterMadness.Scenes
         public override void Update(GameTime gameTime)
         {
             // TODO: fix this so it only updates once
-            scoreDisplay.Message = "";
+            //Vector2 testDim;
+            float yCoord = 0;
+            float xCoord = 0;
+            Vector2 testDim;
             for (int i = 0; i < TOP_SCORES; i++)
             {
-                scoreDisplay.Message += i + 1 + ". " + highScoreEntries[i].Name + "..................." + highScoreEntries[i].Score + "\n";
+                scoreDisplay[i].Message = "";
+
+                if (newHighScore == i)
+                {
+                    scoreDisplay[i].Color = Color.Red;
+                }
+                else
+                {
+                    scoreDisplay[i].Color = Color.Yellow;              
+                }
+
+                scoreDisplay[i].Message = i + 1 + ". " + highScoreEntries[i].Name + "..................." + highScoreEntries[i].Score + "\n";
+                testDim = scoreFont.MeasureString(scoreDisplay[i].Message);
+
+                
+
+                if (i > 0)
+                {
+                    yCoord += testDim.Y/2;
+                }
+                else if (i == 0)
+                {
+                    yCoord = scoreDim.Y * 3;
+                    xCoord = testDim.X/2;
+
+                }
+                scoreDisplay[i].Position = new Vector2(SharedSettings.Stage.X / 2 - xCoord, yCoord);
             }
 
-            Vector2 testDim = scoreFont.MeasureString(scoreDisplay.Message);
-            scoreDisplay.Position = new Vector2(SharedSettings.Stage.X / 2 - testDim.X / 2, scoreDim.Y * 3);
+            
+            
 
             base.Update(gameTime);
         }
@@ -172,14 +212,25 @@ namespace HelicopterMadness.Scenes
             // Update Highest Score
             // Sort?
 
-                //compare it against all highscores and place it where in the list it belongs
-                for (int i = 0; i < TOP_SCORES; i++)
+            //compare it against all highscores and place it where in the list it belongs
+            for (int i = 0; i < TOP_SCORES; i++)
+            {
+                //some how bring this scene forward and hide away the action scene until score is added
+                if (score > highScoreEntries[i].Score)
                 {
-                    //some how bring this scene forward and hide away the action scene until score is added
-                    if (score <= highScoreEntries[i].Score) continue;
                     highScoreEntries.Insert(i, new HighScoreEntry(getName(), score));
+                    highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
+                    setHighLow();
+                    newHighScore = i;
                     break;
+                }
             }
+        }
+
+        private void setHighLow()
+        {
+            highestScore = highScoreEntries[0].Score;
+            lowestScore = highScoreEntries.Last().Score;
         }
 
         private string getName()
