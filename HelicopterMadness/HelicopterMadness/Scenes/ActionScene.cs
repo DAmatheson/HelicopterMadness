@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HelicopterMadness.Scenes.ActionComponents;
 using HelicopterMadness.Scenes.BaseScene;
+using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

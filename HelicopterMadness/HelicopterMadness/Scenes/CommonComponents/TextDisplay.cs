@@ -8,7 +8,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace HelicopterMadness
+namespace HelicopterMadness.Scenes.CommonComponents
 {
     /// <summary>
     ///     Displays text on screen

@@ -5,6 +5,7 @@
  *      Drew Matheson, 2014.11.04: Created
  */
 
+using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

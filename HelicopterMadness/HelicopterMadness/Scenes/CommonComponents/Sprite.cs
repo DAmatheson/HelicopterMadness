@@ -8,7 +8,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace HelicopterMadness
+namespace HelicopterMadness.Scenes.CommonComponents
 {
     /// <summary>
     ///     Base class for a drawable sprite

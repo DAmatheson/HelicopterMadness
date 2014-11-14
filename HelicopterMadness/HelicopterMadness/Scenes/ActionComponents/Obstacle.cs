@@ -3,8 +3,9 @@
  * 
  * Revision History:
  *      Drew Matheson, 2014.11.06: Created
- */ 
+ */
 
+using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

@@ -9,6 +9,7 @@ using System;
 using System.IO;
 using System.Linq;
 using HelicopterMadness.Scenes.BaseScene;
+using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.HighScoreComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
