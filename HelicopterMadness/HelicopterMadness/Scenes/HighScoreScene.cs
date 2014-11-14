@@ -7,10 +7,6 @@
 
 using System;
 using System.IO;
-using System.Net.Mime;
-using System.Security.Cryptography;
-using System.Threading;
-using System.Xml;
 using HelicopterMadness.Scenes.BaseScene;
 using HelicopterMadness.Scenes.HighScoreComponents;
 using Microsoft.Xna.Framework;
@@ -43,63 +39,62 @@ namespace HelicopterMadness.Scenes
             highScoreEntries = new List<HighScoreEntry>();
             string scorepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
 
-
-                if (File.Exists(scorepath))
+            if (File.Exists(scorepath))
+            {
+                try
                 {
-                    try
+                    //open file and load into list 
+                    using (StreamReader scores = File.OpenText(scorepath))
                     {
-                        //open file and load into list 
-                        using (StreamReader scores = File.OpenText(scorepath))
-                        {
-                            int count = 0;
+                        int count = 0;
 
-                            while (!scores.EndOfStream && count < TOP_SCORES)
+                        while (!scores.EndOfStream && count < TOP_SCORES)
+                        {
+
+                            string[] scoreString = scores.ReadLine().Split(' ');
+                            int score;
+
+                            //skips line if the score string array doesnt have both parts and if the score is not an int
+                            if (scoreString.Length != 2 || !int.TryParse(scoreString[1], out score))
                             {
-
-                                string[] scoreString = scores.ReadLine().Split(' ');
-                                int score;
-
-                                //skips line if the score string array doesnt have both parts and if the score is not an int
-                                if (scoreString.Length != 2 || !int.TryParse(scoreString[1], out score))
-                                {
-                                    continue;
-                                }
-
-                                //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
-                                scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
-
-                                //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
-                                highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
-                                count++;
+                                continue;
                             }
-                        }
 
-                        //add dummmy scores to the list if any scores from the above while loop were invalid
-                        while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
-                        {
-                            //highScoreEntries[highScoreEntries.Count] = new HighScoreEntry(DUMMY_NAME, 0);
-                            highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME,0));
-                        }
+                            //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
+                            scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
 
-                        if(highScoreEntries.Count == 0)
-                        {
-                            prepDummyList();
+                            //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
+                            highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
+                            count++;
                         }
-
-                        highestScore = highScoreEntries[0].Score;
-                        lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
-                        
                     }
-                    catch (Exception)
+
+                    //add dummmy scores to the list if any scores from the above while loop were invalid
+                    while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
                     {
-                        //todo:hi-scoreex
-                        throw;
+                        //highScoreEntries[highScoreEntries.Count] = new HighScoreEntry(DUMMY_NAME, 0);
+                        highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME,0));
                     }
+
+                    if(highScoreEntries.Count == 0)
+                    {
+                        prepDummyList();
+                    }
+
+                    highestScore = highScoreEntries[0].Score;
+                    lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
+                        
                 }
-                else
+                catch (Exception)
                 {
-                    prepDummyList();
+                    //todo:hi-scoreex
+                    throw;
                 }
+            }
+            else
+            {
+                prepDummyList();
+            }
 
             //TEMP Testing text alignments and what not
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
@@ -140,7 +135,6 @@ namespace HelicopterMadness.Scenes
         {
             get { return lowestScore; }
         }
-
 
 
         /// <summary>
@@ -191,6 +185,8 @@ namespace HelicopterMadness.Scenes
         private string getName()
         {
             //todo:getusername
+
+            // Note: I hate you for doing this!
             throw new NotImplementedException();
         }
     }

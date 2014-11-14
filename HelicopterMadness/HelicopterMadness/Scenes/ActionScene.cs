@@ -48,22 +48,29 @@ namespace HelicopterMadness.Scenes
         public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/Helicopter");
+            //Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/Helicopter");
+            Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated1");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
 
-            minObstacleXSpacing = heliTexture.Width * 1.4f;
+            Vector2 heliFrameDimensions = new Vector2(120, 61);
+
+            //minObstacleXSpacing = heliTexture.Width * 1.4f;
+            minObstacleXSpacing = heliFrameDimensions.X * 1.4f;
+            //maxObstacleXSpacing = minObstacleXSpacing * 3f;
             maxObstacleXSpacing = minObstacleXSpacing * 3f;
 
-            Vector2 heliPosition = new Vector2(SharedSettings.Stage.X / 4f - heliTexture.Width / 2f,
-                (SharedSettings.Stage.Y - heliTexture.Height) / 2f);
+            //Vector2 heliPosition = new Vector2(SharedSettings.Stage.X / 4f - heliTexture.Width / 2f,
+            //    (SharedSettings.Stage.Y - heliTexture.Height) / 2f);
+            Vector2 heliPosition = new Vector2(SharedSettings.Stage.X / 4f - heliFrameDimensions.X / 2f,
+                (SharedSettings.Stage.Y - heliFrameDimensions.Y) / 2f);
 
             Vector2 bottomBorderPosition = new Vector2(0, SharedSettings.Stage.Y - borderTexture.Height);
 
             Explosion explosion = new Explosion(game, spriteBatch,
                 Game.Content.Load<Texture2D>("Images/explosion"), Vector2.Zero, new Vector2(64, 64), 2);
 
-            helicopter = new Helicopter(game, spriteBatch, heliTexture, heliPosition, explosion)
+            helicopter = new Helicopter(game, spriteBatch, heliTexture, heliPosition, heliFrameDimensions, explosion)
             {
                 Enabled = false
             };

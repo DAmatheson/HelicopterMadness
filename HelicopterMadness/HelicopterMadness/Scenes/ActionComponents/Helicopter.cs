@@ -14,7 +14,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// <summary>
     ///     The Helicopter that the player controls
     /// </summary>
-    public class Helicopter : Sprite, ICollidable
+    public class Helicopter : AnimatedSprite, ICollidable
     {
         private const float VERTICAL_SPEED = 7f;
 
@@ -33,26 +33,23 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="spriteBatch">The SpriteBatch the Helicopter will draw itself with</param>
         /// <param name="texture">The texture for the Helicopter</param>
         /// <param name="position">The initial position of the Helicopter</param>
+        /// <param name="frameDimensions">The length and width of a single frame from the texture</param>
         /// <param name="explosion">The Explosion the helicopter will enable when crashing</param>
-        public Helicopter(
-            Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position, Explosion explosion)
-            : base(game, spriteBatch, texture, position)
+        public Helicopter(Game game, SpriteBatch spriteBatch, Texture2D texture,
+            Vector2 position, Vector2 frameDimensions, Explosion explosion)
+            : base(game, spriteBatch, texture, position, frameDimensions)
         {
             speed = new Vector2(0, 0);
 
             this.explosion = explosion;
 
-            initialPosition = new Vector2(
-                SharedSettings.Stage.X / 4f - texture.Width / 2f,
-                (SharedSettings.Stage.Y - texture.Height) / 2f);
-
-            this.position = initialPosition;
+            initialPosition = position;
         }
 
         /// <summary>
         ///     Updates the Helicopter's state
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
@@ -74,6 +71,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
                 speed.Y = MathHelper.Clamp(speed.Y + accelerate, -VERTICAL_SPEED, VERTICAL_SPEED);
 
                 position.Y += speed.Y;
+
+                base.Update(gameTime);
             }
         }
 
@@ -83,7 +82,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <returns>The <see cref="Rectangle"/> bounds of the Helicopter</returns>
         public Rectangle GetBounds()
         {
-            return new Rectangle((int) position.X, (int) position.Y, texture.Width, texture.Height);
+            return new Rectangle((int) position.X, (int) position.Y, (int)frameDimensions.X, (int)frameDimensions.Y);
         }
 
         /// <summary>
@@ -97,8 +96,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
             Enabled = false;
 
             explosion.Position = new Vector2(
-                position.X + texture.Width / 2f,
-                position.Y + texture.Height / 2f);
+                position.X + frameDimensions.X / 2f,
+                position.Y + frameDimensions.Y / 2f);
 
             explosion.StartAnimation();
         }
