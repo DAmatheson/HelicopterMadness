@@ -7,6 +7,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Threading;
@@ -87,12 +88,12 @@ namespace HelicopterMadness.Scenes
                         }
 
                         highestScore = highScoreEntries[0].Score;
-                        lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
+                        lowestScore = highScoreEntries.Last().Score;
                         
                     }
                     catch (Exception)
                     {
-                        //todo:hi-scoreex
+                        //todo:handleexception
                         throw;
                     }
                 }
@@ -128,7 +129,7 @@ namespace HelicopterMadness.Scenes
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
             }
             highestScore = highScoreEntries[0].Score;
-            lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
+            lowestScore = highScoreEntries.Last().Score;
         }
 
         public int HighestScore
@@ -176,22 +177,20 @@ namespace HelicopterMadness.Scenes
             // Update Highest Score
             // Sort?
 
-            if (score > lowestScore)
-            {
                 //compare it against all highscores and place it where in the list it belongs
                 for (int i = 0; i < TOP_SCORES; i++)
                 {
                     //some how bring this scene forward and hide away the action scene until score is added
                     if (score <= highScoreEntries[i].Score) continue;
                     highScoreEntries.Insert(i, new HighScoreEntry(getName(), score));
+                    break;
                 }
-            }
         }
 
         private string getName()
         {
             //todo:getusername
-            throw new NotImplementedException();
+            return "yay";
         }
     }
 }

@@ -56,12 +56,13 @@ namespace HelicopterMadness.Scenes.ActionComponents
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyboardState = Keyboard.GetState();
+            MouseState mouseState = Mouse.GetState();
 
             if (!HasCrashed)
             {
                 float accelerate;
 
-                if (keyboardState.IsKeyDown(Keys.Up))
+                if (keyboardState.IsKeyDown(Keys.Up) || mouseState.LeftButton == ButtonState.Pressed)
                 {
                     
                     accelerate = -(VERTICAL_SPEED * 0.06f);
