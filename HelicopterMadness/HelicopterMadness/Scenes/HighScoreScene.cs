@@ -39,62 +39,62 @@ namespace HelicopterMadness.Scenes
             highScoreEntries = new List<HighScoreEntry>();
             string scorepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
 
-            if (File.Exists(scorepath))
-            {
-                try
+                if (File.Exists(scorepath))
                 {
-                    //open file and load into list 
-                    using (StreamReader scores = File.OpenText(scorepath))
+                    try
                     {
-                        int count = 0;
-
-                        while (!scores.EndOfStream && count < TOP_SCORES)
+                        //open file and load into list 
+                        using (StreamReader scores = File.OpenText(scorepath))
                         {
+                            int count = 0;
 
-                            string[] scoreString = scores.ReadLine().Split(' ');
-                            int score;
-
-                            //skips line if the score string array doesnt have both parts and if the score is not an int
-                            if (scoreString.Length != 2 || !int.TryParse(scoreString[1], out score))
+                            while (!scores.EndOfStream && count < TOP_SCORES)
                             {
-                                continue;
+
+                                string[] scoreString = scores.ReadLine().Split(' ');
+                                int score;
+
+                                //skips line if the score string array doesnt have both parts and if the score is not an int
+                                if (scoreString.Length != 2 || !int.TryParse(scoreString[1], out score))
+                                {
+                                    continue;
+                                }
+
+                                //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
+                                scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
+
+                                //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
+                                highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
+                                count++;
                             }
-
-                            //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
-                            scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
-
-                            //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
-                            highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
-                            count++;
                         }
-                    }
 
-                    //add dummmy scores to the list if any scores from the above while loop were invalid
-                    while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
-                    {
-                        //highScoreEntries[highScoreEntries.Count] = new HighScoreEntry(DUMMY_NAME, 0);
-                        highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME,0));
-                    }
+                        //add dummmy scores to the list if any scores from the above while loop were invalid
+                        while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
+                        {
+                            //highScoreEntries[highScoreEntries.Count] = new HighScoreEntry(DUMMY_NAME, 0);
+                            highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME,0));
+                        }
 
-                    if(highScoreEntries.Count == 0)
-                    {
-                        prepDummyList();
-                    }
+                        if(highScoreEntries.Count == 0)
+                        {
+                            prepDummyList();
+                        }
 
-                    highestScore = highScoreEntries[0].Score;
-                    lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
+                        highestScore = highScoreEntries[0].Score;
+                        lowestScore = highScoreEntries.Last().Score;
                         
+                    }
+                    catch (Exception)
+                    {
+                        //todo:handleexception
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    //todo:hi-scoreex
-                    throw;
+                    prepDummyList();
                 }
-            }
-            else
-            {
-                prepDummyList();
-            }
 
             //TEMP Testing text alignments and what not
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
@@ -123,7 +123,7 @@ namespace HelicopterMadness.Scenes
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
             }
             highestScore = highScoreEntries[0].Score;
-            lowestScore = highScoreEntries[TOP_SCORES - 1].Score;
+            lowestScore = highScoreEntries.Last().Score;
         }
 
         public int HighestScore
@@ -170,24 +170,20 @@ namespace HelicopterMadness.Scenes
             // Update Highest Score
             // Sort?
 
-            if (score > lowestScore)
-            {
                 //compare it against all highscores and place it where in the list it belongs
                 for (int i = 0; i < TOP_SCORES; i++)
                 {
                     //some how bring this scene forward and hide away the action scene until score is added
                     if (score <= highScoreEntries[i].Score) continue;
                     highScoreEntries.Insert(i, new HighScoreEntry(getName(), score));
-                }
+                    break;
             }
         }
 
         private string getName()
         {
             //todo:getusername
-
-            // Note: I hate you for doing this!
-            throw new NotImplementedException();
+            return "yay";
         }
     }
 }
