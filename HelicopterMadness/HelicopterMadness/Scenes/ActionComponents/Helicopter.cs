@@ -62,22 +62,23 @@ namespace HelicopterMadness.Scenes.ActionComponents
             {
                 float accelerate;
 
-                if (speed.Y < -0.6f) // Increase downward pull when 
-                {
-                    accelerate = Math.Abs(speed.Y) * 0.6f * 1.2f;
-                }
-                else
-                {
-                    accelerate = Math.Max(speed.Y * 0.1f, 0.09f) * 1.2f;
-                }
+                //if (speed.Y < -0.6f) // Increase downward pull when 
+                //{
+                    //accelerate = Math.Abs(speed.Y) * 0.6f * 1.2f;
+                    accelerate = VERTICAL_SPEED * 0.1f;
+                //}
+                //else
+                //{
+                    //accelerate = Math.Max(speed.Y * 0.1f, 0.09f) * 1.2f;
+                //}
 
                 if (keyboardState.IsKeyDown(Keys.Up))
                 {
-                    accelerate -= Math.Max(Math.Abs(speed.Y) / 1.4f, 0.15f) + 0.1f * 1.2f;
-
+                    //accelerate -= Math.Max(Math.Abs(speed.Y) / 1.4f, 0.15f) + 0.1f * 1.2f;
+                    accelerate -= VERTICAL_SPEED * 0.15f;
                 }
 
-                speed.Y = MathHelper.Clamp(speed.Y + accelerate, -VERTICAL_SPEED, VERTICAL_SPEED) * 1.2f;
+                speed.Y = MathHelper.Clamp(speed.Y + accelerate, -VERTICAL_SPEED, VERTICAL_SPEED); //* 1.2f;
 
                 position.Y += speed.Y;
             }
