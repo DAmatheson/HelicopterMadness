@@ -21,118 +21,128 @@ namespace HelicopterMadness.Scenes
     // TODO: Comments
     public class HighScoreScene : GameScene
     {
-        private readonly List<HighScoreEntry> highScoreEntries;
-        private TextDisplay headerDisplay;
-        private TextDisplay[] scoreDisplay;
-        private TextDisplay newHighScoreDisplay;
+        private const int NUMBER_OF_SCORE_ENTRIES = 5;
+        private const int TOP_DUMMY_SCORE = 100;
+        private const string DUMMY_NAME = "ZZZ";
 
+        private readonly Color highlightColor = Color.Red;
+        private readonly Color normalColor = Color.Yellow;
+
+        private readonly List<HighScoreEntry> highScoreEntries;
+        private readonly SpriteFont scoreFont;
+
+        private TextDisplay headerDisplay;
+        private TextDisplay[] scoreDisplays;
+        private TextDisplay newHighScoreDisplay; // Never used
 
         private int highestScore;
         private int lowestScore;
-        private int newHighScore = -1;
+        private int newHighScoreIndex = -1;
 
-        private SpriteFont scoreFont;
-        private Vector2 scoreDim;
+        private Vector2 titleDimensions;
 
-        private const int TOP_SCORES = 5;
-        private const int DUMMY_SCORE = 100;
-        private const string DUMMY_NAME = "ZZZ";
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
             // TODO: Continue building this out
             highScoreEntries = new List<HighScoreEntry>();
-            string scorepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
 
-                if (File.Exists(scorepath))
-                {
-                    try
-                    {
-                        //open file and load into list 
-                        using (StreamReader scores = File.OpenText(scorepath))
-                        {
-                            int count = 0;
-
-                            while (!scores.EndOfStream && count < TOP_SCORES)
-                            {
-
-                                string[] scoreString = scores.ReadLine().Split(' ');
-                                int score;
-
-                                //skips line if the score string array doesnt have both parts and if the score is not an int
-                                if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
-                                {
-                                    scoreString[0] = scoreString[0].Trim().PadRight(3).Replace(' ', 'A').ToUpper();
-
-                                    //highScoreEntries[count] = new HighScoreEntry(scoreString[0], score);
-                                    highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
-                                    count++;
-                                }
-
-                                //edits the name so it fits the decided on patter of 3 chars in uppcase with no spaces
-                            }
-                        }
-
-                        //add dummmy scores to the list if any scores from the above while loop were invalid
-                        while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
-                        {
-                            //highScoreEntries[highScoreEntries.Count] = new HighScoreEntry(DUMMY_NAME, 0);
-                            highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME,0));
-                        }
-
-                        if(highScoreEntries.Count == 0)
-                        {
-                            prepDummyList();
-                        }
-
-                        setHighLow();
-                        
-                    }
-                    catch (Exception)
-                    {
-                        //todo:handleexception
-                        throw;
-                    }
-                }
-                else
-                {
-                    prepDummyList();
-                    setHighLow();
-                }
+            SetUpHighScoreEntries();
 
             //TEMP Testing text alignments and what not
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
-            scoreDim = headerFont.MeasureString("HIGHSCORES");
-            Vector2 scorePos = new Vector2(SharedSettings.Stage.X/2 - scoreDim.X/2, 0);
-            headerDisplay = new TextDisplay(game,spriteBatch,headerFont,scorePos,Color.Red);
-            headerDisplay.Message = "HIGHSCORES";
+            titleDimensions = headerFont.MeasureString("HIGHSCORES");
+            Vector2 scorePos = new Vector2(SharedSettings.Stage.X / 2 - titleDimensions.X / 2, 0);
+            headerDisplay = new TextDisplay(game, spriteBatch, headerFont, scorePos, Color.Red)
+            {
+                Message = "HIGHSCORES"
+            };
 
             //display the actual scores
             scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
-            Vector2 pos = new Vector2(0,0);
-            scoreDisplay = new TextDisplay[TOP_SCORES];
+            Vector2 pos = new Vector2(0, 0);
+            scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
             
-
-            for (int i = 0; i < TOP_SCORES; i++)
+            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
-                scoreDisplay[i] = new TextDisplay(game, spriteBatch, scoreFont, pos, Color.Yellow);
+                scoreDisplays[i] = new TextDisplay(game, spriteBatch, scoreFont, pos, Color.Yellow);
             }
+
+            UpdateScoreDisplays();
             //latests 
 
             Components.Add(headerDisplay);
-            for (int i = 0; i < TOP_SCORES; i++)
+
+            for (int i = 0; i < scoreDisplays.Length; i++)
             {
-                Components.Add(scoreDisplay[i]);
+                Components.Add(scoreDisplays[i]);
             }
-            
         }
 
-        private void prepDummyList()
+        private void SetUpHighScoreEntries()
+        {
+            string scorepath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
+
+            if (File.Exists(scorepath))
+            {
+                try
+                {
+                    //open file and load into list 
+                    using (StreamReader scores = File.OpenText(scorepath))
+                    {
+                        int count = 0;
+
+                        while (!scores.EndOfStream && count < NUMBER_OF_SCORE_ENTRIES)
+                        {
+                            string[] scoreString = scores.ReadLine().Split(' ');
+                            int score;
+
+                            //skips line if the score string array doesnt have both parts and if the score is not an int
+                            if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
+                            {
+                                //edits the name so it fits the decided on patter of 3 chars in upcase with no spaces
+                                scoreString[0] =
+                                    scoreString[0].Trim().PadRight(3).Substring(0, 3).Replace(' ', 'A').ToUpper();
+
+                                highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
+                                count++;
+                            }
+                        }
+                    }
+
+                    //add dummy scores to the list if any scores from the above while loop were invalid
+                    while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
+                    {
+                        highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, 0));
+                    }
+
+                    if (highScoreEntries.Count == 0)
+                    {
+                        CreateDummyScoresList();
+                    }
+
+                    SetHighLowScores();
+                }
+                catch (Exception)
+                {
+                    //todo:handleexception
+                    throw;
+                }
+            }
+            else
+            {
+                CreateDummyScoresList();
+                SetHighLowScores();
+            }
+        }
+
+        private void CreateDummyScoresList()
         {        
             //create list of dummy data
-            for (int i = 0; i < TOP_SCORES; i++)
+            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
-                int score = DUMMY_SCORE;
+                int score = TOP_DUMMY_SCORE;
                 //todo:magicnumber
                 score = score - i * 10;
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
@@ -156,46 +166,57 @@ namespace HelicopterMadness.Scenes
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: fix this so it only updates once
-            //Vector2 testDim;
-            float yCoord = 0;
-            float xCoord = 0;
-            Vector2 testDim;
-            for (int i = 0; i < TOP_SCORES; i++)
-            {
-                scoreDisplay[i].Message = "";
+            // TODO: Remove or add update logic
 
-                if (newHighScore == i)
+            base.Update(gameTime);
+        }
+
+        public override void Hide()
+        {
+            if (newHighScoreIndex >= 0 && newHighScoreIndex < scoreDisplays.Length)
+            {
+                scoreDisplays[newHighScoreIndex].Color = normalColor;
+            }
+
+            base.Hide();
+        }
+
+        /// <summary>
+        ///     Updates the Message, Position, and Color of the score TextDisplays
+        /// </summary>
+        private void UpdateScoreDisplays()
+        {
+            float yCoord = titleDimensions.Y * 3;
+            float xCoord = 0;
+
+            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
+            {
+                TextDisplay currentScoreDisplay = scoreDisplays[i];
+
+                if (i == newHighScoreIndex)
                 {
-                    scoreDisplay[i].Color = Color.Red;
+                    currentScoreDisplay.Color = highlightColor;
                 }
                 else
                 {
-                    scoreDisplay[i].Color = Color.Yellow;              
+                    currentScoreDisplay.Color = normalColor;
                 }
 
-                scoreDisplay[i].Message = i + 1 + ". " + highScoreEntries[i].Name + "..................." + highScoreEntries[i].Score + "\n";
-                testDim = scoreFont.MeasureString(scoreDisplay[i].Message);
+                currentScoreDisplay.Message = string.Format("{0}. {1}", i + 1, highScoreEntries[i]);
 
-                
+                Vector2 scoreDisplaySize = currentScoreDisplay.Font.MeasureString(currentScoreDisplay.Message);
 
-                if (i > 0)
+                if (i == 0)
                 {
-                    yCoord += testDim.Y/2;
+                    xCoord = scoreDisplaySize.X / 2;
                 }
-                else if (i == 0)
+                else
                 {
-                    yCoord = scoreDim.Y * 3;
-                    xCoord = testDim.X/2;
-
+                    yCoord += scoreDisplaySize.Y;
                 }
-                scoreDisplay[i].Position = new Vector2(SharedSettings.Stage.X / 2 - xCoord, yCoord);
+
+                currentScoreDisplay.Position = new Vector2(SharedSettings.Stage.X / 2 - xCoord, yCoord);
             }
-
-            
-            
-
-            base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
@@ -205,35 +226,34 @@ namespace HelicopterMadness.Scenes
             base.Draw(gameTime);
         }
 
-        public void AddScore(int score)
+        public void AddScoreEntry(int score)
         {
-            // TODO:
-            // Update Lowest Score
-            // Update Highest Score
-            // Sort?
-
             //compare it against all highscores and place it where in the list it belongs
-            for (int i = 0; i < TOP_SCORES; i++)
+            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
                 //some how bring this scene forward and hide away the action scene until score is added
                 if (score > highScoreEntries[i].Score)
                 {
-                    highScoreEntries.Insert(i, new HighScoreEntry(getName(), score));
+                    highScoreEntries.Insert(i, new HighScoreEntry(GetName(), score));
                     highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
-                    setHighLow();
-                    newHighScore = i;
+
+                    newHighScoreIndex = i;
+
+                    SetHighLowScores();
+                    UpdateScoreDisplays();
+
                     break;
                 }
             }
         }
 
-        private void setHighLow()
+        private void SetHighLowScores()
         {
             highestScore = highScoreEntries[0].Score;
             lowestScore = highScoreEntries.Last().Score;
         }
 
-        private string getName()
+        private string GetName()
         {
             //todo:getusername
             return "yay";

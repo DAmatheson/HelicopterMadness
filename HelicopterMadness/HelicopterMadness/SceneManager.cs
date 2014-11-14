@@ -95,7 +95,7 @@ namespace HelicopterMadness
 
                     highScoreScene.Show();
 
-                    highScoreScene.AddScore(actionScene.GetScore());
+                    highScoreScene.AddScoreEntry(actionScene.GetScore());
                 }
             }
 
