@@ -6,6 +6,7 @@
  */
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using HelicopterMadness.Scenes.BaseScene;
@@ -15,7 +16,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
-
 
 namespace HelicopterMadness.Scenes
 {
@@ -30,6 +30,7 @@ namespace HelicopterMadness.Scenes
         private readonly Color normalColor = Color.Yellow;
 
         private readonly List<HighScoreEntry> highScoreEntries;
+        private HighScoreEntry newScoreEntry;
         private readonly SpriteFont scoreFont;
 
         private TextDisplay headerDisplay;
@@ -41,8 +42,11 @@ namespace HelicopterMadness.Scenes
         private int newHighScoreIndex = -1;
 
         private Vector2 titleDimensions;
+        private string newName;
+        private int newScore;
 
 
+        private bool isNewScore = false;
         private KeyboardState oldState;
         private KeyboardState keyboardState;
         public int HighestScore
@@ -99,66 +103,7 @@ namespace HelicopterMadness.Scenes
         }
 
 
-       /// <summary>
-       /// Tries to convert keyboard input to characters and prevents repeatedly returning the 
-       /// same character if a key was pressed last frame, but not yet unpressed this frame.
-        /// handles simultaneous key presses kind of poorly
-       /// </summary>
-       /// <param name="keyboard">The current KeyboardState</param>
-       /// <param name="oldKeyboard">The KeyboardState of the previous frame</param>
-       /// <param name="key">When this method returns, contains the correct character if conversion succeeded.
-       /// Else contains the null, (000), character.</param>
-       /// <returns>True if conversion was successful</returns>
-       public static bool TryConvertKeyboardInput(KeyboardState keyboard, KeyboardState oldKeyboard, out char key)
-       {
-           Keys[] keys = keyboard.GetPressedKeys();            
-           bool shift = keyboard.IsKeyDown(Keys.LeftShift) || keyboard.IsKeyDown(Keys.RightShift);            
-            
-
-           if(keys.Length > 0 && !oldKeyboard.IsKeyDown(keys[0]))
-           {                
-               switch (keys[0])
-               {
-                    //inline or change for school standards
-                    //Alphabet keys
-                    case Keys.A: 
-                        { key = 'A'; } 
-                        return true;
-                    case Keys.B: { key = 'B'; } return true;
-                    case Keys.C: { key = 'C'; } return true;
-                    case Keys.D: { key = 'D'; } return true;
-                    case Keys.E: { key = 'E'; } return true;
-                    case Keys.F: { key = 'F'; } return true;
-                    case Keys.G: { key = 'G'; } return true;
-                    case Keys.H: { key = 'H'; } return true;
-                    case Keys.I: { key = 'I'; } return true;
-                    case Keys.J: { key = 'J'; } return true;
-                    case Keys.K: { key = 'K'; } return true;
-                    case Keys.L: { key = 'L'; } return true;
-                    case Keys.M: { key = 'M'; } return true;
-                    case Keys.N: { key = 'N'; } return true;
-                    case Keys.O: { key = 'O'; } return true;
-                    case Keys.P: { key = 'P'; } return true;
-                    case Keys.Q: { key = 'Q'; } return true;
-                    case Keys.R: { key = 'R'; } return true;
-                    case Keys.S: { key = 'S'; } return true;
-                    case Keys.T: { key = 'T'; } return true;
-                    case Keys.U: { key = 'U'; } return true;
-                    case Keys.V: { key = 'V'; } return true;
-                    case Keys.W: { key = 'W'; } return true;
-                    case Keys.X: { key = 'X'; } return true;
-                    case Keys.Y: { key = 'Y'; } return true;
-                    case Keys.Z: { key = 'Z'; } return true;
-                    default:
-                        //should probably make a ding noise or something like that
-                        break;
-                        
-               }
-           }
- 
-           key = (char)0;
-           return false;           
-       }
+       
 
 
         private void SetUpHighScoreEntries()
@@ -240,20 +185,36 @@ namespace HelicopterMadness.Scenes
             //early code to handle user name entry
             //*************************************************************************************************************************
             // TODO: Remove or add update logic
+
+            if (isNewScore)
+            {
+                keyboardState = Keyboard.GetState();
+                char key;
+                newScoreEntry = new HighScoreEntry(newName, newScore);
+                UpdateScoreDisplays();
+                if (KeyboardEntry.TryConvertKeyboardInput(keyboardState, oldState, out key)&& newName.Length < 3)
+                {
+                    //newHighScoreDisplay.Message += key.ToString();
+                    newName += key.ToString();
+                    newScoreEntry.Name = newName;
+                    
+                }
+                else if (oldState.IsKeyDown(Keys.Back) && keyboardState.IsKeyUp(Keys.Back) && newHighScoreDisplay.Message.Length > 0)
+                {
+                    //newHighScoreDisplay.Message = newHighScoreDisplay.Message.Remove((newHighScoreDisplay.Message.Length - 1), 1);
+                    newName = newName.Remove((newName.Length - 1), 1);
+                    newScoreEntry.Name = newName;
+                }
+                else if (keyboardState.IsKeyDown(Keys.Enter) && newName.Length == 3)
+                {
+                    isNewScore = false;
+                    
+                    SetNewScore();             
+                }
+                oldState = keyboardState;
+            }
             
-            keyboardState = Keyboard.GetState();
-            char key;
-
-            if (TryConvertKeyboardInput(keyboardState, oldState, out key))
-            {
-                newHighScoreDisplay.Message += key.ToString();
-            }
-            else if (oldState.IsKeyDown(Keys.Back) && keyboardState.IsKeyUp(Keys.Back) && newHighScoreDisplay.Message.Length > 0)
-            {
-                newHighScoreDisplay.Message = newHighScoreDisplay.Message.Remove((newHighScoreDisplay.Message.Length - 1), 1);
-            }
-
-            oldState = keyboardState;
+           
 
             base.Update(gameTime);
         }
@@ -275,21 +236,14 @@ namespace HelicopterMadness.Scenes
         {
             float yCoord = titleDimensions.Y * 3;
             float xCoord = 0;
+            int index = 0;
+            bool isSet = false;
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
-                TextDisplay currentScoreDisplay = scoreDisplays[i];
+                TextDisplay currentScoreDisplay = scoreDisplays[i];           
 
-                if (i == newHighScoreIndex)
-                {
-                    currentScoreDisplay.Color = highlightColor;
-                }
-                else
-                {
-                    currentScoreDisplay.Color = normalColor;
-                }
-
-                currentScoreDisplay.Message = string.Format("{0}. {1}", i + 1, highScoreEntries[i]);
+                currentScoreDisplay.Message = string.Format("{0}. {1}", i + 1, highScoreEntries[index]);
 
                 Vector2 scoreDisplaySize = currentScoreDisplay.Font.MeasureString(currentScoreDisplay.Message);
 
@@ -301,8 +255,29 @@ namespace HelicopterMadness.Scenes
                 {
                     yCoord += scoreDisplaySize.Y;
                 }
-
+                
                 currentScoreDisplay.Position = new Vector2(SharedSettings.Stage.X / 2 - xCoord, yCoord);
+
+                if (i == newHighScoreIndex && !isSet)
+                {
+                    //currentScoreDisplay.Color = highlightColor;
+                    currentScoreDisplay.Visible = false;
+                    isSet = true;
+                    index--;
+                    
+
+                    newHighScoreDisplay.Color = highlightColor;
+                    newHighScoreDisplay.Message = string.Format("{0}. {1}", i + 1, newScoreEntry);
+                    newHighScoreDisplay.Position = currentScoreDisplay.Position;
+                }
+                else
+                {
+                    currentScoreDisplay.Color = normalColor;
+                    currentScoreDisplay.Visible = true;
+
+                }
+
+                index++;
             }
         }
 
@@ -321,14 +296,10 @@ namespace HelicopterMadness.Scenes
                 
                 if (score > highScoreEntries[i].Score)
                 {
-                    highScoreEntries.Insert(i, new HighScoreEntry(GetName(), score));
-                    highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
-
                     newHighScoreIndex = i;
-
-                    SetHighLowScores();
-                    UpdateScoreDisplays();
-
+                    newScore = score;
+                    newName = string.Empty;
+                    isNewScore = true;   
                     break;
                 }
             }
@@ -340,10 +311,17 @@ namespace HelicopterMadness.Scenes
             lowestScore = highScoreEntries.Last().Score;
         }
 
-        private string GetName()
+        private void SetNewScore()
         {
-            //todo:getusername
-            return "yay";
+            //todo:
+            
+            highScoreEntries.Insert(newHighScoreIndex, new HighScoreEntry(newName, newScore));
+            highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
+
+            newHighScoreIndex = -1;
+            SetHighLowScores();
+            UpdateScoreDisplays();
+            
         }
     }
 }

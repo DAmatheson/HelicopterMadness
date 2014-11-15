@@ -38,6 +38,7 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
             Score = score;
         }
 
+      
         /// <summary>
         ///     Returns the HighScoreEntry formatted for display
         /// </summary>
