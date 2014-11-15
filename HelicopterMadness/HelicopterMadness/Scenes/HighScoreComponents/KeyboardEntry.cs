@@ -6,24 +6,24 @@ using System.Text;
 
 namespace HelicopterMadness.Scenes.HighScoreComponents
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class KeyboardEntry
     {
         /// <summary>
-        /// Tries to convert keyboard input to characters and prevents repeatedly returning the 
-        /// same character if a key was pressed last frame, but not yet unpressed this frame.
-        /// handles simultaneous key presses kind of poorly
+        /// 
         /// </summary>
-        /// <param name="keyboard">The current KeyboardState</param>
-        /// <param name="oldKeyboard">The KeyboardState of the previous frame</param>
-        /// <param name="key">When this method returns, contains the correct character if conversion succeeded.
-        /// Else contains the null, (000), character.</param>
-        /// <returns>True if conversion was successful</returns>
-        public static bool TryConvertKeyboardInput(KeyboardState keyboard, KeyboardState oldKeyboard, out char key)
+        /// <param name="keyboardState">current state of the keyboard</param>
+        /// <param name="oldState">the previous sate of the keyboard</param>
+        /// <param name="key">the character that was presed</param>
+        /// <returns>true if keys pressed returns a value</returns>
+        public static bool KeyboardInput(KeyboardState keyboardState, KeyboardState oldState, out char key)
         {
-            Keys[] keys = keyboard.GetPressedKeys();
+            Keys[] keys = keyboardState.GetPressedKeys();
 
 
-            if (keys.Length > 0 && !oldKeyboard.IsKeyDown(keys[0]))
+            if (keys.Length > 0 && !oldState.IsKeyDown(keys[0]))
             {
                 switch (keys[0])
                 {

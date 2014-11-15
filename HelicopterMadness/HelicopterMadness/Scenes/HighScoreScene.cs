@@ -20,6 +20,9 @@ using Microsoft.Xna.Framework.Input;
 namespace HelicopterMadness.Scenes
 {
     // TODO: Comments
+    /// <summary>
+    /// 
+    /// </summary>
     public class HighScoreScene : GameScene
     {
         private const int NUMBER_OF_SCORE_ENTRIES = 5;
@@ -59,7 +62,11 @@ namespace HelicopterMadness.Scenes
         {
             get { return lowestScore; }
         }
-
+        /// <summary>
+        /// constructsor sets up needed components 
+        /// </summary>
+        /// <param name="game"></param>
+        /// <param name="spriteBatch"></param>
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
@@ -102,10 +109,9 @@ namespace HelicopterMadness.Scenes
             Components.Add(newHighScoreDisplay);
         }
 
-
-       
-
-
+        /// <summary>
+        /// loads up highscore file if one exists
+        /// </summary>
         private void SetUpHighScoreEntries()
         {
             string scorepath = Path.Combine(
@@ -164,6 +170,9 @@ namespace HelicopterMadness.Scenes
             }
         }
 
+        /// <summary>
+        /// sets up a dummy score list
+        /// </summary>
         private void CreateDummyScoresList()
         {        
             //create list of dummy data
@@ -183,7 +192,6 @@ namespace HelicopterMadness.Scenes
         public override void Update(GameTime gameTime)
         {
             //early code to handle user name entry
-            //*************************************************************************************************************************
             // TODO: check and replace spaces
 
             if (isNewScore)
@@ -192,13 +200,15 @@ namespace HelicopterMadness.Scenes
                 char key;
                 newScoreEntry = new HighScoreEntry(newName, newScore);
                 UpdateScoreDisplays();
-                if (KeyboardEntry.TryConvertKeyboardInput(keyboardState, oldState, out key)&& newName.Length < 3)
+                if (KeyboardEntry.KeyboardInput(keyboardState, oldState, out key)&& newName.Length < 3)
                 {
+                    //todo: this needs to replace whitespace
                     newName += key.ToString();
                     newScoreEntry.Name = newName;   
                 }
                 else if (oldState.IsKeyDown(Keys.Back) && keyboardState.IsKeyUp(Keys.Back) && newScoreEntry.Name.Length > 0)
                 {
+                    //todo: this needs to remove the previous letter and add a white
                     newName = newName.Remove((newName.Length - 1), 1);
                     newScoreEntry.Name = newName;
                 }
@@ -211,13 +221,15 @@ namespace HelicopterMadness.Scenes
                 oldState = keyboardState;
             }
             
-           
-
             base.Update(gameTime);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Hide()
         {
+            //todo: do we need this?
             if (newHighScoreIndex >= 0 && newHighScoreIndex < scoreDisplays.Length)
             {
                 scoreDisplays[newHighScoreIndex].Color = normalColor;
@@ -227,7 +239,7 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        ///     Updates the Message, Position, and Color of the score TextDisplays
+        ///     Updates the Message, Position, and Color of the score and newscore TextDisplays
         /// </summary>
         private void UpdateScoreDisplays()
         {
@@ -282,7 +294,10 @@ namespace HelicopterMadness.Scenes
 
             base.Draw(gameTime);
         }
-
+        /// <summary>
+        /// finds what score has been beat and flips a bool to allow update to be run
+        /// </summary>
+        /// <param name="score">the score the play got on the action scene</param>
         public void AddScoreEntry(int score)
         {
             //compare it against all highscores and place it where in the list it belongs
@@ -299,17 +314,19 @@ namespace HelicopterMadness.Scenes
                 }
             }
         }
-
+        /// <summary>
+        /// sets the high and lows scores
+        /// </summary>
         private void SetHighLowScores()
         {
             highestScore = highScoreEntries[0].Score;
             lowestScore = highScoreEntries.Last().Score;
         }
-
+        /// <summary>
+        /// adds new highscore entry to list, preps display and sets up save
+        /// </summary>
         private void SetNewScore()
         {
-            //todo:
-            
             highScoreEntries.Insert(newHighScoreIndex, new HighScoreEntry(newName, newScore));
             highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
             newHighScoreDisplay.Visible = false;
@@ -319,20 +336,21 @@ namespace HelicopterMadness.Scenes
             UpdateScoreDisplays();
             SaveScores();
         }
-
+        /// <summary>
+        /// Saves the highscore list to a file
+        /// </summary>
         private void SaveScores()
         {
             string scorepath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
 
-            using (var scoresWriter = new StreamWriter(scorepath, false))
+            using (StreamWriter scoresWriter = new StreamWriter(scorepath, false))
             {
                 foreach (HighScoreEntry itemEntry in highScoreEntries)
                 {
                     scoresWriter.WriteLine(itemEntry.Name + " " + itemEntry.Score);
                 }
             }
-
         }
     }
 }
