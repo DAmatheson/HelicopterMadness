@@ -110,6 +110,7 @@
     <Compile Include="Scenes\HighScoreComponents\HighScoreEntry.cs" />
     <Compile Include="Scenes\CommonComponents\TextDisplay.cs" />
     <Compile Include="Scenes\CreditScene.cs" />
+    <Compile Include="Scenes\HighScoreComponents\HighScoreString.cs" />
     <Compile Include="Scenes\HowToPlayScene.cs" />
     <Compile Include="Scenes\HelpScene.cs" />
     <Compile Include="Scenes\MenuComponents\MenuComponent.cs" />

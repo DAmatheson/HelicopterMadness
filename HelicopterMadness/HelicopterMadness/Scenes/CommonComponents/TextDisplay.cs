@@ -15,8 +15,8 @@ namespace HelicopterMadness.Scenes.CommonComponents
     /// </summary>
     public class TextDisplay : DrawableGameComponent
     {
-        private readonly SpriteBatch spriteBatch;
-        private  Color color;
+        protected readonly SpriteBatch spriteBatch;
+        protected  Color color;
 
         public Color Color
         {
