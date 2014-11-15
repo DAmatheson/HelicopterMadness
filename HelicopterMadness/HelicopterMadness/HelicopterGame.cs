@@ -43,9 +43,6 @@ namespace HelicopterMadness
 
             SharedSettings.StageCenter.X = SharedSettings.Stage.X / 2f;
             SharedSettings.StageCenter.Y = SharedSettings.Stage.Y / 2f;
-            
-            SharedSettings.StageSpeed.X = SharedSettings.DEFAULT_STAGE_SPEED_X;
-            SharedSettings.StageSpeed.Y = 0;
 
             base.Initialize();
         }

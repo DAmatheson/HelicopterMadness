@@ -60,17 +60,26 @@ namespace HelicopterMadness.Scenes.ActionComponents
             {
                 float accelerate;
 
-                if (keyboardState.IsKeyDown(Keys.Up) || mouseState.LeftButton == ButtonState.Pressed)
+                float stageSpeedChange = SharedSettings.StageSpeedChange;
+
+                if (keyboardState.IsKeyDown(Keys.Up) || mouseState.LeftMouseClicked())
                 {
-                    
-                    accelerate = -(VERTICAL_SPEED * 0.06f);
+                    // Avg time between updates = ~0.0166667
+                    // Desired base up movement speed = -0.42 
+                    // 0.42 * (VERTICAL_SPEED / 0.0166667) = 3.60
+                    accelerate = -(VERTICAL_SPEED * 3.60f * (float)gameTime.ElapsedGameTime.TotalSeconds *
+                        stageSpeedChange);
                 }
                 else
                 {
-                    accelerate = VERTICAL_SPEED * 0.1f;
+                    // Avg time between updates = ~0.0166667
+                    // Desired base down movement speed = 0.7 
+                    // 0.7 * (VERTICAL_SPEED / 0.0166667) = ~6
+                    accelerate = VERTICAL_SPEED * 6f * (float)gameTime.ElapsedGameTime.TotalSeconds * 
+                        stageSpeedChange;
                 }
 
-                speed.Y = MathHelper.Clamp(speed.Y + accelerate, -VERTICAL_SPEED, VERTICAL_SPEED);
+                speed.Y = MathHelper.Clamp(speed.Y + accelerate, -VERTICAL_SPEED * stageSpeedChange, VERTICAL_SPEED * stageSpeedChange);
 
                 position.Y += speed.Y;
 

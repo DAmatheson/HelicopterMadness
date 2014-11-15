@@ -45,7 +45,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
                 Visible = false;
             }
 
-            position.X -= SharedSettings.StageSpeed.X;
+            position.X -= SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             base.Update(gameTime);
         }

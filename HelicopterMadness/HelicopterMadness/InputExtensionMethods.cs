@@ -30,6 +30,16 @@ namespace HelicopterMadness
         }
 
         /// <summary>
+        ///     Checks if the left mouse button was clicked
+        /// </summary>
+        /// <param name="mouseState">MouseState to check</param>
+        /// <returns>True if clicked, false otherwise</returns>
+        public static bool LeftMouseClicked(this MouseState mouseState)
+        {
+            return mouseState.LeftButton == ButtonState.Pressed;
+        }
+
+        /// <summary>
         ///     Checks that the key was up before being pressed
         /// </summary>
         /// <param name="ks">Current KeyboardState</param>

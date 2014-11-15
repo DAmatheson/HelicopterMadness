@@ -22,6 +22,9 @@ namespace HelicopterMadness.Scenes
     {
         private const int NUMBER_OF_OBSTACLES = 7;
 
+        private readonly float minObstacleXSpacing;
+        private readonly float maxObstacleXSpacing;
+
         private readonly Helicopter helicopter;
         private readonly Border topBorder;
         private readonly Border bottomBorder;
@@ -33,36 +36,40 @@ namespace HelicopterMadness.Scenes
 
         private ActionSceneStates state = ActionSceneStates.PreStart;
 
-        private float minObstacleXSpacing;
-        private float maxObstacleXSpacing;
-
         private MouseState oldMouseState;
         private KeyboardState oldKeyboardState;
 
         private int durationScore = 0;
 
+        /// <summary>
+        ///     Gets the current ActionSceneStates for the ActionScene
+        /// </summary>
         public ActionSceneStates State
         {
             get { return state; }
         }
 
+        /// <summary>
+        ///     Gets the score for the current play of the ActionScene
+        /// </summary>
+        /// <returns>The score</returns>
+        public int GetScore()
+        {
+            return durationScore / 100;
+        }
+
         public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            //Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/Helicopter");
             Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated1");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
 
             Vector2 heliFrameDimensions = new Vector2(120, 61);
 
-            //minObstacleXSpacing = heliTexture.Width * 1.4f;
-            minObstacleXSpacing = heliFrameDimensions.X * 1.4f;
-            //maxObstacleXSpacing = minObstacleXSpacing * 3f;
-            maxObstacleXSpacing = minObstacleXSpacing * 3f;
+            minObstacleXSpacing = heliFrameDimensions.X * 1.15f + obstacleTexture.Width;
+            maxObstacleXSpacing = minObstacleXSpacing * 2f;
 
-            //Vector2 heliPosition = new Vector2(SharedSettings.Stage.X / 4f - heliTexture.Width / 2f,
-            //    (SharedSettings.Stage.Y - heliTexture.Height) / 2f);
             Vector2 heliPosition = new Vector2(SharedSettings.Stage.X / 4f - heliFrameDimensions.X / 2f,
                 (SharedSettings.Stage.Y - heliFrameDimensions.Y) / 2f);
 
@@ -104,51 +111,6 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        ///     Creates and positions the obstacles required by the ActionScene
-        /// </summary>
-        /// <param name="obstacleTexture">The Texture2D for the obstacles</param>
-        private void GenerateObstacles(Texture2D obstacleTexture)
-        {
-            Vector2 obstaclePosition = Vector2.Zero;
-
-            for (int i = 0; i <= NUMBER_OF_OBSTACLES; i++)
-            {
-                Obstacle obstacle;
-
-                if (obstaclePosition == Vector2.Zero) // First iteration
-                {
-                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture);
-
-                    obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0);
-                }
-                else
-                {
-                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture);
-
-                    obstacle.GenerateRandomPosition(obstaclePosition.X, minObstacleXSpacing, maxObstacleXSpacing);
-                }
-
-                obstacle.Enabled = false;
-
-                obstacle.DrawOrder = 10;
-
-                Components.Add(obstacle);
-                obstacles.Add(obstacle);
-
-                obstaclePosition = obstacle.Position;
-            }
-        }
-
-        /// <summary>
-        ///     Gets the score for the current play of the ActionScene
-        /// </summary>
-        /// <returns>The score</returns>
-        public int GetScore()
-        {
-            return durationScore / 100;
-        }
-
-        /// <summary>
         ///     Updates the ActionScene and all of its enabled components
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
@@ -178,11 +140,10 @@ namespace HelicopterMadness.Scenes
             }
             else if (State == ActionSceneStates.InPlay)
             {
-                durationScore += gameTime.ElapsedGameTime.Milliseconds * 
-                    ((int)SharedSettings.StageSpeed.X / (int)SharedSettings.DEFAULT_STAGE_SPEED_X);
+                durationScore += gameTime.ElapsedGameTime.Milliseconds * (int)SharedSettings.StageSpeedChange;
 
-                SharedSettings.StageSpeed.X = Math.Min(
-                    SharedSettings.StageSpeed.X * 1.0005f, SharedSettings.DEFAULT_STAGE_SPEED_X * 2f);
+                SharedSettings.StageSpeed.X = Math.Min(SharedSettings.StageSpeed.X * 1.0005f,
+                    SharedSettings.DEFAULT_STAGE_SPEED_X * 2f);
 
                 UpdateObstaclePositions();
             }
@@ -227,6 +188,42 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
+        ///     Creates and positions the obstacles required by the ActionScene
+        /// </summary>
+        /// <param name="obstacleTexture">The Texture2D for the obstacles</param>
+        private void GenerateObstacles(Texture2D obstacleTexture)
+        {
+            Vector2 obstaclePosition = Vector2.Zero;
+
+            for (int i = 0; i <= NUMBER_OF_OBSTACLES; i++)
+            {
+                Obstacle obstacle;
+
+                if (obstaclePosition == Vector2.Zero) // First iteration
+                {
+                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture);
+
+                    obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0);
+                }
+                else
+                {
+                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture);
+
+                    obstacle.GenerateRandomPosition(obstaclePosition.X, minObstacleXSpacing, maxObstacleXSpacing);
+                }
+
+                obstacle.Enabled = false;
+
+                obstacle.DrawOrder = 10;
+
+                Components.Add(obstacle);
+                obstacles.Add(obstacle);
+
+                obstaclePosition = obstacle.Position;
+            }
+        }
+
+        /// <summary>
         ///     Resets the ActionScene to its initial state
         /// </summary>
         private void ResetToInitialState()
@@ -258,6 +255,9 @@ namespace HelicopterMadness.Scenes
         /// <param name="gameReset">True if the game is being reset</param>
         private void UpdateObstaclePositions(bool gameReset = false)
         {
+            float minObstacleXSpace = minObstacleXSpacing;
+            float maxObstacleXSpace = maxObstacleXSpacing * SharedSettings.StageSpeedChange;
+
             for (int i = 0; i < obstacles.Count; i++)
             {
                 Obstacle obstacle = obstacles[i];
@@ -274,12 +274,12 @@ namespace HelicopterMadness.Scenes
                 else if (i == 0)
                 {
                     obstacle.GenerateRandomPosition(obstacles.Last().Position.X,
-                        minObstacleXSpacing, maxObstacleXSpacing);
+                        minObstacleXSpace, maxObstacleXSpace);
                 }
                 else
                 {
                     obstacle.GenerateRandomPosition(obstacles[i - 1].Position.X,
-                        minObstacleXSpacing, maxObstacleXSpacing);
+                        minObstacleXSpace, maxObstacleXSpace);
                 }
 
                 if (!gameReset)

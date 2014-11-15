@@ -18,7 +18,18 @@ namespace HelicopterMadness
         /// <summary>
         ///     The default stage X axis movement speed
         /// </summary>
-        public const float DEFAULT_STAGE_SPEED_X = 9f;
+        public const float DEFAULT_STAGE_SPEED_X = 540f;
+
+        /// <summary>
+        ///     Gets the speed change from the starting speed to the current speed
+        /// </summary>
+        public static float StageSpeedChange
+        {
+            get
+            {
+                return StageSpeed.X / DEFAULT_STAGE_SPEED_X;
+            }
+        }
 
         /// <summary>
         ///     A Vector2 containing the greatest X and Y for the stage
@@ -33,7 +44,7 @@ namespace HelicopterMadness
         /// <summary>
         ///     A Vector2 containing the X and Y speed for objects moving on the stage
         /// </summary>
-        public static Vector2 StageSpeed;
+        public static Vector2 StageSpeed = new Vector2(DEFAULT_STAGE_SPEED_X, 0);
 
         /// <summary>
         ///     A static random number generator
