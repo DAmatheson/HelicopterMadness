@@ -194,14 +194,11 @@ namespace HelicopterMadness.Scenes
                 UpdateScoreDisplays();
                 if (KeyboardEntry.TryConvertKeyboardInput(keyboardState, oldState, out key)&& newName.Length < 3)
                 {
-                    //newHighScoreDisplay.Message += key.ToString();
                     newName += key.ToString();
-                    newScoreEntry.Name = newName;
-                    
+                    newScoreEntry.Name = newName;   
                 }
-                else if (oldState.IsKeyDown(Keys.Back) && keyboardState.IsKeyUp(Keys.Back) && newHighScoreDisplay.Message.Length > 0)
+                else if (oldState.IsKeyDown(Keys.Back) && keyboardState.IsKeyUp(Keys.Back) && newScoreEntry.Name.Length > 0)
                 {
-                    //newHighScoreDisplay.Message = newHighScoreDisplay.Message.Remove((newHighScoreDisplay.Message.Length - 1), 1);
                     newName = newName.Remove((newName.Length - 1), 1);
                     newScoreEntry.Name = newName;
                 }
@@ -260,12 +257,11 @@ namespace HelicopterMadness.Scenes
 
                 if (i == newHighScoreIndex && !isSet)
                 {
-                    //currentScoreDisplay.Color = highlightColor;
                     currentScoreDisplay.Visible = false;
                     isSet = true;
                     index--;
-                    
 
+                    newHighScoreDisplay.Visible = true;
                     newHighScoreDisplay.Color = highlightColor;
                     newHighScoreDisplay.Message = string.Format("{0}. {1}", i + 1, newScoreEntry);
                     newHighScoreDisplay.Position = currentScoreDisplay.Position;
@@ -298,7 +294,7 @@ namespace HelicopterMadness.Scenes
                 {
                     newHighScoreIndex = i;
                     newScore = score;
-                    newName = string.Empty;
+                    newName = "   ";
                     isNewScore = true;   
                     break;
                 }
@@ -317,11 +313,11 @@ namespace HelicopterMadness.Scenes
             
             highScoreEntries.Insert(newHighScoreIndex, new HighScoreEntry(newName, newScore));
             highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
+            newHighScoreDisplay.Visible = false;
 
             newHighScoreIndex = -1;
             SetHighLowScores();
-            UpdateScoreDisplays();
-            
+            UpdateScoreDisplays();           
         }
     }
 }

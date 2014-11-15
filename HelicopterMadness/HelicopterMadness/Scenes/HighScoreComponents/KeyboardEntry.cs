@@ -21,7 +21,6 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         public static bool TryConvertKeyboardInput(KeyboardState keyboard, KeyboardState oldKeyboard, out char key)
         {
             Keys[] keys = keyboard.GetPressedKeys();
-            bool shift = keyboard.IsKeyDown(Keys.LeftShift) || keyboard.IsKeyDown(Keys.RightShift);
 
 
             if (keys.Length > 0 && !oldKeyboard.IsKeyDown(keys[0]))
@@ -30,9 +29,7 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
                 {
                     //inline or change for school standards
                     //Alphabet keys
-                    case Keys.A:
-                        { key = 'A'; }
-                        return true;
+                    case Keys.A: { key = 'A'; } return true;
                     case Keys.B: { key = 'B'; } return true;
                     case Keys.C: { key = 'C'; } return true;
                     case Keys.D: { key = 'D'; } return true;

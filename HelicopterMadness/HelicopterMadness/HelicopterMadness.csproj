@@ -31,7 +31,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Helicopter Madness</ProductName>
     <PublisherName>Sean &amp; Drew</PublisherName>
-    <ApplicationRevision>0</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -71,7 +72,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -110,7 +111,6 @@
     <Compile Include="Scenes\HighScoreComponents\HighScoreEntry.cs" />
     <Compile Include="Scenes\CommonComponents\TextDisplay.cs" />
     <Compile Include="Scenes\CreditScene.cs" />
-    <Compile Include="Scenes\HighScoreComponents\HighScoreString.cs" />
     <Compile Include="Scenes\HighScoreComponents\KeyboardEntry.cs" />
     <Compile Include="Scenes\HowToPlayScene.cs" />
     <Compile Include="Scenes\HelpScene.cs" />
