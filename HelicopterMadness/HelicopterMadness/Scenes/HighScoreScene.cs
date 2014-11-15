@@ -46,9 +46,10 @@ namespace HelicopterMadness.Scenes
         private int newScore;
 
 
-        private bool isNewScore = false;
+        private bool isNewScore;
         private KeyboardState oldState;
         private KeyboardState keyboardState;
+
         public int HighestScore
         {
             get { return highestScore; }
@@ -96,7 +97,6 @@ namespace HelicopterMadness.Scenes
                 Components.Add(t);
             }
 
-            //********************************************************************************************************
             //just for testing purposes
             newHighScoreDisplay = new TextDisplay(game,spriteBatch,scoreFont,Vector2.Zero,Color.Black);
             Components.Add(newHighScoreDisplay);
@@ -184,7 +184,7 @@ namespace HelicopterMadness.Scenes
         {
             //early code to handle user name entry
             //*************************************************************************************************************************
-            // TODO: Remove or add update logic
+            // TODO: check and replace spaces
 
             if (isNewScore)
             {
@@ -270,7 +270,6 @@ namespace HelicopterMadness.Scenes
                 {
                     currentScoreDisplay.Color = normalColor;
                     currentScoreDisplay.Visible = true;
-
                 }
 
                 index++;
@@ -317,7 +316,23 @@ namespace HelicopterMadness.Scenes
 
             newHighScoreIndex = -1;
             SetHighLowScores();
-            UpdateScoreDisplays();           
+            UpdateScoreDisplays();
+            SaveScores();
+        }
+
+        private void SaveScores()
+        {
+            string scorepath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Highscore.txt");
+
+            using (var scoresWriter = new StreamWriter(scorepath, false))
+            {
+                foreach (HighScoreEntry itemEntry in highScoreEntries)
+                {
+                    scoresWriter.WriteLine(itemEntry.Name + " " + itemEntry.Score);
+                }
+            }
+
         }
     }
 }
