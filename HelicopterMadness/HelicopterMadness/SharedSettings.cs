@@ -20,6 +20,8 @@ namespace HelicopterMadness
         /// </summary>
         public const float DEFAULT_STAGE_SPEED_X = 540f;
 
+        public const string HIGHSCORE_FILE_NAME = "Highscore.txt";
+
         /// <summary>
         ///     Gets the speed change from the starting speed to the current speed
         /// </summary>
