@@ -35,7 +35,7 @@ namespace HelicopterMadness.Scenes
 
         private readonly TextDisplay scoreDisplay;
         private readonly TextDisplay highScoreDisplay;
-        private readonly TextDisplay midScreenMessage; // TODO: All things related to this should be looked at
+        private readonly TextDisplay midScreenMessage;
 
         private readonly List<Obstacle> obstacles = new List<Obstacle>();
 
@@ -74,6 +74,7 @@ namespace HelicopterMadness.Scenes
             Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated1");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
+            SpriteFont highlightFont = Game.Content.Load<SpriteFont>("Fonts/Highlight");
 
             Vector2 heliFrameDimensions = new Vector2(120, 61);
 
@@ -102,30 +103,31 @@ namespace HelicopterMadness.Scenes
 
             collisionManager.AddCollidableRange(obstacles);
 
-            scoreDisplay = new TextDisplay(Game, spriteBatch,
-                Game.Content.Load<SpriteFont>("Fonts/Highlight"), Vector2.One, SharedSettings.HighlightTextColor);
+            scoreDisplay = new TextDisplay(Game, spriteBatch, highlightFont,
+                SharedSettings.HighlightTextColor);
 
-            highScoreDisplay = new TextDisplay(game, spriteBatch,
-               game.Content.Load<SpriteFont>("Fonts/Highlight"), Vector2.Zero, SharedSettings.HighlightTextColor)
+            highScoreDisplay = new TextDisplay(game, spriteBatch, highlightFont, 
+                SharedSettings.HighlightTextColor)
             {
                 Message = HighScoreScene.HighestScore.ToString()
             };
 
-
-            midScreenMessage = new TextDisplay(Game, spriteBatch,
-                Game.Content.Load<SpriteFont>("Fonts/Highlight"), SharedSettings.StageCenter, Color.WhiteSmoke)
+            midScreenMessage = new TextDisplay(Game, spriteBatch, highlightFont,
+                SharedSettings.StageCenter, Color.WhiteSmoke)
             {
                 Message = "Click To Start Playing"
             };
 
+            UpdateScoreDisplays();
+
             Components.Add(midScreenMessage);
             Components.Add(scoreDisplay);
+            Components.Add(highScoreDisplay);
             Components.Add(helicopter);
             Components.Add(explosion);
             Components.Add(topBorder);
             Components.Add(bottomBorder);
             Components.Add(collisionManager);
-            Components.Add(highScoreDisplay);
         }
 
         /// <summary>
@@ -184,9 +186,16 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         public override void Show()
         {
-            if (State != ActionSceneStates.Paused && State != ActionSceneStates.PreStart)
+            // Set oldMouseState to having left mouse button pressed so that if it is held down upon 
+            // entering the scene it needs to be released and repressed to start the game
+            oldMouseState = new MouseState(oldMouseState.X, oldMouseState.Y, oldMouseState.ScrollWheelValue,
+                ButtonState.Pressed, oldMouseState.RightButton, oldMouseState.MiddleButton,
+                oldMouseState.XButton1, oldMouseState.XButton2);
+
+            if (State == ActionSceneStates.GameOver)
             {
-                ResetToInitialState();
+                // Reset duration score so that the highScoreScene doesn't get shown again
+                durationScore = 0;
             }
 
             base.Show();
@@ -320,7 +329,7 @@ namespace HelicopterMadness.Scenes
                 : currentScore.ToString();
 
             Vector2 highScoreDim = highScoreDisplay.Font.MeasureString(highScoreDisplay.Message);
-            highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 0);
+            highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 1);
         }
 
         /// <summary>
@@ -377,7 +386,7 @@ namespace HelicopterMadness.Scenes
         {
             state = ActionSceneStates.Paused;
 
-            midScreenMessage.Message = "Press Space to unpause.";
+            midScreenMessage.Message = "Press Space to Unpause.";
 
             DisableComponents();
         }

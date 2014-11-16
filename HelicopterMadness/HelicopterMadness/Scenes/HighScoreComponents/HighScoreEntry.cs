@@ -12,7 +12,7 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
     /// </summary>
     public class HighScoreEntry
     {
-        private int paddingWidth;
+        private readonly int paddingWidth;
 
         /// <summary>
         ///     The player name for the entry
@@ -29,17 +29,18 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
             {
                 // TODO: Consider REGEX and regex on initial set so characters are limited to valid ones
                 // Force the name into our defined highscore naming scheme
-                name = value.Trim().PadRight(3).Substring(0, 3).Replace(' ', 'A').ToUpper();
+                name = value.Trim().Replace('_', ' ').PadRight(3).Substring(0, 3).Replace(' ', 'A').ToUpper();
             }
         }
 
         /// <summary>
         ///     The score for the entry
         /// </summary>
-        public int Score { get; set; }
+        public int Score { get; private set; }
 
         /// <summary>
-        ///     Initializes a new instance of HighScoreEntry with the provided parameters
+        ///     Initializes a new instance of HighScoreEntry with the provided parameters and in a 
+        ///     state for name entry
         /// </summary>
         /// <param name="score">The score for the entry</param>
         /// <param name="paddingWidth">The padding width count for the entry. Defaults to 19</param>
@@ -67,16 +68,31 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         }
 
         /// <summary>
-        ///     Removes a specific index's character from Name
+        ///     Replaces the character at the specified index with the replacement character if
+        ///     the replacement character is between A and Z
         /// </summary>
-        public void RemoveCharFromName(int charIndex)
+        /// <param name="charIndex">The index of the character to replace</param>
+        /// <param name="replacementChar">The replacement character</param>
+        public void ReplaceChar(int charIndex, char replacementChar)
         {
-            name = name.Remove(charIndex, 1).Insert(charIndex, "_");
+            // 65 = A, 90 = Z
+            // TODO: Magic numbers if we care
+            if (charIndex < name.Length && replacementChar >= 65 && replacementChar <= 90)
+            {
+                name = name.Remove(charIndex, 1).Insert(charIndex, replacementChar.ToString());
+            }
         }
 
-        public void SetNameForEntry()
+        /// <summary>
+        ///     Replaces the specified index from Name with an underscore
+        /// </summary>
+        /// <param name="charIndex">The index of the character to remove</param>
+        public void RemoveCharFromName(int charIndex)
         {
-            name = "___";
+            if (charIndex < name.Length)
+            {
+                name = name.Remove(charIndex, 1).Insert(charIndex, "_");
+            }
         }
       
         /// <summary>
@@ -94,7 +110,18 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         /// <returns>Returns the HighScoreEntry formatted for saving</returns>
         public string ToSaveString()
         {
+            // Run the name through the Set method to ensure it is in a valid format
+            Name = Name;
+
             return string.Format("{0} {1}", Name, Score);
+        }
+
+        /// <summary>
+        ///     Sets the Name to three underscores for name input purposes
+        /// </summary>
+        private void SetNameForEntry()
+        {
+            name = "___";
         }
     }
 }

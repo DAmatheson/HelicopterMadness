@@ -67,8 +67,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 1f, spriteEffect, 1f);
-            spriteBatch.Draw(texture, secondPosition, null, Color.White, 0f, Vector2.Zero, 1f, spriteEffect, 1f);
+            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 1f, spriteEffect, SharedSettings.OBSTACLE_LAYER);
+            spriteBatch.Draw(texture, secondPosition, null, Color.White, 0f, Vector2.Zero, 1f, spriteEffect, SharedSettings.OBSTACLE_LAYER);
         }
 
         /// <summary>

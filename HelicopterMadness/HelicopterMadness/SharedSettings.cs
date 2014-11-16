@@ -16,6 +16,11 @@ namespace HelicopterMadness
     public static class SharedSettings
     {
         /// <summary>
+        ///     The layer depth value for obstacles in the game
+        /// </summary>
+        public const float OBSTACLE_LAYER = 0.75f;
+
+        /// <summary>
         ///     The default stage X axis movement speed
         /// </summary>
         public const float DEFAULT_STAGE_SPEED_X = 540f;

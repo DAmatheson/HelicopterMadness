@@ -17,9 +17,14 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         View,
 
         /// <summary>
+        ///     Represents a view where a new score is being entered
+        /// </summary>
+        NewScoreEntry,
+
+        /// <summary>
         ///     Represents a view where a new score was just entered
         /// </summary>
-        NewScore,
+        NewScoreAdded,
 
         /// <summary>
         ///     Represents a state where the scene is ready to change

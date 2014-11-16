@@ -57,18 +57,18 @@ namespace HelicopterMadness.Scenes.CommonComponents
         }
 
         /// <summary>
-        ///     Draws the Helicopter
+        ///     Draws the AnimatedSprite
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Draw(GameTime gameTime)
         {
             if (!Enabled)
             {
-                spriteBatch.Draw(texture, position, frames[0], Color.White);
+                spriteBatch.Draw(texture, position, frames[0], Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
             }
             else if (frameIndex >= 0 && frameIndex < frames.Count)
             {
-                spriteBatch.Draw(texture, position, frames[frameIndex], Color.White);
+                spriteBatch.Draw(texture, position, frames[frameIndex], Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
             }
         }
 

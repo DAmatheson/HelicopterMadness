@@ -48,6 +48,17 @@ namespace HelicopterMadness.Scenes.CommonComponents
         }
 
         /// <summary>
+        ///     Initializes a new instace of TextDisplay with the provided parameters
+        /// </summary>
+        /// <param name="game">The game the TextDisplay belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the TextDisplay will draw itself with</param>
+        /// <param name="font">The font used for the TextDisplay</param>
+        /// <param name="color">The color of the TextDisplay's text</param>
+        public TextDisplay(Game game, SpriteBatch spriteBatch, SpriteFont font, Color color)
+            : this(game, spriteBatch, font, Vector2.Zero, color)
+        { }
+
+        /// <summary>
         ///     Gets the TextDisplay's Font
         /// </summary>
         public SpriteFont Font { get; private set; }

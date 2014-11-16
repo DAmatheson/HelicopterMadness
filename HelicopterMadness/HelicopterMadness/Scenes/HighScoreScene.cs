@@ -85,14 +85,15 @@ namespace HelicopterMadness.Scenes
         {
             highScoreEntries = new List<HighScoreEntry>();
 
-            newScoreIndex = -1; // Comment this out and type in the score scene to see why it is required
+            newScoreIndex = -1;
 
             SetUpHighScoreEntries();
 
             //TEMP Testing text alignments and what not
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
             titleDimensions = headerFont.MeasureString("HIGHSCORES");
-            Vector2 scorePos = new Vector2(SharedSettings.Stage.X / 2 - titleDimensions.X / 2, 0);
+            Vector2 scorePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 0);
+
             headerDisplay = new TextDisplay(game, spriteBatch, headerFont, scorePos, SharedSettings.HighlightTextColor)
             {
                 Message = "HIGHSCORES"
@@ -100,12 +101,11 @@ namespace HelicopterMadness.Scenes
 
             //display the actual scores
             scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
-            Vector2 pos = new Vector2(0, 0);
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
-                scoreDisplays[i] = new TextDisplay(game, spriteBatch, scoreFont, pos, SharedSettings.NormalTextColor);
+                scoreDisplays[i] = new TextDisplay(game, spriteBatch, scoreFont, SharedSettings.NormalTextColor);
             }
 
             UpdateScoreDisplays();
@@ -123,9 +123,92 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         public override void Hide()
         {
+            // Scene is being hidden but name entry wasn't finished
+            if (state == HighScoreSceneStates.NewScoreEntry)
+            {
+                SetNewScore();
+            }
+
             state = HighScoreSceneStates.View;
 
             base.Hide();
+        }
+
+        /// <summary>
+        ///     Updates the HighScoreScene's state
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        public override void Update(GameTime gameTime)
+        {
+            MouseState mouseState = Mouse.GetState();
+
+            if (newScoreIndex > -1)
+            {
+                KeyboardState keyboardState = Keyboard.GetState();
+
+                char key;
+
+                if (KeyboardEntry.KeyboardInput(keyboardState, oldKeyboardState, out key) && inputIndex < MAX_NAME_CHARS)
+                {
+                    newScoreEntry.ReplaceChar(inputIndex, key);
+
+                    scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
+
+                    inputIndex = Math.Min(MAX_NAME_CHARS, ++inputIndex);
+                }
+                else if (keyboardState.NewKeyPress(oldKeyboardState, Keys.Back))
+                {
+                    inputIndex = Math.Max(0, --inputIndex);
+
+                    newScoreEntry.RemoveCharFromName(inputIndex);
+
+                    scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
+                }
+                else if (keyboardState.IsKeyDown(Keys.Enter) && inputIndex == MAX_NAME_CHARS)
+                {
+                    SetNewScore();
+                }
+
+                oldKeyboardState = keyboardState;
+            }
+
+            if (mouseState.LeftMouseNewClick(oldMouseState, Game) && state == HighScoreSceneStates.NewScoreAdded)
+            {
+                state = HighScoreSceneStates.Action;
+            }
+
+            oldMouseState = mouseState;
+            base.Update(gameTime);
+        }
+
+        /// <summary>
+        /// Finds what score has been beat and flips a bool to allow update to be run
+        /// </summary>
+        /// <param name="score">the score the play got on the action scene</param>
+        public void AddScoreEntry(int score)
+        {
+            //compare it against all highscores and place it where in the list it belongs
+            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
+            {
+                if (score > highScoreEntries[i].Score)
+                {
+                    state = HighScoreSceneStates.NewScoreEntry;
+
+                    inputIndex = 0;
+                    newScoreIndex = i;
+
+                    newScoreEntry = new HighScoreEntry(score);
+
+                    highScoreEntries.Insert(i, newScoreEntry);
+                    highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
+
+                    scoreDisplays[i].Color = SharedSettings.HighlightTextColor;
+
+                    UpdateScoreDisplays();
+
+                    break;
+                }
+            }
         }
 
         /// <summary>
@@ -203,55 +286,6 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        ///     Updates the HighScoreScene's state
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        public override void Update(GameTime gameTime)
-        {
-            MouseState mouseState = Mouse.GetState();
-
-            if (newScoreIndex > -1)
-            {
-                KeyboardState keyboardState = Keyboard.GetState();
-
-                char key;
-
-                if (KeyboardEntry.KeyboardInput(keyboardState, oldKeyboardState, out key) && inputIndex < MAX_NAME_CHARS)
-                {
-                    newScoreEntry.Name = newScoreEntry.Name.Remove(inputIndex, 1).Insert(inputIndex, key.ToString());
-
-                    scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
-
-                    inputIndex = Math.Min(MAX_NAME_CHARS, ++inputIndex);
-                }
-                else if (keyboardState.NewKeyPress(oldKeyboardState, Keys.Back))
-                {
-                    inputIndex = Math.Max(0, --inputIndex);
-
-                    newScoreEntry.RemoveCharFromName(inputIndex);
-
-                    scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
-                }
-                else if (keyboardState.IsKeyDown(Keys.Enter) && inputIndex == MAX_NAME_CHARS)
-                {
-                    SetNewScore();
-                }
-
-                oldKeyboardState = keyboardState;
-            }
-
-            if (mouseState.LeftMouseNewRelease(oldMouseState, Game)
-                && state == HighScoreSceneStates.NewScore)
-            {
-                state = HighScoreSceneStates.Action;
-
-            }
-
-            oldMouseState = mouseState;
-            base.Update(gameTime);
-        }
-
-        /// <summary>
         ///     Updates the Message, Position, and Color of the score and newscore TextDisplays
         /// </summary>
         private void UpdateScoreDisplays()
@@ -281,34 +315,6 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        /// Finds what score has been beat and flips a bool to allow update to be run
-        /// </summary>
-        /// <param name="score">the score the play got on the action scene</param>
-        public void AddScoreEntry(int score)
-        {
-            //compare it against all highscores and place it where in the list it belongs
-            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
-            {
-                if (score > highScoreEntries[i].Score)
-                {
-                    inputIndex = 0;
-                    newScoreIndex = i;
-
-                    newScoreEntry = new HighScoreEntry(score);
-
-                    highScoreEntries.Insert(i, newScoreEntry);
-                    highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
-
-                    scoreDisplays[i].Color = SharedSettings.HighlightTextColor;
-
-                    UpdateScoreDisplays();
-
-                    break;
-                }
-            }
-        }
-
-        /// <summary>
         /// Sets the high and lows scores
         /// </summary>
         private void SetHighLowScores()
@@ -325,7 +331,10 @@ namespace HelicopterMadness.Scenes
             scoreDisplays[newScoreIndex].Color = SharedSettings.NormalTextColor;
 
             newScoreIndex = -1; 
-            state = HighScoreSceneStates.NewScore;
+            state = HighScoreSceneStates.NewScoreAdded;
+
+            // Ensure the name is in a valid format by running it through the Set method of Name
+            newScoreEntry.Name = newScoreEntry.Name;
 
             SetHighLowScores();
             UpdateScoreDisplays();

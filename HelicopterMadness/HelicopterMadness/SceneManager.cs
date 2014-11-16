@@ -45,11 +45,11 @@ namespace HelicopterMadness
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
 
+            highScoreScene = new HighScoreScene(game, spriteBatch);
             actionScene = new ActionScene(game, spriteBatch);
             HowToPlayScene howToPlayScene = new HowToPlayScene(game, spriteBatch);
             HelpScene helpScene = new HelpScene(game, spriteBatch);
             CreditScene creditScene = new CreditScene(game, spriteBatch);
-            highScoreScene = new HighScoreScene(game, spriteBatch);
 
             scenes = new Dictionary<MenuItems, GameScene>
             {
@@ -84,7 +84,8 @@ namespace HelicopterMadness
                 enabledScene = menuScene;
             }
 
-            if (enabledScene == actionScene && actionScene.State == ActionSceneStates.GameOver)
+            if (enabledScene == actionScene && actionScene.State == ActionSceneStates.GameOver &&
+                highScoreScene.State == HighScoreSceneStates.View)
             {
                 int gameScore = actionScene.GetScore();
 
