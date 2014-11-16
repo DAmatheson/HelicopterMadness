@@ -8,7 +8,6 @@
  */
 
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using HelicopterMadness.Scenes.BaseScene;
@@ -32,9 +31,6 @@ namespace HelicopterMadness.Scenes
         private const string DUMMY_NAME = "ZZZ";
         private const int MAX_NAME_CHARS = 3;
 
-        private readonly Color highlightColor = Color.Red;
-        private readonly Color normalColor = Color.Yellow;
-
         private HighScoreSceneStates state = HighScoreSceneStates.View;
 
         private readonly List<HighScoreEntry> highScoreEntries;
@@ -44,53 +40,52 @@ namespace HelicopterMadness.Scenes
         private TextDisplay headerDisplay;
         private TextDisplay[] scoreDisplays;
 
-        public static int highestScore;
+        private static int highestScore;
         private int lowestScore;
 
+        private int newScoreIndex;
         private int inputIndex;
 
         private Vector2 titleDimensions;
 
         private KeyboardState oldKeyboardState;
-        private KeyboardState keyboardState;
-        private MouseState mouseState;
         private MouseState oldMouseState;
-        private int newScoreIndex;
 
-        public int HighestScore
+        /// <summary>
+        ///     Gets the highest saved score
+        /// </summary>
+        public static int HighestScore
         {
-            get
-            {
-                return highestScore;
-            }
-        }
-
-        public int LowestScore
-        {
-            get
-            {
-                return lowestScore;
-            }
-        }
-
-        public HighScoreSceneStates State
-        {
-            get { return state; }
-            set { state = value; }
+            get { return highestScore; }
         }
 
         /// <summary>
-        /// constructsor sets up needed components 
+        ///     Gets the lowest saved score
         /// </summary>
-        /// <param name="game"></param>
-        /// <param name="spriteBatch"></param>
+        public int LowestScore
+        {
+            get { return lowestScore; }
+        }
+
+        /// <summary>
+        ///     Gets the current HighScoreSceneStates of the HighScoreScene
+        /// </summary>
+        public HighScoreSceneStates State
+        {
+            get { return state; }
+        }
+
+        /// <summary>
+        ///     Initializes a new instace of HighScoreScene with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the HighScoreScene belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the HighScoreScene uses to draw its components</param>
         public HighScoreScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            // TODO: Continue building this out
             highScoreEntries = new List<HighScoreEntry>();
 
-            //newScoreIndex = -1;
+            newScoreIndex = -1; // Comment this out and type in the score scene to see why it is required
 
             SetUpHighScoreEntries();
 
@@ -98,7 +93,7 @@ namespace HelicopterMadness.Scenes
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
             titleDimensions = headerFont.MeasureString("HIGHSCORES");
             Vector2 scorePos = new Vector2(SharedSettings.Stage.X / 2 - titleDimensions.X / 2, 0);
-            headerDisplay = new TextDisplay(game, spriteBatch, headerFont, scorePos, highlightColor)
+            headerDisplay = new TextDisplay(game, spriteBatch, headerFont, scorePos, SharedSettings.HighlightTextColor)
             {
                 Message = "HIGHSCORES"
             };
@@ -110,7 +105,7 @@ namespace HelicopterMadness.Scenes
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
-                scoreDisplays[i] = new TextDisplay(game, spriteBatch, scoreFont, pos, normalColor);
+                scoreDisplays[i] = new TextDisplay(game, spriteBatch, scoreFont, pos, SharedSettings.NormalTextColor);
             }
 
             UpdateScoreDisplays();
@@ -121,6 +116,16 @@ namespace HelicopterMadness.Scenes
             {
                 Components.Add(t);
             }
+        }
+
+        /// <summary>
+        ///     Hides the HighScoreScene
+        /// </summary>
+        public override void Hide()
+        {
+            state = HighScoreSceneStates.View;
+
+            base.Hide();
         }
 
         /// <summary>
@@ -203,13 +208,11 @@ namespace HelicopterMadness.Scenes
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            //early code to handle user name entry
-            // TODO: check and replace spaces
-            mouseState = Mouse.GetState();
+            MouseState mouseState = Mouse.GetState();
 
             if (newScoreIndex > -1)
             {
-                keyboardState = Keyboard.GetState();
+                KeyboardState keyboardState = Keyboard.GetState();
 
                 char key;
 
@@ -237,12 +240,13 @@ namespace HelicopterMadness.Scenes
                 oldKeyboardState = keyboardState;
             }
 
-            if (mouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed 
+            if (mouseState.LeftMouseNewRelease(oldMouseState, Game)
                 && state == HighScoreSceneStates.NewScore)
             {
                 state = HighScoreSceneStates.Action;
 
             }
+
             oldMouseState = mouseState;
             base.Update(gameTime);
         }
@@ -295,7 +299,7 @@ namespace HelicopterMadness.Scenes
                     highScoreEntries.Insert(i, newScoreEntry);
                     highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
 
-                    scoreDisplays[i].Color = highlightColor;
+                    scoreDisplays[i].Color = SharedSettings.HighlightTextColor;
 
                     UpdateScoreDisplays();
 
@@ -318,7 +322,7 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         private void SetNewScore()
         {
-            scoreDisplays[newScoreIndex].Color = normalColor;
+            scoreDisplays[newScoreIndex].Color = SharedSettings.NormalTextColor;
 
             newScoreIndex = -1; 
             state = HighScoreSceneStates.NewScore;

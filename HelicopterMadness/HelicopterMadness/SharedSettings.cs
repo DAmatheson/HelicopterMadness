@@ -20,7 +20,20 @@ namespace HelicopterMadness
         /// </summary>
         public const float DEFAULT_STAGE_SPEED_X = 540f;
 
+        /// <summary>
+        ///     The filename for the highscore save file
+        /// </summary>
         public const string HIGHSCORE_FILE_NAME = "Highscore.txt";
+
+        /// <summary>
+        ///     The Color for highlight text
+        /// </summary>
+        public static readonly Color HighlightTextColor = Color.Red;
+
+        /// <summary>
+        ///     The Color for normal text
+        /// </summary>
+        public static readonly Color NormalTextColor = Color.Yellow;
 
         /// <summary>
         ///     Gets the speed change from the starting speed to the current speed

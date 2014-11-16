@@ -18,7 +18,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelicopterMadness.Scenes
 {
-    // TODO: Comments
+    /// <summary>
+    ///     The action scene for the game
+    /// </summary>
     public class ActionScene : GameScene
     {
         private const int NUMBER_OF_OBSTACLES = 7;
@@ -30,11 +32,10 @@ namespace HelicopterMadness.Scenes
         private readonly Border topBorder;
         private readonly Border bottomBorder;
         private readonly CollisionManager collisionManager; // TODO: Convert to local variable in ctor if not used outside by end of project
+
         private readonly TextDisplay scoreDisplay;
         private readonly TextDisplay highScoreDisplay;
         private readonly TextDisplay midScreenMessage; // TODO: All things related to this should be looked at
-
-        private readonly SpriteFont highScoreFont;
 
         private readonly List<Obstacle> obstacles = new List<Obstacle>();
 
@@ -51,7 +52,6 @@ namespace HelicopterMadness.Scenes
         public ActionSceneStates State
         {
             get { return state; }
-            set { state = value; }
         }
 
         /// <summary>
@@ -63,10 +63,14 @@ namespace HelicopterMadness.Scenes
             return durationScore / 100;
         }
 
+        /// <summary>
+        ///     Initializes a new instace of ActionScene with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the ActionScene belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the ActionScene will draw its components with</param>
         public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-
             Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated1");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
@@ -99,12 +103,13 @@ namespace HelicopterMadness.Scenes
             collisionManager.AddCollidableRange(obstacles);
 
             scoreDisplay = new TextDisplay(Game, spriteBatch,
-                Game.Content.Load<SpriteFont>("Fonts/Highlight"), Vector2.One, Color.Red);
+                Game.Content.Load<SpriteFont>("Fonts/Highlight"), Vector2.One, SharedSettings.HighlightTextColor);
 
-            //might want to change color
-            highScoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
             highScoreDisplay = new TextDisplay(game, spriteBatch,
-               highScoreFont, Vector2.Zero, Color.Red);
+               game.Content.Load<SpriteFont>("Fonts/Highlight"), Vector2.Zero, SharedSettings.HighlightTextColor)
+            {
+                Message = HighScoreScene.HighestScore.ToString()
+            };
 
 
             midScreenMessage = new TextDisplay(Game, spriteBatch,
@@ -120,7 +125,6 @@ namespace HelicopterMadness.Scenes
             Components.Add(topBorder);
             Components.Add(bottomBorder);
             Components.Add(collisionManager);
-
             Components.Add(highScoreDisplay);
         }
 
@@ -132,9 +136,6 @@ namespace HelicopterMadness.Scenes
         {
             MouseState mouseState = Mouse.GetState();
             KeyboardState keyboardState = Keyboard.GetState();
-
-            int highScore = HighScoreScene.highestScore;
-            Vector2 highScoreDim;
 
             if (State == ActionSceneStates.InPlay &&
                 keyboardState.NewKeyPress(oldKeyboardState, Keys.Space))
@@ -163,6 +164,7 @@ namespace HelicopterMadness.Scenes
                     SharedSettings.DEFAULT_STAGE_SPEED_X * 2f);
 
                 UpdateObstaclePositions();
+                UpdateScoreDisplays();
             }
             else if (State == ActionSceneStates.GameOver &&
                 mouseState.LeftMouseNewClick(oldMouseState, Game))
@@ -173,19 +175,6 @@ namespace HelicopterMadness.Scenes
             oldMouseState = mouseState;
             oldKeyboardState = keyboardState;
 
-            scoreDisplay.Message = GetScore().ToString();
-
-
-            if (GetScore() < highScore)
-            {
-                highScoreDisplay.Message = HighScoreScene.highestScore.ToString();               
-            }
-            else
-            {
-                highScoreDisplay.Message = GetScore().ToString(); 
-            }
-            highScoreDim = highScoreFont.MeasureString(highScoreDisplay.Message);
-            highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 0);
 
             base.Update(gameTime);
         }
@@ -243,8 +232,6 @@ namespace HelicopterMadness.Scenes
 
                 obstacle.Enabled = false;
 
-                obstacle.DrawOrder = 10;
-
                 Components.Add(obstacle);
                 obstacles.Add(obstacle);
 
@@ -264,6 +251,7 @@ namespace HelicopterMadness.Scenes
             SharedSettings.StageSpeed.X = SharedSettings.DEFAULT_STAGE_SPEED_X;
 
             durationScore = 0;
+            scoreDisplay.Message = "0";
 
             helicopter.Reset();
             bottomBorder.Enabled = false;
@@ -316,6 +304,23 @@ namespace HelicopterMadness.Scenes
                     obstacle.Show();
                 }
             }
+        }
+
+        /// <summary>
+        ///     Updates the score and highscore displays
+        /// </summary>
+        private void UpdateScoreDisplays()
+        {
+            int currentScore = GetScore();
+
+            scoreDisplay.Message = currentScore.ToString();
+
+            highScoreDisplay.Message = currentScore < HighScoreScene.HighestScore
+                ? HighScoreScene.HighestScore.ToString()
+                : currentScore.ToString();
+
+            Vector2 highScoreDim = highScoreDisplay.Font.MeasureString(highScoreDisplay.Message);
+            highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 0);
         }
 
         /// <summary>

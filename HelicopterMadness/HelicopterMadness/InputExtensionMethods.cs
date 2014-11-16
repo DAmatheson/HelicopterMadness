@@ -30,6 +30,20 @@ namespace HelicopterMadness
         }
 
         /// <summary>
+        ///     Checks that the left mouse button was pressed before being released and the game is active
+        /// </summary>
+        /// <param name="ms">Current MouseState</param>
+        /// <param name="previousState">Previous MouseState</param>
+        /// <param name="game">Game to check if active</param>
+        /// <returns></returns>
+        public static bool LeftMouseNewRelease(this MouseState ms, MouseState previousState, Game game)
+        {
+            return game.IsActive &&
+                ms.LeftButton == ButtonState.Released &&
+                previousState.LeftButton == ButtonState.Pressed;
+        }
+
+        /// <summary>
         ///     Checks if the left mouse button was clicked
         /// </summary>
         /// <param name="mouseState">MouseState to check</param>

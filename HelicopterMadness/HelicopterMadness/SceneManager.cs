@@ -5,7 +5,6 @@
  *      Drew Matheson, 2014.11.05: Created
  */
 
-using System;
 using System.Collections.Generic;
 using HelicopterMadness.Scenes;
 using HelicopterMadness.Scenes.ActionComponents;
@@ -25,12 +24,11 @@ namespace HelicopterMadness
         private readonly Dictionary<MenuItems, GameScene> scenes;
 
         private readonly MenuScene menuScene;
-        private  ActionScene actionScene;
+        private readonly ActionScene actionScene;
         private readonly HighScoreScene highScoreScene;
 
         private GameScene enabledScene;
-        private Game game;
-        private SpriteBatch spriteBatch;
+
         /// <summary>
         ///     Initializes a new instance of SceneManager
         /// </summary>
@@ -44,9 +42,6 @@ namespace HelicopterMadness
             {
                 "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit"
             };
-
-            this.game = game;
-            this.spriteBatch = spriteBatch;
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
 
@@ -107,20 +102,11 @@ namespace HelicopterMadness
             
             if (enabledScene == highScoreScene && highScoreScene.State == HighScoreSceneStates.Action)
             {
-                //todo: speed of the map doesnt seem to change unless you die
-                actionScene.Dispose();
-
-                actionScene = new ActionScene(game, spriteBatch);
-
                 enabledScene.Hide();
 
                 enabledScene = actionScene;
 
-                highScoreScene.State = HighScoreSceneStates.View;
-
                 actionScene.Show();
-
-                
             }
 
             enabledScene.Update(gameTime);
