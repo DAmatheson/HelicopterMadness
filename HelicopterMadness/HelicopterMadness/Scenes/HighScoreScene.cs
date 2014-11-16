@@ -35,6 +35,8 @@ namespace HelicopterMadness.Scenes
         private readonly Color highlightColor = Color.Red;
         private readonly Color normalColor = Color.Yellow;
 
+        private HighScoreSceneStates state = HighScoreSceneStates.View;
+
         private readonly List<HighScoreEntry> highScoreEntries;
         private HighScoreEntry newScoreEntry;
         private readonly SpriteFont scoreFont;
@@ -49,8 +51,10 @@ namespace HelicopterMadness.Scenes
 
         private Vector2 titleDimensions;
 
-        private KeyboardState oldState;
+        private KeyboardState oldKeyboardState;
         private KeyboardState keyboardState;
+        private MouseState mouseState;
+        private MouseState oldMouseState;
         private int newScoreIndex;
 
         public int HighestScore
@@ -68,6 +72,13 @@ namespace HelicopterMadness.Scenes
                 return lowestScore;
             }
         }
+
+        public HighScoreSceneStates State
+        {
+            get { return state; }
+            set { state = value; }
+        }
+
         /// <summary>
         /// constructsor sets up needed components 
         /// </summary>
@@ -79,7 +90,7 @@ namespace HelicopterMadness.Scenes
             // TODO: Continue building this out
             highScoreEntries = new List<HighScoreEntry>();
 
-            newScoreIndex = -1;
+            //newScoreIndex = -1;
 
             SetUpHighScoreEntries();
 
@@ -119,6 +130,8 @@ namespace HelicopterMadness.Scenes
         {
             string scorepath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), SharedSettings.HIGHSCORE_FILE_NAME);
+
+            File.Delete(scorepath);
 
             if (File.Exists(scorepath))
             {
@@ -192,6 +205,7 @@ namespace HelicopterMadness.Scenes
         {
             //early code to handle user name entry
             // TODO: check and replace spaces
+            mouseState = Mouse.GetState();
 
             if (newScoreIndex > -1)
             {
@@ -199,7 +213,7 @@ namespace HelicopterMadness.Scenes
 
                 char key;
 
-                if (KeyboardEntry.KeyboardInput(keyboardState, oldState, out key) && inputIndex < MAX_NAME_CHARS)
+                if (KeyboardEntry.KeyboardInput(keyboardState, oldKeyboardState, out key) && inputIndex < MAX_NAME_CHARS)
                 {
                     newScoreEntry.Name = newScoreEntry.Name.Remove(inputIndex, 1).Insert(inputIndex, key.ToString());
 
@@ -207,7 +221,7 @@ namespace HelicopterMadness.Scenes
 
                     inputIndex = Math.Min(MAX_NAME_CHARS, ++inputIndex);
                 }
-                else if (keyboardState.NewKeyPress(oldState, Keys.Back))
+                else if (keyboardState.NewKeyPress(oldKeyboardState, Keys.Back))
                 {
                     inputIndex = Math.Max(0, --inputIndex);
 
@@ -220,9 +234,16 @@ namespace HelicopterMadness.Scenes
                     SetNewScore();
                 }
 
-                oldState = keyboardState;
+                oldKeyboardState = keyboardState;
             }
 
+            if (mouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed 
+                && state == HighScoreSceneStates.NewScore)
+            {
+                state = HighScoreSceneStates.Action;
+
+            }
+            oldMouseState = mouseState;
             base.Update(gameTime);
         }
 
@@ -300,6 +321,7 @@ namespace HelicopterMadness.Scenes
             scoreDisplays[newScoreIndex].Color = normalColor;
 
             newScoreIndex = -1; 
+            state = HighScoreSceneStates.NewScore;
 
             SetHighLowScores();
             UpdateScoreDisplays();

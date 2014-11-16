@@ -51,6 +51,7 @@ namespace HelicopterMadness.Scenes
         public ActionSceneStates State
         {
             get { return state; }
+            set { state = value; }
         }
 
         /// <summary>
@@ -65,6 +66,7 @@ namespace HelicopterMadness.Scenes
         public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
+
             Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated1");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
