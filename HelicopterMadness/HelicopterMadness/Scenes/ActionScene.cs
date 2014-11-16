@@ -3,6 +3,7 @@
  * 
  * Revision History:
  *      Drew Matheson, 2014.11.05: Created
+ *      Sean Coombes , 2014.11.15: Revision
  */
 
 using System;
@@ -30,7 +31,10 @@ namespace HelicopterMadness.Scenes
         private readonly Border bottomBorder;
         private readonly CollisionManager collisionManager; // TODO: Convert to local variable in ctor if not used outside by end of project
         private readonly TextDisplay scoreDisplay;
+        private readonly TextDisplay highScoreDisplay;
         private readonly TextDisplay midScreenMessage; // TODO: All things related to this should be looked at
+
+        private readonly SpriteFont highScoreFont;
 
         private readonly List<Obstacle> obstacles = new List<Obstacle>();
 
@@ -95,6 +99,12 @@ namespace HelicopterMadness.Scenes
             scoreDisplay = new TextDisplay(Game, spriteBatch,
                 Game.Content.Load<SpriteFont>("Fonts/Highlight"), Vector2.One, Color.Red);
 
+            //might want to change color
+            highScoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
+            highScoreDisplay = new TextDisplay(game, spriteBatch,
+               highScoreFont, Vector2.Zero, Color.Red);
+
+
             midScreenMessage = new TextDisplay(Game, spriteBatch,
                 Game.Content.Load<SpriteFont>("Fonts/Highlight"), SharedSettings.StageCenter, Color.WhiteSmoke)
             {
@@ -108,6 +118,8 @@ namespace HelicopterMadness.Scenes
             Components.Add(topBorder);
             Components.Add(bottomBorder);
             Components.Add(collisionManager);
+
+            Components.Add(highScoreDisplay);
         }
 
         /// <summary>
@@ -118,6 +130,9 @@ namespace HelicopterMadness.Scenes
         {
             MouseState mouseState = Mouse.GetState();
             KeyboardState keyboardState = Keyboard.GetState();
+
+            int highScore = HighScoreScene.highestScore;
+            Vector2 highScoreDim;
 
             if (State == ActionSceneStates.InPlay &&
                 keyboardState.NewKeyPress(oldKeyboardState, Keys.Space))
@@ -157,7 +172,19 @@ namespace HelicopterMadness.Scenes
             oldKeyboardState = keyboardState;
 
             scoreDisplay.Message = GetScore().ToString();
-            
+
+
+            if (GetScore() < highScore)
+            {
+                highScoreDisplay.Message = HighScoreScene.highestScore.ToString();               
+            }
+            else
+            {
+                highScoreDisplay.Message = GetScore().ToString(); 
+            }
+            highScoreDim = highScoreFont.MeasureString(highScoreDisplay.Message);
+            highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 0);
+
             base.Update(gameTime);
         }
 

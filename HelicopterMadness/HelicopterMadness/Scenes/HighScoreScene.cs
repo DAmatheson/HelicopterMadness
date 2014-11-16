@@ -3,6 +3,8 @@
  * 
  * Revision History:
  *      Drew Matheson, 2014.11.04: Created
+ *      Sean Coombes, 2014.11.13: Logic added
+ *      Sean Coombes, 2014.11.15: logic revision
  */
 
 using System;
@@ -28,6 +30,7 @@ namespace HelicopterMadness.Scenes
         private const int NUMBER_OF_SCORE_ENTRIES = 5;
         private const int TOP_DUMMY_SCORE = 100;
         private const string DUMMY_NAME = "ZZZ";
+        private const int MAX_NAME_CHARS = 3;
 
         private readonly Color highlightColor = Color.Red;
         private readonly Color normalColor = Color.Yellow;
@@ -39,7 +42,7 @@ namespace HelicopterMadness.Scenes
         private TextDisplay headerDisplay;
         private TextDisplay[] scoreDisplays;
 
-        private int highestScore;
+        public static int highestScore;
         private int lowestScore;
 
         private int inputIndex;
@@ -196,13 +199,13 @@ namespace HelicopterMadness.Scenes
 
                 char key;
 
-                if (KeyboardEntry.KeyboardInput(keyboardState, oldState, out key) && inputIndex < 3)
+                if (KeyboardEntry.KeyboardInput(keyboardState, oldState, out key) && inputIndex < MAX_NAME_CHARS)
                 {
                     newScoreEntry.Name = newScoreEntry.Name.Remove(inputIndex, 1).Insert(inputIndex, key.ToString());
 
                     scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
 
-                    inputIndex = Math.Min(3, ++inputIndex);
+                    inputIndex = Math.Min(MAX_NAME_CHARS, ++inputIndex);
                 }
                 else if (keyboardState.NewKeyPress(oldState, Keys.Back))
                 {
@@ -212,7 +215,7 @@ namespace HelicopterMadness.Scenes
 
                     scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
                 }
-                else if (keyboardState.IsKeyDown(Keys.Enter) && inputIndex == 3)
+                else if (keyboardState.IsKeyDown(Keys.Enter) && inputIndex == MAX_NAME_CHARS)
                 {
                     SetNewScore();
                 }
