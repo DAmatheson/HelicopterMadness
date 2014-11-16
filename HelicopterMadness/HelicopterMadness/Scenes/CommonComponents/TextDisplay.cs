@@ -40,7 +40,9 @@ namespace HelicopterMadness.Scenes.CommonComponents
 
             Font = font;
             Position = position;
-            this.Color = color;
+            Color = color;
+
+            Enabled = false; // TODO: Relook over this. Nothing happens in update currently.
 
             Message = string.Empty;
         }
@@ -59,8 +61,6 @@ namespace HelicopterMadness.Scenes.CommonComponents
         ///     Gets or Sets the TextDisplay's Message
         /// </summary>
         public string Message { get; set; }
-
-      
 
         /// <summary>
         ///     Draws the TextDisplay

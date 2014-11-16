@@ -38,16 +38,15 @@ namespace HelicopterMadness.Scenes
 
         private TextDisplay headerDisplay;
         private TextDisplay[] scoreDisplays;
-        private TextDisplay newHighScoreDisplay; // Never used(yea had plans for it not sure if i will use it)
+        private TextDisplay newHighScoreDisplay;
 
         private int highestScore;
         private int lowestScore;
         private int newHighScoreIndex = -1;
 
-        private Vector2 titleDimensions;
-        private string newName;
-        private int newScore;
+        private int inputIndex;
 
+        private Vector2 titleDimensions;
 
         private bool isNewScore;
         private KeyboardState oldState;
@@ -105,7 +104,7 @@ namespace HelicopterMadness.Scenes
             }
 
             //just for testing purposes
-            newHighScoreDisplay = new TextDisplay(game,spriteBatch,scoreFont,Vector2.Zero,Color.Black);
+            newHighScoreDisplay = new TextDisplay(game, spriteBatch, scoreFont, Vector2.Zero, Color.Black);
             Components.Add(newHighScoreDisplay);
         }
 
@@ -134,10 +133,6 @@ namespace HelicopterMadness.Scenes
                             //skips line if the score string array doesnt have both parts and if the score is not an int
                             if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
                             {
-                                //edits the name so it fits the decided on patter of 3 chars in upcase with no spaces
-                                scoreString[0] =
-                                    scoreString[0].Trim().PadRight(3).Substring(0, 3).Replace(' ', 'A').ToUpper();
-
                                 highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
                                 count++;
                             }
@@ -197,45 +192,38 @@ namespace HelicopterMadness.Scenes
             if (isNewScore)
             {
                 keyboardState = Keyboard.GetState();
+
                 char key;
-                newScoreEntry = new HighScoreEntry(newName, newScore);
+
                 UpdateScoreDisplays();
-                if (KeyboardEntry.KeyboardInput(keyboardState, oldState, out key)&& newName.Length < 3)
+
+                if (KeyboardEntry.KeyboardInput(keyboardState, oldState, out key) && inputIndex < 3) //newScoreEntry.Name.Length < 3)
                 {
                     //todo: this needs to replace whitespace
-                    newName += key.ToString();
-                    newScoreEntry.Name = newName;   
+                    //newScoreEntry.Name += key.ToString();
+
+                    newScoreEntry.Name = newScoreEntry.Name.Remove(inputIndex, 1).Insert(inputIndex, key.ToString());
+
+                    inputIndex = Math.Min(3, ++inputIndex);
                 }
-                else if (oldState.IsKeyDown(Keys.Back) && keyboardState.IsKeyUp(Keys.Back) && newScoreEntry.Name.Length > 0)
+                else if (keyboardState.NewKeyPress(oldState, Keys.Back))// && newScoreEntry.Name.Length > 0)
                 {
                     //todo: this needs to remove the previous letter and add a white
-                    newName = newName.Remove((newName.Length - 1), 1);
-                    newScoreEntry.Name = newName;
+                    inputIndex = Math.Max(0, --inputIndex);
+
+                    newScoreEntry.RemoveCharFromName(inputIndex);
                 }
-                else if (keyboardState.IsKeyDown(Keys.Enter) && newName.Length == 3)
+                else if (keyboardState.IsKeyDown(Keys.Enter) && inputIndex == 3) //newScoreEntry.Name.Length == 3)
                 {
                     isNewScore = false;
                     
                     SetNewScore();             
                 }
+
                 oldState = keyboardState;
             }
             
             base.Update(gameTime);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public override void Hide()
-        {
-            //todo: do we need this?
-            if (newHighScoreIndex >= 0 && newHighScoreIndex < scoreDisplays.Length)
-            {
-                scoreDisplays[newHighScoreIndex].Color = normalColor;
-            }
-
-            base.Hide();
         }
 
         /// <summary>
@@ -288,14 +276,8 @@ namespace HelicopterMadness.Scenes
             }
         }
 
-        public override void Draw(GameTime gameTime)
-        {
-            // TODO: Remove this or implement custom drawing
-
-            base.Draw(gameTime);
-        }
         /// <summary>
-        /// finds what score has been beat and flips a bool to allow update to be run
+        /// Finds what score has been beat and flips a bool to allow update to be run
         /// </summary>
         /// <param name="score">the score the play got on the action scene</param>
         public void AddScoreEntry(int score)
@@ -303,31 +285,35 @@ namespace HelicopterMadness.Scenes
             //compare it against all highscores and place it where in the list it belongs
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
-                
                 if (score > highScoreEntries[i].Score)
                 {
+                    inputIndex = 0;
+
+                    newScoreEntry = new HighScoreEntry(score);
+
                     newHighScoreIndex = i;
-                    newScore = score;
-                    newName = "   ";
-                    isNewScore = true;   
+                    isNewScore = true;
+
                     break;
                 }
             }
         }
+
         /// <summary>
-        /// sets the high and lows scores
+        /// Sets the high and lows scores
         /// </summary>
         private void SetHighLowScores()
         {
             highestScore = highScoreEntries[0].Score;
             lowestScore = highScoreEntries.Last().Score;
         }
+
         /// <summary>
-        /// adds new highscore entry to list, preps display and sets up save
+        /// Adds new highscore entry to list, preps display and sets up save
         /// </summary>
         private void SetNewScore()
         {
-            highScoreEntries.Insert(newHighScoreIndex, new HighScoreEntry(newName, newScore));
+            highScoreEntries.Insert(newHighScoreIndex, newScoreEntry);
             highScoreEntries.RemoveAt(highScoreEntries.Count - 1);
             newHighScoreDisplay.Visible = false;
 
@@ -336,6 +322,7 @@ namespace HelicopterMadness.Scenes
             UpdateScoreDisplays();
             SaveScores();
         }
+
         /// <summary>
         /// Saves the highscore list to a file
         /// </summary>
@@ -348,7 +335,7 @@ namespace HelicopterMadness.Scenes
             {
                 foreach (HighScoreEntry itemEntry in highScoreEntries)
                 {
-                    scoresWriter.WriteLine(itemEntry.Name + " " + itemEntry.Score);
+                    scoresWriter.WriteLine(itemEntry.ToSaveString());
                 }
             }
         }
