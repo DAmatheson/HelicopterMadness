@@ -39,13 +39,14 @@ namespace HelicopterMadness.Scenes
 
         private TextDisplay headerDisplay;
         private TextDisplay[] scoreDisplays;
+        private TextDisplay informUser;
 
         private static int highestScore;
         private int lowestScore;
 
         private int newScoreIndex;
         private int inputIndex;
-
+        private string scorepath;
         private Vector2 titleDimensions;
 
         private KeyboardState oldKeyboardState;
@@ -87,6 +88,9 @@ namespace HelicopterMadness.Scenes
 
             newScoreIndex = -1;
 
+            scorepath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), SharedSettings.HIGHSCORE_FILE_NAME);
+
             SetUpHighScoreEntries();
 
             //TEMP Testing text alignments and what not
@@ -112,9 +116,9 @@ namespace HelicopterMadness.Scenes
 
             Components.Add(headerDisplay);
 
-            foreach (TextDisplay t in scoreDisplays)
+            foreach (TextDisplay scores in scoreDisplays)
             {
-                Components.Add(t);
+                Components.Add(scores);
             }
         }
 
@@ -215,10 +219,8 @@ namespace HelicopterMadness.Scenes
         ///     Loads up highscore file if one exists
         /// </summary>
         private void SetUpHighScoreEntries()
-        {
-            string scorepath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), SharedSettings.HIGHSCORE_FILE_NAME);
-
+        {           
+            //this needs to be removed before handing in
             File.Delete(scorepath);
 
             if (File.Exists(scorepath))
@@ -254,20 +256,18 @@ namespace HelicopterMadness.Scenes
                     {
                         CreateDummyScoresList();
                     }
-
-                    SetHighLowScores();
                 }
                 catch (Exception)
                 {
-                    //todo:handleexception
-                    throw;
+                    File.Delete(scorepath);
+                    CreateDummyScoresList();
                 }
             }
             else
             {
                 CreateDummyScoresList();
-                SetHighLowScores();
             }
+            SetHighLowScores();
         }
 
         /// <summary>
@@ -346,16 +346,17 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         private void SaveScores()
         {
-            string scorepath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), SharedSettings.HIGHSCORE_FILE_NAME);
-
-            using (StreamWriter scoresWriter = new StreamWriter(scorepath, false))
+            try
             {
-                foreach (HighScoreEntry itemEntry in highScoreEntries)
+                using (StreamWriter scoresWriter = new StreamWriter(scorepath, false))
                 {
-                    scoresWriter.WriteLine(itemEntry.ToSaveString());
+                    foreach (HighScoreEntry itemEntry in highScoreEntries)
+                    {
+                        scoresWriter.WriteLine(itemEntry.ToSaveString());
+                    }
                 }
             }
+            catch {}
         }
     }
 }

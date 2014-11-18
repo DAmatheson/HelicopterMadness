@@ -16,12 +16,11 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         /// </summary>
         /// <param name="keyboardState">current state of the keyboard</param>
         /// <param name="oldState">the previous sate of the keyboard</param>
-        /// <param name="key">the character that was presed</param>
+        /// <param name="key">the character that was pressed</param>
         /// <returns>true if keys pressed returns a value</returns>
         public static bool KeyboardInput(KeyboardState keyboardState, KeyboardState oldState, out char key)
         {
             Keys[] keys = keyboardState.GetPressedKeys();
-
 
             if (keys.Length > 0 && !oldState.IsKeyDown(keys[0]))
             {
