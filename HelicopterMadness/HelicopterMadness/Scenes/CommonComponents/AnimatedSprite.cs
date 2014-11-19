@@ -63,11 +63,11 @@ namespace HelicopterMadness.Scenes.CommonComponents
         {
             if (!Enabled)
             {
-                spriteBatch.Draw(texture, position, frames[0], Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(texture, position, frames[0], Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.99f);
             }
             else if (frameIndex >= 0 && frameIndex < frames.Count)
             {
-                spriteBatch.Draw(texture, position, frames[frameIndex], Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                spriteBatch.Draw(texture, position, frames[frameIndex], Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.99f);
             }
         }
 

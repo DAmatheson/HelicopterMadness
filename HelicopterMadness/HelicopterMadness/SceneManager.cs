@@ -8,6 +8,7 @@
 using System.Collections.Generic;
 using HelicopterMadness.Scenes;
 using HelicopterMadness.Scenes.ActionComponents;
+using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.HighScoreComponents;
 using HelicopterMadness.Scenes.BaseScene;
 using Microsoft.Xna.Framework;
@@ -26,6 +27,7 @@ namespace HelicopterMadness
         private readonly MenuScene menuScene;
         private readonly ActionScene actionScene;
         private readonly HighScoreScene highScoreScene;
+        private readonly Background gameBackground;
 
         private GameScene enabledScene;
 
@@ -59,6 +61,8 @@ namespace HelicopterMadness
                 { MenuItems.HighScore, highScoreScene },
                 { MenuItems.Credit, creditScene }
             };
+
+            gameBackground = new Background(game, spriteBatch, Game.Content.Load<Texture2D>("Images/Background"));
 
             HideAllScenes();
 
@@ -110,6 +114,11 @@ namespace HelicopterMadness
                 actionScene.Show();
             }
 
+            if (enabledScene == actionScene && actionScene.State == ActionSceneStates.InPlay)
+            {
+                gameBackground.Update(gameTime);
+            }
+
             enabledScene.Update(gameTime);
         }
 
@@ -119,6 +128,7 @@ namespace HelicopterMadness
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
+            gameBackground.Draw(gameTime);
             enabledScene.Draw(gameTime);
         }
 

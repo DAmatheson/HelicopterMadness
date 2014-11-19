@@ -70,7 +70,7 @@ namespace HelicopterMadness.Scenes
         public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated1");
+            Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
             SpriteFont highlightFont = Game.Content.Load<SpriteFont>("Fonts/Highlight");

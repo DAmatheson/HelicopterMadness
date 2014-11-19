@@ -48,8 +48,10 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
-            position.X -= SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            secondPosition.X -= SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float movement = SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            position.X -= movement;
+            secondPosition.X -= movement;
 
             if (position.X + texture.Width < 0) // First border is offscreen
             {

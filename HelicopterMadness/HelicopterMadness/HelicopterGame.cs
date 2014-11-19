@@ -78,6 +78,7 @@ namespace HelicopterMadness
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(new Color(125, 74, 40));
+            //GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend); // SpriteSortMode.BackToFront, BlendState.AlphaBlend
 
