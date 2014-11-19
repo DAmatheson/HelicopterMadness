@@ -86,8 +86,6 @@ namespace HelicopterMadness.Scenes
         {
             highScoreEntries = new List<HighScoreEntry>();
 
-            newScoreIndex = -1;
-
             scorepath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), SharedSettings.HIGHSCORE_FILE_NAME);
 
@@ -146,15 +144,15 @@ namespace HelicopterMadness.Scenes
         {
             MouseState mouseState = Mouse.GetState();
 
-            if (newScoreIndex > -1)
+            if (state == HighScoreSceneStates.NewScoreEntry)
             {
                 KeyboardState keyboardState = Keyboard.GetState();
 
-                char key;
+                char? key = KeyboardInput.GetAlphaCharacterInput(keyboardState, oldKeyboardState);
 
-                if (KeyboardEntry.KeyboardInput(keyboardState, oldKeyboardState, out key) && inputIndex < MAX_NAME_CHARS)
+                if (key != null && inputIndex < MAX_NAME_CHARS)
                 {
-                    newScoreEntry.ReplaceChar(inputIndex, key);
+                    newScoreEntry.ReplaceChar(inputIndex, (char)key);
 
                     scoreDisplays[newScoreIndex].Message = string.Format("{0}. {1}", newScoreIndex + 1, newScoreEntry);
 
@@ -182,6 +180,7 @@ namespace HelicopterMadness.Scenes
             }
 
             oldMouseState = mouseState;
+
             base.Update(gameTime);
         }
 
@@ -332,8 +331,8 @@ namespace HelicopterMadness.Scenes
         {
             scoreDisplays[newScoreIndex].Color = SharedSettings.NormalTextColor;
 
-            newScoreIndex = -1; 
             state = HighScoreSceneStates.NewScoreAdded;
+            newScoreIndex = -1; 
 
             // Ensure the name is in a valid format by running it through the Set method of Name
             newScoreEntry.Name = newScoreEntry.Name;
