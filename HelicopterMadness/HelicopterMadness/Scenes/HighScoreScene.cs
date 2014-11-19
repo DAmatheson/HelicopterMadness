@@ -20,9 +20,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelicopterMadness.Scenes
 {
-    // TODO: Comments
     /// <summary>
-    /// 
+    ///     High score scene for the game
     /// </summary>
     public class HighScoreScene : GameScene
     {
@@ -31,11 +30,12 @@ namespace HelicopterMadness.Scenes
         private const string DUMMY_NAME = "ZZZ";
         private const int MAX_NAME_CHARS = 3;
 
+        private readonly string scorepath;
+        private readonly List<HighScoreEntry> highScoreEntries;
+
         private HighScoreSceneStates state = HighScoreSceneStates.View;
 
-        private readonly List<HighScoreEntry> highScoreEntries;
         private HighScoreEntry newScoreEntry;
-        private readonly SpriteFont scoreFont;
 
         private TextDisplay headerDisplay;
         private TextDisplay[] scoreDisplays;
@@ -46,7 +46,7 @@ namespace HelicopterMadness.Scenes
 
         private int newScoreIndex;
         private int inputIndex;
-        private string scorepath;
+
         private Vector2 titleDimensions;
 
         private KeyboardState oldKeyboardState;
@@ -104,7 +104,7 @@ namespace HelicopterMadness.Scenes
             };
 
             //display the actual scores
-            scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
+            SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
@@ -186,12 +186,12 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        /// Finds what score has been beat and flips a bool to allow update to be run
+        ///     Finds what score has been beat and flips a bool to allow update to be run
         /// </summary>
         /// <param name="score">the score the play got on the action scene</param>
         public void AddScoreEntry(int score)
         {
-            //compare it against all highscores and place it where in the list it belongs
+            // Compare it against all highscores and place it where in the list it belongs
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
                 if (score > highScoreEntries[i].Score)
@@ -216,72 +216,74 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        ///     Loads up highscore file if one exists
+        ///     Loads up highscore file if one exists, otherwise creates dummy data
         /// </summary>
         private void SetUpHighScoreEntries()
         {           
-            //this needs to be removed before handing in
+            // TODO: this needs to be removed before handing in
             File.Delete(scorepath);
 
             if (File.Exists(scorepath))
             {
                 try
                 {
-                    //open file and load into list 
+                    // Open file and load into list 
                     using (StreamReader scores = File.OpenText(scorepath))
                     {
-                        int count = 0;
-
-                        while (!scores.EndOfStream && count < NUMBER_OF_SCORE_ENTRIES)
+                        while (!scores.EndOfStream && highScoreEntries.Count < NUMBER_OF_SCORE_ENTRIES)
                         {
                             string[] scoreString = scores.ReadLine().Split(' ');
                             int score;
 
-                            //skips line if the score string array doesnt have both parts and if the score is not an int
+                            // Skips if the score string array doesn't have both parts and if the score is not an int
                             if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
                             {
                                 highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
-                                count++;
                             }
                         }
+
+                        // -1 * is there so the sort order is descending instead of ascending
+                        highScoreEntries.Sort(
+                            (entry1, entry2) => -1 * entry1.Score.CompareTo(entry2.Score));
                     }
 
-                    //add dummy scores to the list if any scores from the above while loop were invalid
-                    while (highScoreEntries.Count < 5 && highScoreEntries.Count > 0)
+                    if (highScoreEntries.Count < NUMBER_OF_SCORE_ENTRIES)
                     {
-                        highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, 0));
-                    }
-
-                    if (highScoreEntries.Count == 0)
-                    {
-                        CreateDummyScoresList();
+                        FillScoresList();
                     }
                 }
                 catch (Exception)
                 {
                     File.Delete(scorepath);
-                    CreateDummyScoresList();
+                    FillScoresList();
                 }
             }
             else
             {
-                CreateDummyScoresList();
+                FillScoresList();
             }
+
             SetHighLowScores();
         }
 
         /// <summary>
-        ///     Sets up a dummy score list
+        ///     Fill up the score list with dummy data if it isn't full
         /// </summary>
-        private void CreateDummyScoresList()
+        private void FillScoresList()
         {
-            //create list of dummy data
-            for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
+            HighScoreEntry lowestEntry = highScoreEntries.LastOrDefault();
+
+            // TODO: Magic number
+            int score = lowestEntry != null 
+                ? Math.Max(lowestEntry.Score - 10, 0)
+                : TOP_DUMMY_SCORE;
+
+            while (highScoreEntries.Count < NUMBER_OF_SCORE_ENTRIES)
             {
-                int score = TOP_DUMMY_SCORE;
-                //todo:magicnumber
-                score = score - i * 10;
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
+
+                // TODO: Magic number
+                score = Math.Max(score - 10, 0);
             }
         }
 
@@ -315,7 +317,7 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        /// Sets the high and lows scores
+        ///     Sets the high and low scores
         /// </summary>
         private void SetHighLowScores()
         {
@@ -324,7 +326,7 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        /// Adds new highscore entry to list, preps display and sets up save
+        ///     Adds new highscore entry to list, preps display, and saves
         /// </summary>
         private void SetNewScore()
         {
@@ -342,7 +344,7 @@ namespace HelicopterMadness.Scenes
         }
 
         /// <summary>
-        /// Saves the highscore list to a file
+        ///     Saves the highscore list to a file
         /// </summary>
         private void SaveScores()
         {

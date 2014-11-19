@@ -160,7 +160,10 @@ namespace HelicopterMadness.Scenes
             }
             else if (State == ActionSceneStates.InPlay)
             {
-                durationScore += gameTime.ElapsedGameTime.Milliseconds * (int)SharedSettings.StageSpeedChange;
+                if (durationScore < int.MaxValue)
+                {
+                    UpdateScore(gameTime.ElapsedGameTime.Milliseconds);
+                }
 
                 SharedSettings.StageSpeed.X = Math.Min(SharedSettings.StageSpeed.X * 1.0005f,
                     SharedSettings.DEFAULT_STAGE_SPEED_X * 2f);
@@ -272,6 +275,26 @@ namespace HelicopterMadness.Scenes
             }
 
             UpdateObstaclePositions(true);
+        }
+
+        /// <summary>
+        ///     Updates the durationScore, capping it at int.MaxValue
+        /// </summary>
+        /// <param name="msSinceLastUpdate">Number of milliseconds since the last scene update</param>
+        private void UpdateScore(int msSinceLastUpdate)
+        {
+            int scoreIncrease = msSinceLastUpdate *
+                (int)SharedSettings.StageSpeedChange; 
+
+            // If the max value minus the increase is more than the duration score, it would overflow
+            if (int.MaxValue - scoreIncrease < durationScore)
+            {
+                durationScore = int.MaxValue;
+            }
+            else
+            {
+                durationScore += scoreIncrease;
+            }
         }
 
         /// <summary>
