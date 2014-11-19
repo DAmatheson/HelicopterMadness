@@ -11,7 +11,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace HelicopterMadness.Scenes.ActionComponents
 {
-    // TODO: Comments
+    /// <summary>
+    ///     An class for displaying an animated explosion
+    /// </summary>
     public class Explosion : AnimatedSprite
     {
         private readonly Vector2 origin;
@@ -19,9 +21,17 @@ namespace HelicopterMadness.Scenes.ActionComponents
 
         private int delayCounter;
 
+        /// <summary>
+        ///     Initializes a new instance of Explosion with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the explosion belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the explosion will draw itself with</param>
+        /// <param name="texture">The sprite sheet for the explosion</param>
+        /// <param name="frameDimension">The dimensions of a single frame from the sprite sheet</param>
+        /// <param name="delay">The amount of time between frame changes</param>
         public Explosion(Game game, SpriteBatch spriteBatch, Texture2D texture,
-            Vector2 position, Vector2 frameDimension, int delay)
-            : base(game, spriteBatch, texture, position, frameDimension)
+            Vector2 frameDimension, int delay)
+            : base(game, spriteBatch, texture, Vector2.Zero, frameDimension)
         {
             this.delay = delay;
 
@@ -30,13 +40,16 @@ namespace HelicopterMadness.Scenes.ActionComponents
             StopAnimation();
         }
 
+        /// <summary>
+        ///     Sets the position of the explosion
+        /// </summary>
         public Vector2 Position
         {
             set { position = value; }
         }
 
         /// <summary>
-        /// Allows the game component to update itself.
+        ///     Keeps the explosion running for a single loop of the sprite sheet
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
@@ -56,6 +69,10 @@ namespace HelicopterMadness.Scenes.ActionComponents
             }
         }
 
+        /// <summary>
+        ///     Draws the animated explosion
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
             if (frameIndex >= 0 && frameIndex < frames.Count)
@@ -65,6 +82,9 @@ namespace HelicopterMadness.Scenes.ActionComponents
             }
         }
 
+        /// <summary>
+        ///     Hides, disables, and reset the explosion
+        /// </summary>
         public void StopAnimation()
         {
             Enabled = false;
@@ -73,6 +93,10 @@ namespace HelicopterMadness.Scenes.ActionComponents
             frameIndex = -1;
         }
 
+        /// <summary>
+        ///     Makes the explosion enabled and visible.
+        ///     Set the position of the explosion before calling this
+        /// </summary>
         public void StartAnimation()
         {
             Enabled = true;

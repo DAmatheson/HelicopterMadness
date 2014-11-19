@@ -31,7 +31,6 @@ namespace HelicopterMadness.Scenes
         private readonly Helicopter helicopter;
         private readonly Border topBorder;
         private readonly Border bottomBorder;
-        private readonly CollisionManager collisionManager; // TODO: Convert to local variable in ctor if not used outside by end of project
 
         private readonly TextDisplay scoreDisplay;
         private readonly TextDisplay highScoreDisplay;
@@ -87,9 +86,10 @@ namespace HelicopterMadness.Scenes
             Vector2 bottomBorderPosition = new Vector2(0, SharedSettings.Stage.Y - borderTexture.Height);
 
             Explosion explosion = new Explosion(game, spriteBatch,
-                Game.Content.Load<Texture2D>("Images/explosion"), Vector2.Zero, new Vector2(64, 64), 2);
+                Game.Content.Load<Texture2D>("Images/explosion"), new Vector2(64, 64), 2);
 
-            helicopter = new Helicopter(game, spriteBatch, heliTexture, heliPosition, heliFrameDimensions, explosion)
+            helicopter = new Helicopter(game, spriteBatch, heliTexture, heliPosition,
+                heliFrameDimensions, explosion)
             {
                 Enabled = false
             };
@@ -99,7 +99,8 @@ namespace HelicopterMadness.Scenes
 
             GenerateObstacles(obstacleTexture);
 
-            collisionManager = new CollisionManager(game, new [] { topBorder, bottomBorder }, helicopter);
+            CollisionManager collisionManager = new CollisionManager(game,
+                new [] { topBorder, bottomBorder }, helicopter);
 
             collisionManager.AddCollidableRange(obstacles);
 
@@ -191,9 +192,9 @@ namespace HelicopterMadness.Scenes
         {
             // Set oldMouseState to having left mouse button pressed so that if it is held down upon 
             // entering the scene it needs to be released and repressed to start the game
-            oldMouseState = new MouseState(oldMouseState.X, oldMouseState.Y, oldMouseState.ScrollWheelValue,
-                ButtonState.Pressed, oldMouseState.RightButton, oldMouseState.MiddleButton,
-                oldMouseState.XButton1, oldMouseState.XButton2);
+            oldMouseState = new MouseState(oldMouseState.X, oldMouseState.Y,
+                oldMouseState.ScrollWheelValue, ButtonState.Pressed, oldMouseState.RightButton,
+                oldMouseState.MiddleButton, oldMouseState.XButton1, oldMouseState.XButton2);
 
             if (State == ActionSceneStates.GameOver)
             {
@@ -366,7 +367,7 @@ namespace HelicopterMadness.Scenes
 
             foreach (IGameComponent component in Components)
             {
-                if (component.GetType() == typeof(Explosion)) // TODO: Remove when explosion animation is integrated into Helicopter
+                if (component.GetType() == typeof(Explosion))
                 {
                     continue;
                 }
@@ -443,7 +444,7 @@ namespace HelicopterMadness.Scenes
             {
                 GameComponent gameComponent = component as GameComponent;
 
-                if (gameComponent != null && gameComponent.GetType() != typeof(Explosion)) // TODO: Remove Explosion bit when explosion animation is added to Helicopter
+                if (gameComponent != null && gameComponent.GetType() != typeof(Explosion))
                 {
                     gameComponent.Enabled = false;
                 }

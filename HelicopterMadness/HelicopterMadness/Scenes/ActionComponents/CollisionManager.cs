@@ -50,15 +50,6 @@ namespace HelicopterMadness.Scenes.ActionComponents
         }
 
         /// <summary>
-        ///     Adds an ICollidable to the list of collision managed objects
-        /// </summary>
-        /// <param name="item">The ICollidable to add to the CollisionManager</param>
-        public void AddCollidable(ICollidable item) // TODO: Remove if not used by end of project
-        {
-            collidingComponents.Add(item);
-        }
-
-        /// <summary>
         ///     Adds an IEnumerable of ICollidables to the list of collision managed objects
         /// </summary>
         /// <param name="items">The IEnumerable of ICollidables to add to the CollisionManager</param>

@@ -272,7 +272,7 @@ namespace HelicopterMadness.Scenes
         {
             HighScoreEntry lowestEntry = highScoreEntries.LastOrDefault();
 
-            // TODO: Magic number
+            // TODO: Magic number if we care
             int score = lowestEntry != null 
                 ? Math.Max(lowestEntry.Score - 10, 0)
                 : TOP_DUMMY_SCORE;
@@ -281,7 +281,7 @@ namespace HelicopterMadness.Scenes
             {
                 highScoreEntries.Add(new HighScoreEntry(DUMMY_NAME, score));
 
-                // TODO: Magic number
+                // TODO: Magic number if we care
                 score = Math.Max(score - 10, 0);
             }
         }
@@ -357,7 +357,10 @@ namespace HelicopterMadness.Scenes
                     }
                 }
             }
-            catch {}
+            catch (Exception)
+            {
+                // TODO: Decide whether we display a message on screen or not
+            }
         }
     }
 }

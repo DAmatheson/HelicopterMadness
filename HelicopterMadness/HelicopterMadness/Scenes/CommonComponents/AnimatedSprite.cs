@@ -32,9 +32,8 @@ namespace HelicopterMadness.Scenes.CommonComponents
         /// <param name="texture">The texture for the AnimatedSprite</param>
         /// <param name="position">The initial position of the AnimatedSprite</param>
         /// <param name="frameDimensions">The length and width of a single frame from the texture</param>
-        protected AnimatedSprite(
-            Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position,
-            Vector2 frameDimensions)
+        protected AnimatedSprite(Game game, SpriteBatch spriteBatch, Texture2D texture,
+            Vector2 position, Vector2 frameDimensions)
             : base(game, spriteBatch, texture, position)
         {
             this.frameDimensions = frameDimensions;
