@@ -10,6 +10,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using HelicopterMadness.Scenes.BaseScene;
 using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.HighScoreComponents;
@@ -29,6 +30,11 @@ namespace HelicopterMadness.Scenes
         private const int TOP_DUMMY_SCORE = 100;
         private const string DUMMY_NAME = "ZZZ";
         private const int MAX_NAME_CHARS = 3;
+        private const int BLINKRATE = 50;
+        private const string CONTINUE = "Click the left mouse button to play another game";
+        private const string WINNER_MESSAGE =
+            "Congratulation you have gotten a new highscore enter a 3 character name and presses enter";
+
 
         private readonly string scorepath;
         private readonly List<HighScoreEntry> highScoreEntries;
@@ -40,6 +46,7 @@ namespace HelicopterMadness.Scenes
         private TextDisplay headerDisplay;
         private TextDisplay[] scoreDisplays;
         private TextDisplay informUser;
+        private FlashingTextDisplay winner;
 
         private static int highestScore;
         private int lowestScore;
@@ -48,6 +55,7 @@ namespace HelicopterMadness.Scenes
         private int inputIndex;
 
         private Vector2 titleDimensions;
+        private SpriteFont winnerFont;
 
         private KeyboardState oldKeyboardState;
         private MouseState oldMouseState;
@@ -101,6 +109,11 @@ namespace HelicopterMadness.Scenes
                 Message = "HIGHSCORES"
             };
 
+            //displays blinking string  alerting the player they got a new highscore 
+            winnerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
+            winner = new FlashingTextDisplay(game, spriteBatch, headerFont, new Vector2(SharedSettings.Stage.X/2, 0), Color.RoyalBlue, BLINKRATE);
+            Components.Add(winner);
+
             //display the actual scores
             SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
@@ -132,6 +145,7 @@ namespace HelicopterMadness.Scenes
             }
 
             state = HighScoreSceneStates.View;
+            winner.Stop();
 
             base.Hide();
         }
@@ -196,6 +210,10 @@ namespace HelicopterMadness.Scenes
                 if (score > highScoreEntries[i].Score)
                 {
                     state = HighScoreSceneStates.NewScoreEntry;
+
+                    winner.Message = WINNER_MESSAGE;
+                    winner.Position = stringPosition();
+                    winner.Start();
 
                     inputIndex = 0;
                     newScoreIndex = i;
@@ -332,6 +350,9 @@ namespace HelicopterMadness.Scenes
             scoreDisplays[newScoreIndex].Color = SharedSettings.NormalTextColor;
 
             state = HighScoreSceneStates.NewScoreAdded;
+
+            winner.Message = CONTINUE;
+            winner.Position = stringPosition();
             newScoreIndex = -1; 
 
             // Ensure the name is in a valid format by running it through the Set method of Name
@@ -361,6 +382,20 @@ namespace HelicopterMadness.Scenes
             {
                 // TODO: Decide whether we display a message on screen or not
             }
+        }
+
+        /// <summary>
+        /// sets the position for the new highscore message
+        /// </summary>
+        /// <returns>the position for the string</returns>
+        private Vector2 stringPosition()
+        {
+            Vector2 winDim = winnerFont.MeasureString(winner.Message);
+
+            //todo: another magic number if we care
+            Vector2 winPos = new Vector2(SharedSettings.Stage.X/2 - winDim.X/2, SharedSettings.Stage.Y - SharedSettings.Stage.Y/4);
+
+            return winPos;
         }
     }
 }
