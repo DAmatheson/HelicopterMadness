@@ -41,6 +41,11 @@ namespace HelicopterMadness
         public static readonly Color NormalTextColor = Color.Yellow;
 
         /// <summary>
+        ///     The Color for normal text
+        /// </summary>
+        public static readonly Color WinnerTextColor = Color.Azure;
+
+        /// <summary>
         ///     Gets the speed change from the starting speed to the current speed
         /// </summary>
         public static float StageSpeedChange

@@ -33,7 +33,7 @@ namespace HelicopterMadness.Scenes
         private const int BLINKRATE = 50;
         private const string CONTINUE = "Click the left mouse button to play another game";
         private const string WINNER_MESSAGE =
-            "Congratulation you have gotten a new highscore enter a 3 character name and presses enter";
+            "Congratulations you have gotten a new highscore enter a 3 character name and press enter";
 
 
         private readonly string scorepath;
@@ -100,7 +100,7 @@ namespace HelicopterMadness.Scenes
             SetUpHighScoreEntries();
 
             //TEMP Testing text alignments and what not
-            SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
+            SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/HighScoreHeader");
             titleDimensions = headerFont.MeasureString("HIGHSCORES");
             Vector2 scorePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 0);
 
@@ -110,12 +110,12 @@ namespace HelicopterMadness.Scenes
             };
 
             //displays blinking string  alerting the player they got a new highscore 
-            winnerFont = game.Content.Load<SpriteFont>("Fonts/Regular");
-            winner = new FlashingTextDisplay(game, spriteBatch, headerFont, new Vector2(SharedSettings.Stage.X/2, 0), Color.RoyalBlue, BLINKRATE);
+            winnerFont = game.Content.Load<SpriteFont>("Fonts/HighScoreWinner");
+            winner = new FlashingTextDisplay(game, spriteBatch, winnerFont, SharedSettings.WinnerTextColor, BLINKRATE);
             Components.Add(winner);
 
             //display the actual scores
-            SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
+            SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/HighScoreRegular");
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
@@ -309,7 +309,7 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         private void UpdateScoreDisplays()
         {
-            float yCoord = titleDimensions.Y * 3;
+            float yCoord = titleDimensions.Y*2;
             float xCoord = 0;
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)

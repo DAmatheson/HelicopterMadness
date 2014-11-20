@@ -27,7 +27,7 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         protected bool toDraw;
 
         public FlashingTextDisplay(Game game, SpriteBatch spriteBatch, SpriteFont font, 
-            Vector2 position, Color color, int delay)
+             Color color, int delay)
             : base(game)
         {
             this.spriteBatch = spriteBatch;
