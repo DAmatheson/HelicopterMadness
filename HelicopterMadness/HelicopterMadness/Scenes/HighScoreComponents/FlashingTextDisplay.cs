@@ -32,7 +32,6 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         {
             this.spriteBatch = spriteBatch;
             this.font = font;
-            this.position = position;
             this.color = color;
             this.delay = delay;
 
