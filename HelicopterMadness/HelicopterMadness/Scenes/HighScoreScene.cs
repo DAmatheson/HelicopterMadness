@@ -112,8 +112,7 @@ namespace HelicopterMadness.Scenes
             //displays blinking string  alerting the player they got a new highscore 
             winnerFont = game.Content.Load<SpriteFont>("Fonts/HighScoreWinner");
             winner = new FlashingTextDisplay(game, spriteBatch, winnerFont, SharedSettings.WinnerTextColor, BLINKRATE);
-            Components.Add(winner);
-
+            
             //display the actual scores
             SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/HighScoreRegular");
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
@@ -125,6 +124,7 @@ namespace HelicopterMadness.Scenes
 
             UpdateScoreDisplays();
 
+            Components.Add(winner);
             Components.Add(headerDisplay);
 
             foreach (TextDisplay scores in scoreDisplays)

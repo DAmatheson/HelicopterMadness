@@ -1,102 +1,85 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
+/* FlashingTextDisplay.cs
+ * Purpose: Component for drawing flashing text on screen
+ * 
+ * Revision History:
+ *      Sean Coombes, 2014.11.20: Created
+ */
 
+using HelicopterMadness.Scenes.CommonComponents;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace HelicopterMadness.Scenes.HighScoreComponents
 {
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    ///     Displays flashing text on screen
     /// </summary>
-    public class FlashingTextDisplay : DrawableGameComponent
+    public class FlashingTextDisplay : TextDisplay
     {
-        protected SpriteBatch spriteBatch;
-        protected string message;
-        protected SpriteFont font;
-        protected Color color;
-        protected Vector2 position;
-        protected int delay;
-        protected int delayCounter;
-        protected bool toDraw;
+        private readonly int delay;
+        private int delayCounter;
+        private bool toDraw;
 
-        public FlashingTextDisplay(Game game, SpriteBatch spriteBatch, SpriteFont font, 
-             Color color, int delay)
-            : base(game)
+        /// <summary>
+        ///     Initializes a new instance of FlashingTextDisplay with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the FlashingTextDisplay belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch FlashingTextDisplay will draw itself with</param>
+        /// <param name="font">The font used for FlashingTextDisplay</param>
+        /// <param name="color">The color used for FlashingTextDisplay</param>
+        /// <param name="delay">The delay for switching between visible and hidden</param>
+        public FlashingTextDisplay(Game game, SpriteBatch spriteBatch, SpriteFont font,
+            Color color, int delay)
+            : base(game, spriteBatch, font, color)
         {
-            this.spriteBatch = spriteBatch;
-            this.font = font;
-            this.color = color;
             this.delay = delay;
 
             Stop();
         }
 
-        public string Message
+        /// <summary>
+        ///     Updates the FlashingTextDisplay to switch between visible and hidden
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
+        public override void Update(GameTime gameTime)
         {
-            get { return message; }
-            set { message = value; }
-        }
+            delayCounter++;
 
-        public Vector2 Position
-        {
-            get { return position; }
-            set { position = value; }
+            if (delayCounter > delay)
+            {
+                delayCounter = 0;
+                toDraw = !toDraw;
+            }
         }
 
         /// <summary>
-        /// Allows the game component to perform any initialization it needs to before starting
-        /// to run.  This is where it can query for any required services and load content.
+        ///     Draws the FlashingTextDisplay if it is currently cycled on
         /// </summary>
-        public override void Initialize()
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
+        public override void Draw(GameTime gameTime)
         {
-            // TODO: Add your initialization code here
-
-            base.Initialize();
+            if (toDraw)
+            {
+                spriteBatch.DrawString(Font, Message, Position, color);
+            }
         }
 
+        /// <summary>
+        ///     Enables and shows the FlashingTextDisplay
+        /// </summary>
         public void Start()
         {
             Enabled = true;
             Visible = true;
         }
 
+        /// <summary>
+        ///     Disables and hides the FlashingTextDisplay
+        /// </summary>
         public void Stop()
         {
             Enabled = false;
             Visible = false;
-        }
-
-        /// <summary>
-        /// Allows the game component to update itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        public override void Update(GameTime gameTime)
-        {
-            delayCounter++;
-            if (delayCounter > delay)
-            {
-                delayCounter = 0;
-                toDraw = !toDraw;
-            }
-
-            base.Update(gameTime);
-        }
-
-        public override void Draw(GameTime gameTime)
-        {
-            if (toDraw)
-            {
-                spriteBatch.DrawString(font, Message, position, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            }
-
-            base.Draw(gameTime);
         }
     }
 }

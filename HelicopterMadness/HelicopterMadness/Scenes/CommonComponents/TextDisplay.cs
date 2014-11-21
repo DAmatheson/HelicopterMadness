@@ -18,12 +18,6 @@ namespace HelicopterMadness.Scenes.CommonComponents
         protected readonly SpriteBatch spriteBatch;
         protected  Color color;
 
-        public Color Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
-
         /// <summary>
         ///     Initializes a new instace of TextDisplay with the provided parameters
         /// </summary>
@@ -62,6 +56,15 @@ namespace HelicopterMadness.Scenes.CommonComponents
         ///     Gets the TextDisplay's Font
         /// </summary>
         public SpriteFont Font { get; private set; }
+
+        /// <summary>
+        ///     Gets or Sets the Color for the text
+        /// </summary>
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
 
         /// <summary>
         ///     Gets or Sets the TextDisplay's Position
