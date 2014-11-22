@@ -102,6 +102,7 @@ namespace HelicopterMadness.Scenes
             SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/HighScoreRegular");
 
             invalidKeySound = Game.Content.Load<SoundEffect>("Sounds/InvalidKeyPress").CreateInstance();
+            invalidKeySound.Volume = 0.4f;
             
             titleDimensions = headerFont.MeasureString("HIGHSCORES");
             Vector2 scorePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 0);
