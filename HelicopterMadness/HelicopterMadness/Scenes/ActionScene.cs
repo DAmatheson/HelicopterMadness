@@ -111,10 +111,10 @@ namespace HelicopterMadness.Scenes
             collisionManager.AddCollidableRange(obstacles);
 
             scoreDisplay = new TextDisplay(Game, spriteBatch, highlightFont,
-                SharedSettings.HighlightTextColor);
+                SharedSettings.NormalTextColor);
 
             highScoreDisplay = new TextDisplay(game, spriteBatch, highlightFont, 
-                SharedSettings.HighlightTextColor)
+                Color.Gold)
             {
                 Message = HighScoreScene.HighestScore.ToString()
             };

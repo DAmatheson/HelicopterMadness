@@ -17,7 +17,6 @@ namespace HelicopterMadness.Scenes.MenuComponents
     {
         private readonly SpriteBatch spriteBatch;
         private readonly Color regularColor = Color.Black;
-        private readonly Color highlightColor = Color.Red;
         private readonly SpriteFont regularFont;
         private readonly SpriteFont highlightFont;
         private readonly IList<string> menuItems;
@@ -114,7 +113,8 @@ namespace HelicopterMadness.Scenes.MenuComponents
             {
                 if (selectedIndex == i)
                 {
-                    spriteBatch.DrawString(highlightFont, menuItems[i], tempPosition, highlightColor);
+                    spriteBatch.DrawString(highlightFont, menuItems[i], tempPosition,
+                        SharedSettings.HighlightTextColor);
 
                     tempPosition.Y += highlightFont.LineSpacing;
                 }

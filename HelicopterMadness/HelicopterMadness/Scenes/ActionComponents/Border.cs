@@ -17,7 +17,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// </summary>
     public class Border : ScreenLoopSprite, ICollidable
     {
-        private SoundEffect collisionSound;
+        private readonly SoundEffect collisionSound;
 
         /// <summary>
         ///     Initializes a new instance of Border with the provided parameters

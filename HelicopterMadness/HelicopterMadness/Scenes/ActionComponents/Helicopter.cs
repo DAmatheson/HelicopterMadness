@@ -97,6 +97,13 @@ namespace HelicopterMadness.Scenes.ActionComponents
             }
         }
 
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            soundEffect.Pause();
+
+            base.OnEnabledChanged(sender, args);
+        }
+
         /// <summary>
         ///     Gets the bounds of the Helicopter
         /// </summary>

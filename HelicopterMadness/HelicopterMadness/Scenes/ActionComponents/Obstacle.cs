@@ -81,7 +81,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="otherCollidable">The ICollidable the Obstacle collided with</param>
         public void OnCollision(ICollidable otherCollidable)
         {
-            collisionSound.Play();
+            collisionSound.Play(0.60f, 0f, 0f);
 
             Enabled = false;
         }

@@ -33,7 +33,7 @@ namespace HelicopterMadness
         /// <summary>
         ///     The Color for highlight text
         /// </summary>
-        public static readonly Color HighlightTextColor = Color.Red;
+        public static readonly Color HighlightTextColor = Color.DarkRed;
 
         /// <summary>
         ///     The Color for normal text
