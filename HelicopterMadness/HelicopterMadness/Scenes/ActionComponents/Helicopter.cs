@@ -8,6 +8,7 @@
 using System;
 using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -24,6 +25,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
 
         private readonly Explosion explosion;
 
+        private readonly SoundEffectInstance soundEffect;
+
         private Vector2 speed;
 
         public bool HasCrashed { get; private set; }
@@ -36,12 +39,16 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="texture">The texture for the Helicopter</param>
         /// <param name="position">The initial position of the Helicopter</param>
         /// <param name="frameDimensions">The length and width of a single frame from the texture</param>
+        /// <param name="sound">The looping sound effect for the helicopter</param>
         /// <param name="explosion">The Explosion the helicopter will enable when crashing</param>
         public Helicopter(Game game, SpriteBatch spriteBatch, Texture2D texture,
-            Vector2 position, Vector2 frameDimensions, Explosion explosion)
+            Vector2 position, Vector2 frameDimensions, SoundEffect sound, Explosion explosion)
             : base(game, spriteBatch, texture, position, frameDimensions)
         {
             speed = new Vector2(0, 0);
+
+            soundEffect = sound.CreateInstance();
+            soundEffect.IsLooped = true;
 
             this.explosion = explosion;
 
@@ -84,6 +91,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
 
                 position.Y += speed.Y;
 
+                soundEffect.Play();
+
                 base.Update(gameTime);
             }
         }
@@ -104,6 +113,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
         public void OnCollision(ICollidable otherCollidable)
         {
             HasCrashed = true;
+
+            soundEffect.Stop();
 
             Enabled = false;
 

@@ -27,7 +27,7 @@ namespace HelicopterMadness
         private readonly MenuScene menuScene;
         private readonly ActionScene actionScene;
         private readonly HighScoreScene highScoreScene;
-        private readonly Background gameBackground;
+        private readonly ScreenLoopSprite gameBackground;
 
         private GameScene enabledScene;
 
@@ -62,7 +62,7 @@ namespace HelicopterMadness
                 { MenuItems.Credit, creditScene }
             };
 
-            gameBackground = new Background(game, spriteBatch, Game.Content.Load<Texture2D>("Images/Background"));
+            gameBackground = new ScreenLoopSprite(game, spriteBatch, Game.Content.Load<Texture2D>("Images/Background"), 0.65f);
 
             HideAllScenes();
 

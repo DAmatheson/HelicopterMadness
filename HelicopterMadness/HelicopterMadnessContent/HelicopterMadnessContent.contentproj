@@ -86,7 +86,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sounds\" />
+    <Compile Include="Sounds\Helicopter.wav">
+      <Name>Helicopter</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\HeliAnimated.png">
@@ -121,6 +125,20 @@
       <Name>HighScoreWinner</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\BorderCollision.wav">
+      <Name>BorderCollision</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\ObstacleCollision.wav">
+      <Name>ObstacleCollision</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

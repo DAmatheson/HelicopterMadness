@@ -13,6 +13,7 @@ using HelicopterMadness.Scenes.ActionComponents;
 using HelicopterMadness.Scenes.BaseScene;
 using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -75,6 +76,10 @@ namespace HelicopterMadness.Scenes
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
             SpriteFont highlightFont = Game.Content.Load<SpriteFont>("Fonts/Highlight");
 
+            SoundEffect borderCollision = Game.Content.Load<SoundEffect>("Sounds/BorderCollision");
+            SoundEffect helicopterSound = Game.Content.Load<SoundEffect>("Sounds/Helicopter");
+            SoundEffect obstacleCollision = Game.Content.Load<SoundEffect>("Sounds/ObstacleCollision");
+
             Vector2 heliFrameDimensions = new Vector2(120, 61);
 
             minObstacleXSpacing = heliFrameDimensions.X * 1.15f + obstacleTexture.Width;
@@ -89,15 +94,16 @@ namespace HelicopterMadness.Scenes
                 Game.Content.Load<Texture2D>("Images/explosion"), new Vector2(64, 64), 2);
 
             helicopter = new Helicopter(game, spriteBatch, heliTexture, heliPosition,
-                heliFrameDimensions, explosion)
+                heliFrameDimensions, helicopterSound, explosion)
             {
                 Enabled = false
             };
 
-            topBorder = new Border(game, spriteBatch, borderTexture, Vector2.Zero);
-            bottomBorder = new Border(game, spriteBatch, borderTexture, bottomBorderPosition, true);
+            topBorder = new Border(game, spriteBatch, borderTexture, Vector2.Zero, borderCollision);
+            bottomBorder = new Border(game, spriteBatch, borderTexture, bottomBorderPosition,
+                borderCollision, 1f, true);
 
-            GenerateObstacles(obstacleTexture);
+            GenerateObstacles(obstacleTexture, obstacleCollision);
 
             CollisionManager collisionManager = new CollisionManager(game,
                 new [] { topBorder, bottomBorder }, helicopter);
@@ -222,7 +228,7 @@ namespace HelicopterMadness.Scenes
         ///     Creates and positions the obstacles required by the ActionScene
         /// </summary>
         /// <param name="obstacleTexture">The Texture2D for the obstacles</param>
-        private void GenerateObstacles(Texture2D obstacleTexture)
+        private void GenerateObstacles(Texture2D obstacleTexture, SoundEffect collisionSound)
         {
             Vector2 obstaclePosition = Vector2.Zero;
 
@@ -232,13 +238,13 @@ namespace HelicopterMadness.Scenes
 
                 if (obstaclePosition == Vector2.Zero) // First iteration
                 {
-                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture);
+                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture, collisionSound);
 
                     obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0);
                 }
                 else
                 {
-                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture);
+                    obstacle = new Obstacle(Game, spriteBatch, obstacleTexture, collisionSound);
 
                     obstacle.GenerateRandomPosition(obstaclePosition.X, minObstacleXSpacing, maxObstacleXSpacing);
                 }

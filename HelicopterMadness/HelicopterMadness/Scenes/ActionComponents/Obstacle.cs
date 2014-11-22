@@ -7,6 +7,7 @@
 
 using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace HelicopterMadness.Scenes.ActionComponents
@@ -16,14 +17,20 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// </summary>
     public class Obstacle : Sprite, ICollidable
     {
+        private SoundEffect collisionSound;
+
         /// <summary>
         ///     Initializes a new instace of Obstacle with the provided parameters
         /// </summary>
         /// <param name="game">The Game the Obstacle belongs to</param>
         /// <param name="spriteBatch">The SpriteBatch the Obstacle will draw itself with</param>
         /// <param name="texture">The texture for the Obstacle</param>
-        public Obstacle(Game game, SpriteBatch spriteBatch, Texture2D texture)
-            : base(game, spriteBatch, texture) { }
+        /// <param name="collisionSound">The sound effect to play for a collision with the obstacle</param>
+        public Obstacle(Game game, SpriteBatch spriteBatch, Texture2D texture, SoundEffect collisionSound)
+            : base(game, spriteBatch, texture)
+        {
+            this.collisionSound = collisionSound;
+        }
 
         /// <summary>
         ///     Gets the current position of the obstacle
@@ -74,7 +81,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="otherCollidable">The ICollidable the Obstacle collided with</param>
         public void OnCollision(ICollidable otherCollidable)
         {
-            // TODO: Play sound
+            collisionSound.Play();
 
             Enabled = false;
         }

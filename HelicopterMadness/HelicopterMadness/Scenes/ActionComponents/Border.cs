@@ -7,6 +7,7 @@
 
 using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace HelicopterMadness.Scenes.ActionComponents
@@ -14,11 +15,9 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// <summary>
     ///     A collidable border that loops forever
     /// </summary>
-    public class Border : Sprite, ICollidable
+    public class Border : ScreenLoopSprite, ICollidable
     {
-        private Vector2 secondPosition;
-
-        private readonly SpriteEffects spriteEffect;
+        private SoundEffect collisionSound;
 
         /// <summary>
         ///     Initializes a new instance of Border with the provided parameters
@@ -27,50 +26,18 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="spriteBatch">The SpriteBatch the Border will draw itself with</param>
         /// <param name="texture">The texture for the border</param>
         /// <param name="position">The position for the border</param>
+        /// <param name="collisionSound">The sound effect to play for a collision with the border</param>
+        /// <param name="speedFactor">
+        ///     The speed factor as compared to SharedSettings.StageSpeed with 1 being equal to StageSpeed
+        /// </param>
         /// <param name="flipped">If true, the border texture will be flipped</param>
-        public Border(
-            Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position, bool flipped = false)
-            : base(game, spriteBatch, texture, position)
+        public Border(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position,
+            SoundEffect collisionSound, float speedFactor = 1f, bool flipped = false)
+            : base(game, spriteBatch, texture, position, speedFactor, SharedSettings.OBSTACLE_LAYER, flipped)
         {
-            spriteEffect = flipped
-                ? SpriteEffects.FlipHorizontally | SpriteEffects.FlipVertically
-                : SpriteEffects.None;
-
-            secondPosition = position;
-            secondPosition.X = texture.Width;
-
             Enabled = false;
-        }
 
-        /// <summary>
-        ///     Updates the Borders position
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values</param>
-        public override void Update(GameTime gameTime)
-        {
-            float movement = SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            position.X -= movement;
-            secondPosition.X -= movement;
-
-            if (position.X + texture.Width < 0) // First border is offscreen
-            {
-                position.X = secondPosition.X + texture.Width;
-            }
-            else if (secondPosition.X + texture.Width < 0) // Second border is offscreen
-            {
-                secondPosition.X = position.X + texture.Width;
-            }
-        }
-
-        /// <summary>
-        ///     Draws the Border
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values</param>
-        public override void Draw(GameTime gameTime)
-        {
-            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 1f, spriteEffect, SharedSettings.OBSTACLE_LAYER);
-            spriteBatch.Draw(texture, secondPosition, null, Color.White, 0f, Vector2.Zero, 1f, spriteEffect, SharedSettings.OBSTACLE_LAYER);
+            this.collisionSound = collisionSound;
         }
 
         /// <summary>
@@ -88,7 +55,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="otherCollidable">The ICollidable the Border collided with</param>
         public void OnCollision(ICollidable otherCollidable)
         {
-            // TODO: Collision sound
+            collisionSound.Play();
         }
     }
 }
