@@ -6,27 +6,29 @@
  */
 
 using HelicopterMadness.Scenes.BaseScene;
+using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace HelicopterMadness.Scenes
 {
-    // TODO: Comments
+    /// <summary>
+    ///     Credits scene for the game
+    /// </summary>
     public class CreditScene : GameScene
     {
-        private readonly Texture2D texture;
-
+        /// <summary>
+        ///     Initializes a new instance of CreditScene with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the CreditScene belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the CreditScene will draw its components with</param>
         public CreditScene(Game game, SpriteBatch spriteBatch)
             : base(game, spriteBatch)
         {
-            texture = game.Content.Load<Texture2D>("Images/CreditsScene");
-        }
+            Sprite creditsSprite = new Sprite(game, spriteBatch,
+                game.Content.Load<Texture2D>("Images/CreditsScene"));
 
-        public override void Draw(GameTime gameTime)
-        {
-            spriteBatch.Draw(texture, Vector2.Zero, Color.White);
-
-            base.Draw(gameTime);
+            Components.Add(creditsSprite);
         }
     }
 }

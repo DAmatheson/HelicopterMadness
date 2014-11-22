@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using HelicopterMadness.Scenes.BaseScene;
+using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.MenuComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,6 +23,7 @@ namespace HelicopterMadness.Scenes
     {
         private readonly MenuComponent menu;
         private readonly SceneManager sceneManager;
+        private readonly TextDisplay helpDisplay;
 
         /// <summary>
         ///     Initializes a new instance of MenuScene with the provided parameters
@@ -40,7 +42,18 @@ namespace HelicopterMadness.Scenes
 
             menu = new MenuComponent(game, spriteBatch, regularFont, highlightFont, menuItems);
 
+            string helpMessage = "Use Arrow Keys To Navigate And Enter To Select";
+
+            Vector2 helpPosition =
+                new Vector2((SharedSettings.Stage.X - highlightFont.MeasureString(helpMessage).X) / 2, 10);
+
+            helpDisplay = new TextDisplay(game, spriteBatch, highlightFont, helpPosition, Color.Black)
+            {
+                Message = helpMessage
+            };
+
             Components.Add(menu);
+            Components.Add(helpDisplay);
         }
 
         /// <summary>
@@ -51,15 +64,29 @@ namespace HelicopterMadness.Scenes
         {
             KeyboardState keyState = Keyboard.GetState();
 
-            int menuSelectedIndex = menu.SelectedIndex;
-
             if (keyState.IsKeyDown(Keys.Enter))
             {
+                if (helpDisplay.Visible)
+                {
+                    RemoveHelpMessage();
+                }
+                
                 sceneManager.OnMenuSelection(
-                    (MenuItems) Enum.ToObject(typeof (MenuItems), menuSelectedIndex));
+                    (MenuItems) Enum.ToObject(typeof (MenuItems), menu.SelectedIndex));
+            }
+            else if (menu.SelectedIndex != 0 && helpDisplay.Visible)
+            {
+                RemoveHelpMessage();
             }
 
             base.Update(gameTime);
+        }
+
+        private void RemoveHelpMessage()
+        {
+            helpDisplay.Visible = false;
+
+            Components.Remove(helpDisplay);
         }
     }
 }

@@ -121,8 +121,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fonts\HighScoreWinner.spritefont">
-      <Name>HighScoreWinner</Name>
+    <Compile Include="Fonts\HighScoreHelp.spritefont">
+      <Name>HighScoreHelp</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
@@ -137,6 +137,13 @@
   <ItemGroup>
     <Compile Include="Sounds\ObstacleCollision.wav">
       <Name>ObstacleCollision</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\InvalidKeyPress.wav">
+      <Name>InvalidKeyPress</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>

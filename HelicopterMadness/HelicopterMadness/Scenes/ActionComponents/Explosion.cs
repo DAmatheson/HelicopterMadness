@@ -51,7 +51,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <summary>
         ///     Keeps the explosion running for a single loop of the sprite sheet
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             delayCounter++;
@@ -72,7 +72,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <summary>
         ///     Draws the animated explosion
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Draw(GameTime gameTime)
         {
             if (frameIndex >= 0 && frameIndex < frames.Count)

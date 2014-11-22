@@ -17,7 +17,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// </summary>
     public class Obstacle : Sprite, ICollidable
     {
-        private SoundEffect collisionSound;
+        private readonly SoundEffect collisionSound;
 
         /// <summary>
         ///     Initializes a new instace of Obstacle with the provided parameters
@@ -81,7 +81,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="otherCollidable">The ICollidable the Obstacle collided with</param>
         public void OnCollision(ICollidable otherCollidable)
         {
-            collisionSound.Play(0.60f, 0f, 0f);
+            collisionSound.Play(0.50f, 0f, 0f);
 
             Enabled = false;
         }

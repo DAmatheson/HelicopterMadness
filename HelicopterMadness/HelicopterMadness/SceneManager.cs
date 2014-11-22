@@ -74,7 +74,7 @@ namespace HelicopterMadness
         /// <summary>
         ///     Updates the enabled scene and potentially returns to the main menu
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyState = Keyboard.GetState();
@@ -125,7 +125,7 @@ namespace HelicopterMadness
         /// <summary>
         ///     Draws the enabled scene
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Draw(GameTime gameTime)
         {
             gameBackground.Draw(gameTime);

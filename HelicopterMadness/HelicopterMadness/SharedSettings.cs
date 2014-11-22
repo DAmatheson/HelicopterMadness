@@ -7,6 +7,7 @@
 
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace HelicopterMadness
 {
@@ -29,6 +30,11 @@ namespace HelicopterMadness
         ///     The filename for the highscore save file
         /// </summary>
         public const string HIGHSCORE_FILE_NAME = "Highscore.txt";
+
+        /// <summary>
+        ///     The maximum number of characters in a highscore name
+        /// </summary>
+        public const int MAX_NAME_CHARS = 3;
 
         /// <summary>
         ///     The Color for highlight text

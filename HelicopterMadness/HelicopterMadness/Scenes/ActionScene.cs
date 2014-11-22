@@ -140,7 +140,7 @@ namespace HelicopterMadness.Scenes
         /// <summary>
         ///     Updates the ActionScene and all of its enabled components
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             MouseState mouseState = Mouse.GetState();

@@ -29,7 +29,12 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
             {
                 // TODO: Consider REGEX and regex on initial set so characters are limited to valid ones
                 // Force the name into our defined highscore naming scheme
-                name = value.Trim().Replace('_', ' ').PadRight(3).Substring(0, 3).Replace(' ', 'A').ToUpper();
+                name = value.Trim().
+                    Replace('_', ' ').
+                    PadRight(SharedSettings.MAX_NAME_CHARS).
+                    Substring(0, SharedSettings.MAX_NAME_CHARS).
+                    Replace(' ', 'A').
+                    ToUpper();
             }
         }
 
@@ -75,9 +80,7 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         /// <param name="replacementChar">The replacement character</param>
         public void ReplaceChar(int charIndex, char replacementChar)
         {
-            // 65 = A, 90 = Z
-            // TODO: Magic numbers if we care
-            if (charIndex < name.Length && replacementChar >= 65 && replacementChar <= 90)
+            if (charIndex < name.Length && replacementChar >= 'A' && replacementChar <= 'Z')
             {
                 name = name.Remove(charIndex, 1).Insert(charIndex, replacementChar.ToString());
             }

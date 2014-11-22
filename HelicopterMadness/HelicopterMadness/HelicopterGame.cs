@@ -62,7 +62,7 @@ namespace HelicopterMadness
         /// <summary>
         ///     Updates the state of the game and all of its components
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         protected override void Update(GameTime gameTime)
         {
             if (IsActive) // TODO: Worth doing? Pauses game when the window is not in focus
@@ -74,13 +74,12 @@ namespace HelicopterMadness
         /// <summary>
         ///     Draws the game and all of its components
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(new Color(125, 74, 40));
-            //GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.White);
 
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend); // SpriteSortMode.BackToFront, BlendState.AlphaBlend
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 
             base.Draw(gameTime);
 

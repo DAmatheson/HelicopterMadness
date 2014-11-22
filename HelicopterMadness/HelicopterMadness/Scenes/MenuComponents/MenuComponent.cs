@@ -12,7 +12,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace HelicopterMadness.Scenes.MenuComponents
 {
-    // TODO: Comments
+    /// <summary>
+    ///     Displays the menu entries and allows the user to move between them
+    /// </summary>
     public class MenuComponent : DrawableGameComponent
     {
         private readonly SpriteBatch spriteBatch;
@@ -20,17 +22,20 @@ namespace HelicopterMadness.Scenes.MenuComponents
         private readonly SpriteFont regularFont;
         private readonly SpriteFont highlightFont;
         private readonly IList<string> menuItems;
-
-        private Vector2 longestMenuItem;
-
-        private bool noKeyInput = true;
+        private readonly Vector2 position;
 
         private int selectedIndex = 0;
-        private Vector2 position;
         private KeyboardState oldState;
 
-        public MenuComponent(
-            Game game, SpriteBatch spriteBatch, SpriteFont regularFont,
+        /// <summary>
+        ///     Initializes a new instance of MenuComponent with the provided parameters
+        /// </summary>
+        /// <param name="game">The Game the MenuComponent belongs to</param>
+        /// <param name="spriteBatch">The SpriteBatch the MenuComponent will draw itself with</param>
+        /// <param name="regularFont">The regular font for the unselected menu entries</param>
+        /// <param name="highlightFont">The highlight font for the selected menu entry</param>
+        /// <param name="menuEntries">The list of strings for the menu entries</param>
+        public MenuComponent(Game game, SpriteBatch spriteBatch, SpriteFont regularFont,
             SpriteFont highlightFont, IList<string> menuEntries)
             : base(game)
         {
@@ -52,7 +57,7 @@ namespace HelicopterMadness.Scenes.MenuComponents
                 }
             }
 
-            longestMenuItem = highlightFont.MeasureString(longestEntry);
+            Vector2 longestMenuItem = highlightFont.MeasureString(longestEntry);
 
             position = new Vector2((SharedSettings.Stage.X - longestMenuItem.X) / 2f,
                 (SharedSettings.Stage.Y - longestMenuItem.Y * menuEntries.Count) / 2f);
@@ -69,7 +74,7 @@ namespace HelicopterMadness.Scenes.MenuComponents
         /// <summary>
         /// Allows the game component to update itself.
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             KeyboardState keyState = Keyboard.GetState();
@@ -84,8 +89,6 @@ namespace HelicopterMadness.Scenes.MenuComponents
                 {
                     selectedIndex -= 1;
                 }
-
-                noKeyInput = false;
             }
 
             if (keyState.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
@@ -98,13 +101,15 @@ namespace HelicopterMadness.Scenes.MenuComponents
                 {
                     selectedIndex++;
                 }
-
-                noKeyInput = false;
             }
 
             oldState = keyState;
         }
 
+        /// <summary>
+        ///     Draws the MenuComponent's menu entries
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
             Vector2 tempPosition = position;
@@ -124,16 +129,6 @@ namespace HelicopterMadness.Scenes.MenuComponents
 
                     tempPosition.Y += regularFont.LineSpacing;
                 }
-            }
-
-            if (noKeyInput) // TODO: Temp solution
-            {
-                string helpMessage = "Use Arrow Keys To Navigate And Enter To Select";
-
-                Vector2 helpPosition =
-                    new Vector2((SharedSettings.Stage.X - highlightFont.MeasureString(helpMessage).X) / 2, 10);
-
-                spriteBatch.DrawString(highlightFont, helpMessage, helpPosition, regularColor);
             }
         }
     }

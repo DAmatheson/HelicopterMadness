@@ -59,7 +59,8 @@ namespace HelicopterMadness.Scenes.CommonComponents
         ///     The speed factor as compared to SharedSettings.StageSpeed with 1 being equal to StageSpeed
         /// </param>
         public ScreenLoopSprite(Game game, SpriteBatch spriteBatch, Texture2D texture, float speedFactor)
-            : this(game, spriteBatch, texture, Vector2.Zero, speedFactor, 1f) { }
+            : this(game, spriteBatch, texture, Vector2.Zero, speedFactor, 1f)
+        { }
 
         /// <summary>
         ///     Updates the sprite's position to keep it looping

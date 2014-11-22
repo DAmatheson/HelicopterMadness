@@ -105,7 +105,7 @@ namespace HelicopterMadness.Scenes.BaseScene
         /// <summary>
         ///     Updates the Gamescene and all of its enabled components
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             foreach (IUpdateable updateable in updateables)
@@ -120,7 +120,7 @@ namespace HelicopterMadness.Scenes.BaseScene
         /// <summary>
         ///     Draws the GameScene and all of its visible components
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Draw(GameTime gameTime)
         {
             foreach (IDrawable drawable in drawables)

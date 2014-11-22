@@ -24,7 +24,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="game">The game the CollisionManager belongs to</param>
         /// <param name="collidingComponents">The enumerable of ICollidable objects to manager</param>
         /// <param name="playerComponent">The ICollidable that the player controls</param>
-        public CollisionManager(Game game, IEnumerable<ICollidable> collidingComponents, ICollidable playerComponent) : base(game)
+        public CollisionManager(Game game, IEnumerable<ICollidable> collidingComponents, ICollidable playerComponent)
+            : base(game)
         {
             this.collidingComponents = new List<ICollidable>(collidingComponents);
             this.playerComponent = playerComponent;
@@ -33,7 +34,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <summary>
         ///     Checks to see if any ICollidable components have collided
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Update(GameTime gameTime)
         {
             if (playerComponent.Enabled)
