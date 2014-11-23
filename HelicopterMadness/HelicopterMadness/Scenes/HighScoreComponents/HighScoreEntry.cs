@@ -5,6 +5,8 @@
  *      Drew Matheson, 2014.11.15: Created
  */
 
+using System.Text.RegularExpressions;
+
 namespace HelicopterMadness.Scenes.HighScoreComponents
 {
     /// <summary>
@@ -12,6 +14,8 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
     /// </summary>
     public class HighScoreEntry
     {
+        private static readonly Regex validNameRegex = new Regex(@"^[A-Z]{3}$", RegexOptions.Compiled);
+
         private readonly int paddingWidth;
 
         /// <summary>
@@ -27,14 +31,23 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
             }
             set
             {
-                // TODO: Consider REGEX and regex on initial set so characters are limited to valid ones
-                // Force the name into our defined highscore naming scheme
-                name = value.Trim().
-                    Replace('_', ' ').
-                    PadRight(SharedSettings.MAX_NAME_CHARS).
-                    Substring(0, SharedSettings.MAX_NAME_CHARS).
-                    Replace(' ', 'A').
-                    ToUpper();
+                value = value.Trim().ToUpperInvariant();
+
+                if (!validNameRegex.IsMatch(value))
+                {
+                    value = value.Replace('_', ' ').
+                        PadRight(SharedSettings.MAX_NAME_CHARS).
+                        Substring(0, SharedSettings.MAX_NAME_CHARS).
+                        Replace(' ', 'A');
+
+                    // If it still doesn't match after the clean up, use a dummy name
+                    if (!validNameRegex.IsMatch(value))
+                    {
+                        value = "AAA";
+                    }
+                }
+
+                name = value;
             }
         }
 

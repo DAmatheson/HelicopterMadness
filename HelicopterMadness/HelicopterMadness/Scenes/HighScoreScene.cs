@@ -257,36 +257,39 @@ namespace HelicopterMadness.Scenes
         {           
             // TODO: this needs to be removed before handing in
 #if DEBUG
-            File.Delete(scorepath);
-#endif            
+            //File.Delete(scorepath);
+#endif
 
-            try
+            if (File.Exists(scorepath))
             {
-                using (StreamReader scores = File.OpenText(scorepath))
+                try
                 {
-                    while (!scores.EndOfStream && highScoreEntries.Count < NUMBER_OF_SCORE_ENTRIES)
+                    using (StreamReader scores = File.OpenText(scorepath))
                     {
-                        string[] scoreString = scores.ReadLine().Split(' ');
-
-                        int score;
-
-                        // Skips if the score string array doesn't have both parts and if the score is not an int
-                        if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
+                        while (!scores.EndOfStream && highScoreEntries.Count < NUMBER_OF_SCORE_ENTRIES)
                         {
-                            highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
-                        }
-                    }
+                            string[] scoreString = scores.ReadLine().Split(' ');
 
-                    // -1 * is there so the sort order is descending instead of ascending
-                    highScoreEntries.Sort(
-                        (entry1, entry2) => -1 * entry1.Score.CompareTo(entry2.Score));
+                            int score;
+
+                            // Skips if the score string array doesn't have both parts and if the score is not an int
+                            if (scoreString.Length == 2 && int.TryParse(scoreString[1], out score))
+                            {
+                                highScoreEntries.Add(new HighScoreEntry(scoreString[0], score));
+                            }
+                        }
+
+                        // -1 * is there so the sort order is descending instead of ascending
+                        highScoreEntries.Sort(
+                            (entry1, entry2) => -1 * entry1.Score.CompareTo(entry2.Score));
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                if (ex is OutOfMemoryException)
+                catch (Exception ex)
                 {
-                    throw;
+                    if (ex is OutOfMemoryException)
+                    {
+                        throw;
+                    }
                 }
             }
 
