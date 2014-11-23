@@ -7,8 +7,8 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("Helicopter Madness")]
 [assembly: AssemblyProduct("Helicoper Madness")]
-[assembly: AssemblyDescription("Helicopter Game")]
-[assembly: AssemblyCompany("Sean & Drew")]
+[assembly: AssemblyDescription("Helicopter Endless Flyer Game")]
+[assembly: AssemblyCompany("Sean Coombes & Drew Matheson")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
