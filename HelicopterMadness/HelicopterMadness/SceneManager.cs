@@ -12,6 +12,7 @@ using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.HighScoreComponents;
 using HelicopterMadness.Scenes.BaseScene;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -29,6 +30,9 @@ namespace HelicopterMadness
         private readonly HighScoreScene highScoreScene;
         private readonly ScreenLoopSprite gameBackground;
 
+        private readonly SoundEffect menuSelectSound;
+        private readonly SoundEffect backToMenuSound;
+
         private GameScene enabledScene;
 
         /// <summary>
@@ -44,6 +48,9 @@ namespace HelicopterMadness
             {
                 "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit"
             };
+
+            menuSelectSound = Game.Content.Load<SoundEffect>("Sounds/MenuSelection");
+            backToMenuSound = Game.Content.Load<SoundEffect>("Sounds/BackToMenu");
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
 
@@ -86,6 +93,8 @@ namespace HelicopterMadness
                 menuScene.Show();
 
                 enabledScene = menuScene;
+
+                backToMenuSound.Play();
             }
 
             if (enabledScene == actionScene && actionScene.State == ActionSceneStates.GameOver &&
@@ -157,6 +166,8 @@ namespace HelicopterMadness
             }
             else
             {
+                menuSelectSound.Play();
+
                 enabledScene = scenes[selectedItem];
 
                 enabledScene.Show();

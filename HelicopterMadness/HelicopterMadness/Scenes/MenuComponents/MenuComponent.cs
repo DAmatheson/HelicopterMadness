@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -23,6 +24,7 @@ namespace HelicopterMadness.Scenes.MenuComponents
         private readonly SpriteFont highlightFont;
         private readonly IList<string> menuItems;
         private readonly Vector2 position;
+        private readonly SoundEffect selectionChangeSound;
 
         private int selectedIndex = 0;
         private KeyboardState oldState;
@@ -36,12 +38,14 @@ namespace HelicopterMadness.Scenes.MenuComponents
         /// <param name="highlightFont">The highlight font for the selected menu entry</param>
         /// <param name="menuEntries">The list of strings for the menu entries</param>
         public MenuComponent(Game game, SpriteBatch spriteBatch, SpriteFont regularFont,
-            SpriteFont highlightFont, IList<string> menuEntries)
+            SpriteFont highlightFont, IList<string> menuEntries, SoundEffect selectionChangeSound)
             : base(game)
         {
             this.spriteBatch = spriteBatch;
             this.regularFont = regularFont;
             this.highlightFont = highlightFont;
+
+            this.selectionChangeSound = selectionChangeSound;
 
             menuItems = menuEntries;
 
@@ -89,6 +93,8 @@ namespace HelicopterMadness.Scenes.MenuComponents
                 {
                     selectedIndex -= 1;
                 }
+
+                selectionChangeSound.Play();
             }
 
             if (keyState.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
@@ -101,6 +107,8 @@ namespace HelicopterMadness.Scenes.MenuComponents
                 {
                     selectedIndex++;
                 }
+
+                selectionChangeSound.Play();
             }
 
             oldState = keyState;

@@ -11,6 +11,7 @@ using HelicopterMadness.Scenes.BaseScene;
 using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.MenuComponents;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -39,8 +40,10 @@ namespace HelicopterMadness.Scenes
 
             SpriteFont regularFont = Game.Content.Load<SpriteFont>("Fonts/Regular");
             SpriteFont highlightFont = Game.Content.Load<SpriteFont>("Fonts/Highlight");
+            SoundEffect selectionChangeSound = Game.Content.Load<SoundEffect>("Sounds/MenuSelectionChange");
 
-            menu = new MenuComponent(game, spriteBatch, regularFont, highlightFont, menuItems);
+            menu = new MenuComponent(game, spriteBatch, regularFont, highlightFont, menuItems,
+                selectionChangeSound);
 
             string helpMessage = "Use Arrow Keys To Navigate And Enter To Select";
 
