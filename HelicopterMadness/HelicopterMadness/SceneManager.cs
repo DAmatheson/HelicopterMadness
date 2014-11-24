@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace HelicopterMadness
 {
@@ -32,6 +33,7 @@ namespace HelicopterMadness
 
         private readonly SoundEffect menuSelectSound;
         private readonly SoundEffect backToMenuSound;
+        private readonly Song menuMusic;
 
         private GameScene enabledScene;
 
@@ -51,6 +53,11 @@ namespace HelicopterMadness
 
             menuSelectSound = Game.Content.Load<SoundEffect>("Sounds/MenuSelection");
             backToMenuSound = Game.Content.Load<SoundEffect>("Sounds/BackToMenu");
+            menuMusic = Game.Content.Load<Song>("Sounds/MenuMusic");
+
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Play(menuMusic);
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
 
@@ -125,7 +132,13 @@ namespace HelicopterMadness
 
             if (enabledScene == actionScene && actionScene.State == ActionSceneStates.InPlay)
             {
+                MediaPlayer.Pause();
+
                 gameBackground.Update(gameTime);
+            }
+            else
+            {
+                MediaPlayer.Resume();
             }
 
             enabledScene.Update(gameTime);
