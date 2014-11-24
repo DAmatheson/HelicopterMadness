@@ -29,7 +29,7 @@ namespace HelicopterMadness.Scenes
         private const int NUMBER_OF_SCORE_ENTRIES = 5;
         private const int TOP_DUMMY_SCORE = 100;
         private const int DUMMY_SCORE_DIFFERENCE = 10;
-        private const int BLINKRATE = 50;
+        private const int BLINKRATE = 100;
 
         private const string CONTINUE = "Click the left mouse button to play another game";
         private const string WINNER_MESSAGE =

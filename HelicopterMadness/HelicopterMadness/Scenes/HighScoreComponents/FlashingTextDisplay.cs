@@ -45,6 +45,11 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         {
             delayCounter++;
 
+            if (!toDraw)
+            {
+                delayCounter++;
+            }
+
             if (delayCounter > delay)
             {
                 delayCounter = 0;
