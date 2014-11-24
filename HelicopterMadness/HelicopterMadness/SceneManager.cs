@@ -56,7 +56,7 @@ namespace HelicopterMadness
             menuMusic = Game.Content.Load<Song>("Sounds/MenuMusic");
 
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Volume = 0.3f;
             MediaPlayer.Play(menuMusic);
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
@@ -132,13 +132,13 @@ namespace HelicopterMadness
 
             if (enabledScene == actionScene && actionScene.State == ActionSceneStates.InPlay)
             {
-                MediaPlayer.Pause();
+                MediaPlayer.Volume = 0.1f;
 
                 gameBackground.Update(gameTime);
             }
             else
             {
-                MediaPlayer.Resume();
+                MediaPlayer.Volume = 0.3f;
             }
 
             enabledScene.Update(gameTime);

@@ -33,7 +33,7 @@ namespace HelicopterMadness.Scenes
 
         private const string CONTINUE = "Click the left mouse button to play another game";
         private const string WINNER_MESSAGE =
-            "Congratulations you have gotten a new highscore enter a 3 character name and press enter";
+            "Congratulations you got a new highscore! Enter a 3 letter name and press enter";
 
         private static int highestScore;
 
