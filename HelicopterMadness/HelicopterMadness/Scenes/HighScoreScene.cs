@@ -43,6 +43,7 @@ namespace HelicopterMadness.Scenes
         private readonly FlashingTextDisplay helpMessage;
 
         private readonly SoundEffectInstance invalidKeySound;
+        private readonly SoundEffectInstance newHighScoreSound;
 
         private HighScoreSceneStates state = HighScoreSceneStates.View;
 
@@ -103,6 +104,9 @@ namespace HelicopterMadness.Scenes
 
             invalidKeySound = Game.Content.Load<SoundEffect>("Sounds/InvalidKeyPress").CreateInstance();
             invalidKeySound.Volume = 0.3f;
+
+            newHighScoreSound = Game.Content.Load<SoundEffect>("Sounds/NewHighScore").CreateInstance();
+            newHighScoreSound.Volume = 0.6f;
             
             titleDimensions = headerFont.MeasureString("HIGHSCORES");
             Vector2 scorePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 0);
@@ -114,12 +118,10 @@ namespace HelicopterMadness.Scenes
             };
 
             //displays blinking string alerting the player they got a new highscore 
-
             helpMessage = new FlashingTextDisplay(game, spriteBatch, winnerFont,
                 SharedSettings.WinnerTextColor, BLINKRATE);
             
             //display the actual scores
-
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
 
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
@@ -197,9 +199,12 @@ namespace HelicopterMadness.Scenes
                     !keyboardState.IsKeyDown(Keys.Back) && keyboardState.GetPressedKeys().Length > 0 &&
                     invalidKeySound.State != SoundState.Playing)
                 {
-                    // Plays the sound if an invalid key, anything but A-Z and backspace, is pressed.
-
-                    invalidKeySound.Play();
+                    // Plays the sound if an invalid key, anything but A-Z and backspace, is pressed and
+                    // the new high score jingle isn't playing
+                    if (newHighScoreSound.State != SoundState.Playing)
+                    {
+                        invalidKeySound.Play();
+                    }
                 }
 
                 oldKeyboardState = keyboardState;
@@ -222,6 +227,8 @@ namespace HelicopterMadness.Scenes
         /// <param name="score">the score the play got on the action scene</param>
         public void AddScoreEntry(int score)
         {
+            newHighScoreSound.Play();
+
             // Compare it against all highscores and place it where in the list it belongs
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {

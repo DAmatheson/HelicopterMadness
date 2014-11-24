@@ -209,8 +209,7 @@ namespace HelicopterMadness.Scenes
 
             if (State == ActionSceneStates.GameOver)
             {
-                // Reset duration score so that the highScoreScene doesn't get shown again
-                durationScore = 0;
+                ResetToInitialState();
             }
 
             base.Show();
