@@ -5,6 +5,7 @@
  *      Drew Matheson, 2014.11.05: Created
  */
 
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -15,8 +16,18 @@ namespace HelicopterMadness
     /// </summary>
     public class HelicopterGame : Game
     {
+#if DEBUG
+        SpriteFont spriteFont;
+
+        int frameRate = 0;
+        int frameCounter = 0;
+        TimeSpan elapsedTime = TimeSpan.Zero;
+#endif
+
         private readonly GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+
+        private readonly Color bufferColor = new Color(168, 146, 118);
 
         private SceneManager sceneManager;
 
@@ -56,6 +67,9 @@ namespace HelicopterMadness
 
             sceneManager = new SceneManager(this, spriteBatch);
 
+#if DEBUG
+            spriteFont = Content.Load<SpriteFont>("Fonts/FrameRate");
+#endif
             Components.Add(sceneManager);
         }
 
@@ -68,6 +82,16 @@ namespace HelicopterMadness
             if (IsActive) // TODO: Worth doing? Pauses game when the window is not in focus
             {
                 base.Update(gameTime);
+#if DEBUG
+                elapsedTime += gameTime.ElapsedGameTime;
+
+                if (elapsedTime > TimeSpan.FromSeconds(1))
+                {
+                    elapsedTime -= TimeSpan.FromSeconds(1);
+                    frameRate = frameCounter;
+                    frameCounter = 0;
+                }
+#endif
             }
         }
 
@@ -77,12 +101,19 @@ namespace HelicopterMadness
         /// <param name="gameTime">Provides a snapshot of timing values</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(bufferColor);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+#if DEBUG
+            frameCounter++;
 
+            string fps = string.Format("fps: {0}", frameRate);
+#endif
             base.Draw(gameTime);
-
+#if DEBUG           
+            spriteBatch.DrawString(spriteFont, fps, new Vector2(33, 33), Color.Black);
+            spriteBatch.DrawString(spriteFont, fps, new Vector2(32, 32), Color.White);
+#endif
             spriteBatch.End();
         }
     }

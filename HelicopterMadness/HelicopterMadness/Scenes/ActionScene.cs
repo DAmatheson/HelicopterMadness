@@ -118,10 +118,15 @@ namespace HelicopterMadness.Scenes
             scoreDisplay = new TextDisplay(Game, spriteBatch, highlightFont,
                 SharedSettings.NormalTextColor);
 
-            highScoreDisplay = new TextDisplay(game, spriteBatch, highlightFont, 
+            string highestScore = HighScoreScene.HighestScore.ToString();
+
+            Vector2 highScorePosition = new Vector2(SharedSettings.Stage.X - 
+                highlightFont.MeasureString(highestScore).X, 0);
+
+            highScoreDisplay = new TextDisplay(game, spriteBatch, highlightFont, highScorePosition,
                 Color.Gold)
             {
-                Message = HighScoreScene.HighestScore.ToString()
+                Message = highestScore
             };
 
             midScreenMessage = new TextDisplay(Game, spriteBatch, highlightFont,
@@ -232,6 +237,7 @@ namespace HelicopterMadness.Scenes
         ///     Creates and positions the obstacles required by the ActionScene
         /// </summary>
         /// <param name="obstacleTexture">The Texture2D for the obstacles</param>
+        /// <param name="collisionSound">The sound the obstacle should play when in a collision</param>
         private void GenerateObstacles(Texture2D obstacleTexture, SoundEffect collisionSound)
         {
             Vector2 obstaclePosition = Vector2.Zero;
@@ -275,6 +281,7 @@ namespace HelicopterMadness.Scenes
 
             durationScore = 0;
             scoreDisplay.Message = "0";
+            highScoreDisplay.Color = Color.Gold;
 
             helicopter.Reset();
             bottomBorder.Enabled = false;
@@ -371,15 +378,15 @@ namespace HelicopterMadness.Scenes
 
             if (currentScore > HighScoreScene.HighestScore)
             {
-                highScoreDisplay.Message = currentScore.ToString();   
-            }
-            else
-            {
-                highScoreDisplay.Message = HighScoreScene.HighestScore.ToString();
-                }
+                highScoreDisplay.Message = currentScore.ToString();
 
-            Vector2 highScoreDim = highScoreDisplay.Font.MeasureString(highScoreDisplay.Message);
-            highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 1);
+                Vector2 newPosition = highScoreDisplay.Position;
+
+                newPosition.X = SharedSettings.Stage.X -
+                    highScoreDisplay.Font.MeasureString(highScoreDisplay.Message).X;
+
+                highScoreDisplay.Position = newPosition;
+            }
         }
 
         /// <summary>

@@ -33,7 +33,6 @@ namespace HelicopterMadness
 
         private readonly SoundEffect menuSelectSound;
         private readonly SoundEffect backToMenuSound;
-        private readonly Song menuMusic;
 
         private GameScene enabledScene;
 
@@ -53,7 +52,7 @@ namespace HelicopterMadness
 
             menuSelectSound = Game.Content.Load<SoundEffect>("Sounds/MenuSelection");
             backToMenuSound = Game.Content.Load<SoundEffect>("Sounds/BackToMenu");
-            menuMusic = Game.Content.Load<Song>("Sounds/MenuMusic");
+            Song menuMusic = Game.Content.Load<Song>("Sounds/MenuMusic");
 
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Volume = 0.3f;

@@ -7,7 +7,6 @@
 
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 
 namespace HelicopterMadness
 {
@@ -19,7 +18,12 @@ namespace HelicopterMadness
         /// <summary>
         ///     The layer depth value for obstacles in the game
         /// </summary>
-        public const float OBSTACLE_LAYER = 0.75f;
+        public const float OBSTACLE_LAYER = 0.76f;
+
+        /// <summary>
+        ///     The layer depth value for the borders in the game
+        /// </summary>
+        public const float BORDER_LAYER = 0.75f;
 
         /// <summary>
         ///     The default stage X axis movement speed

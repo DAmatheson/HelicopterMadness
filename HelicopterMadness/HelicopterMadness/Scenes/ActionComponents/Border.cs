@@ -33,7 +33,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="flipped">If true, the border texture will be flipped</param>
         public Border(Game game, SpriteBatch spriteBatch, Texture2D texture, Vector2 position,
             SoundEffect collisionSound, float speedFactor = 1f, bool flipped = false)
-            : base(game, spriteBatch, texture, position, speedFactor, SharedSettings.OBSTACLE_LAYER, flipped)
+            : base(game, spriteBatch, texture, position, speedFactor, SharedSettings.BORDER_LAYER, flipped)
         {
             Enabled = false;
 

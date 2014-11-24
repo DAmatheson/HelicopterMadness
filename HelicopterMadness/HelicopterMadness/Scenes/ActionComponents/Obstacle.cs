@@ -51,10 +51,10 @@ namespace HelicopterMadness.Scenes.ActionComponents
                 Enabled = false;
                 Visible = false;
             }
-
-            position.X -= SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            base.Update(gameTime);
+            else
+            {
+                position.X -= SharedSettings.StageSpeed.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
         }
 
         /// <summary>
@@ -63,7 +63,8 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="gameTime">Provides a snapshot of timing values</param>
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, SharedSettings.OBSTACLE_LAYER + 0.01f);
+            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 1f,
+                SpriteEffects.None, SharedSettings.OBSTACLE_LAYER);
         }
 
         /// <summary>
