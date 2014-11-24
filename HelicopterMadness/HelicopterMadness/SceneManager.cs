@@ -32,6 +32,7 @@ namespace HelicopterMadness
 
         private readonly SoundEffect menuSelectSound;
         private readonly SoundEffect backToMenuSound;
+        private readonly SoundEffect highScoreSound;
 
         private GameScene enabledScene;
 
@@ -51,6 +52,7 @@ namespace HelicopterMadness
 
             menuSelectSound = Game.Content.Load<SoundEffect>("Sounds/MenuSelection");
             backToMenuSound = Game.Content.Load<SoundEffect>("Sounds/BackToMenu");
+            highScoreSound = Game.Content.Load<SoundEffect>("Sounds/NewHighScore");
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
 
@@ -111,6 +113,8 @@ namespace HelicopterMadness
                     highScoreScene.Show();
 
                     highScoreScene.AddScoreEntry(actionScene.GetScore());
+
+                    highScoreSound.Play(0.6f, 0f, 0f);
                 }
             }
             

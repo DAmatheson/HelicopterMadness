@@ -37,6 +37,8 @@ namespace HelicopterMadness.Scenes
         private readonly TextDisplay highScoreDisplay;
         private readonly TextDisplay midScreenMessage;
 
+        private readonly SoundEffect beatHighestScoreSound;
+
         private readonly List<Obstacle> obstacles = new List<Obstacle>();
 
         private ActionSceneStates state = ActionSceneStates.PreStart;
@@ -74,11 +76,14 @@ namespace HelicopterMadness.Scenes
             Texture2D heliTexture = Game.Content.Load<Texture2D>("Images/HeliAnimated");
             Texture2D borderTexture = Game.Content.Load<Texture2D>("Images/StageBorder");
             Texture2D obstacleTexture = Game.Content.Load<Texture2D>("Images/Obstacle");
+
             SpriteFont highlightFont = Game.Content.Load<SpriteFont>("Fonts/Highlight");
 
             SoundEffect borderCollision = Game.Content.Load<SoundEffect>("Sounds/BorderCollision");
             SoundEffect helicopterSound = Game.Content.Load<SoundEffect>("Sounds/Helicopter");
             SoundEffect obstacleCollision = Game.Content.Load<SoundEffect>("Sounds/ObstacleCollision");
+
+            beatHighestScoreSound = Game.Content.Load<SoundEffect>("Sounds/BeatHighestScore");
 
             Vector2 heliFrameDimensions = new Vector2(120, 61);
 
@@ -291,12 +296,23 @@ namespace HelicopterMadness.Scenes
         private void UpdateScore(int msSinceLastUpdate)
         {
             int scoreIncrease = msSinceLastUpdate *
-                (int)SharedSettings.StageSpeedChange; 
+                (int)SharedSettings.StageSpeedChange;
 
             // If the max value minus the increase is more than the duration score, it would overflow
             if (int.MaxValue - scoreIncrease < durationScore)
             {
                 durationScore = int.MaxValue;
+            }
+            else if (GetScore() < HighScoreScene.HighestScore)
+            {
+                durationScore += scoreIncrease;
+
+                if (GetScore() >= HighScoreScene.HighestScore)
+                {
+                    highScoreDisplay.Color = SharedSettings.NormalTextColor;
+
+                    beatHighestScoreSound.Play();
+                }
             }
             else
             {
@@ -354,9 +370,14 @@ namespace HelicopterMadness.Scenes
 
             scoreDisplay.Message = currentScore.ToString();
 
-            highScoreDisplay.Message = currentScore < HighScoreScene.HighestScore
-                ? HighScoreScene.HighestScore.ToString()
-                : currentScore.ToString();
+            if (currentScore > HighScoreScene.HighestScore)
+            {
+                highScoreDisplay.Message = currentScore.ToString();   
+            }
+            else
+            {
+                highScoreDisplay.Message = HighScoreScene.HighestScore.ToString();
+                }
 
             Vector2 highScoreDim = highScoreDisplay.Font.MeasureString(highScoreDisplay.Message);
             highScoreDisplay.Position = new Vector2(SharedSettings.Stage.X - highScoreDim.X, 1);
