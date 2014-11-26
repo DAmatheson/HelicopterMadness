@@ -152,7 +152,13 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HelicopterMadnessContent\HelicopterMadnessContent.contentproj">
+      <Project>{7F1A0D80-3126-478C-B094-68059B5FBB0A}</Project>
+      <Name>HelicopterMadnessContent</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Properties\app.manifest" />
   </ItemGroup>
