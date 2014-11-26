@@ -260,6 +260,97 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="26d44b1c-ec3a-41e3-8dca-0d4ddabcd9d0"
+            isDerived="false"
+            sourceEndRoleName="ActionScene"
+            targetEndRoleName="Explosion"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="36447a86-eead-4526-adcc-a89bb4d648e5"
+              LastKnownName="Explosion"
+              LastKnownLocation="Package6_1438.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="90a1e1d5-4339-4b7a-9a74-0dacf20fe626"
+                  name="ActionScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cacfbc3f-fce1-4cc1-96d9-2b24eb752f50"
+                  name="Explosion"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="10461b8e-0322-41a1-b690-86ece8e0e68c"
+            isDerived="false"
+            sourceEndRoleName="ActionScene"
+            targetEndRoleName="TextDisplay"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="220d67b6-4da5-4408-b3ce-37bd0c7c62b7"
+              LastKnownName="TextDisplay"
+              LastKnownLocation="UMLModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c293badf-3718-496b-86ab-2e7a76cdcd23"
+                  name="ActionScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6f0cffe2-5c2d-468c-a9c0-6c079fb927b6"
+                  name="TextDisplay"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="9ad6fcf1-d1bf-4b16-a4d6-b8aa824b5efe"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b243127c-df89-4d87-be5d-2257fda4a6de"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -2052,6 +2143,47 @@
               LastKnownLocation="Package11_1438.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="ac99fd3f-f9ba-4237-9051-01f113613000"
+            isDerived="false"
+            sourceEndRoleName="CreditScene"
+            targetEndRoleName="Sprite"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9c841827-dbef-4490-889c-71ce5fefd542"
+              LastKnownName="Sprite"
+              LastKnownLocation="Package_1438.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="637e0c0f-d384-4723-a280-1c5da34d4f96"
+                  name="CreditScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d980fa99-6f61-44c8-8d02-6a563de3fbc0"
+                  name="Sprite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="6eaadc84-38ad-4114-ab50-e2ab317724ff"
@@ -2382,6 +2514,47 @@
               LastKnownLocation="Package11_1438.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="3fb8e962-dd17-4bc5-8744-a106b0ecf833"
+            isDerived="false"
+            sourceEndRoleName="HelpScene"
+            targetEndRoleName="Sprite"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9c841827-dbef-4490-889c-71ce5fefd542"
+              LastKnownName="Sprite"
+              LastKnownLocation="Package_1438.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e07827e7-8bae-4e80-99b3-fd23e0a5f290"
+                  name="HelpScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee1220e2-5d85-4c6b-918e-774351d68218"
+                  name="Sprite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="324c95c6-9f65-446c-b90a-55c9c6187ca5"
@@ -2712,6 +2885,151 @@
               LastKnownLocation="Package11_1438.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="406faf9e-56b8-4e2b-980e-6274047fd610"
+            isDerived="false"
+            sourceEndRoleName="HighScoreScene"
+            targetEndRoleName="HighScoreEntry"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="11088f5c-9312-40d3-90d1-2bfa3115f0ca"
+              LastKnownName="HighScoreEntry"
+              LastKnownLocation="UMLModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8009ebbe-d4e3-469e-89c3-f193f3f38d92"
+                  name="HighScoreScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7746a072-0c8d-40d7-a363-5f0eff569a65"
+                  name="HighScoreEntry"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5394fe46-5493-4d98-8321-62fff5672fbb"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="20a60eef-16a4-4341-aac4-58c290b480f2"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="48477869-299a-4414-becc-e80028298f4b"
+            isDerived="false"
+            sourceEndRoleName="HighScoreScene"
+            targetEndRoleName="TextDisplay"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="220d67b6-4da5-4408-b3ce-37bd0c7c62b7"
+              LastKnownName="TextDisplay"
+              LastKnownLocation="UMLModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aa8e9c5f-ea03-43e8-92b1-cdfed8c18a96"
+                  name="HighScoreScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cb3d66f2-96d4-4e81-b8ea-e4293eb28dfd"
+                  name="TextDisplay"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e89a59d7-cf8e-4c24-8cb7-b4368dfe1f3a"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="fe6ff117-753a-43e1-8e7d-132b68298562"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9425f6ea-cb2f-4b05-8011-967c7a14b4ad"
+            isDerived="false"
+            sourceEndRoleName="HighScoreScene"
+            targetEndRoleName="FlashingTextDisplay"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f1d4c8d2-73a5-490a-96f9-d1799c713e1e"
+              LastKnownName="FlashingTextDisplay"
+              LastKnownLocation="UMLModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="90c1efaa-3082-4158-b2c0-3ed3101d386f"
+                  name="HighScoreScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5ae90729-e449-481f-ae0e-2a9426551304"
+                  name="FlashingTextDisplay"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation
             Id="4fdad2cd-43dc-4b16-80b6-33a6022c6d2b"
@@ -3059,6 +3377,47 @@
               LastKnownLocation="Package11_1438.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="9c1dd62b-47e9-4e4a-b92f-e19929c7bf5e"
+            isDerived="false"
+            sourceEndRoleName="HowToPlayScene"
+            targetEndRoleName="Sprite"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9c841827-dbef-4490-889c-71ce5fefd542"
+              LastKnownName="Sprite"
+              LastKnownLocation="Package_1438.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="11dcf780-8eab-45f0-ac77-4bc1820a3651"
+                  name="HowToPlayScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="48814dc3-11aa-4681-b9d9-bd4520726b10"
+                  name="Sprite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="22f8f59c-e01a-4f55-8751-15542047c822"
@@ -3425,6 +3784,45 @@
                 <memberEnd
                   Id="799e75a1-07ef-4f70-b07d-0d546b1cd000"
                   name="MenuComponent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8501863f-e630-485a-9b55-fe295cb61913"
+            isDerived="false"
+            sourceEndRoleName="MenuScene"
+            targetEndRoleName="TextDisplay"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="220d67b6-4da5-4408-b3ce-37bd0c7c62b7"
+              LastKnownName="TextDisplay"
+              LastKnownLocation="UMLModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a607217e-0fe4-40de-a922-76eb3e038302"
+                  name="MenuScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f4790d27-5d14-4676-9860-e7bf0ed270d0"
+                  name="TextDisplay"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
