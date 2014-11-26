@@ -81,9 +81,9 @@
             Id="0d1074fd-f635-48a2-baaf-2e2678fb8891"
             isSubstitutable="false">
             <classMoniker
-              Id="9c841827-dbef-4490-889c-71ce5fefd542"
-              LastKnownName="Sprite"
-              LastKnownLocation="Package_1438.uml" />
+              Id="1888bb27-8585-4283-845d-5d66c069ee6a"
+              LastKnownName="ScreenLoopSprite"
+              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
@@ -223,92 +223,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation
-            Id="f16ac857-68ea-42e1-b50d-77bef938da7c"
-            name="Draw"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <referencesInternal>
-              <reference
-                Id="aa4612d6-542d-4c53-a2a6-a08798851bb2"
-                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.ActionComponents Type%3DBorder Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="d3a0db3a-ccfe-452b-90ca-90701a10488e"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="c1776d05-1456-48d0-bdcc-609426220273">
-                    <propertyInstance
-                      Id="541a3134-ec98-4cc3-8297-eb46c51bd15d"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="ba96efb4-2add-4094-b5e7-ffc48a169e44">
-                    <propertyInstance
-                      Id="9b72b6c9-d6c8-4dd7-9942-0ef212953398"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a3a2a68f-c3c2-4d6f-972c-f0857294b9ec">
-                    <propertyInstance
-                      Id="975866d8-59c3-44be-bf78-a9e8efb6cb14"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="48cb28b4-09ea-4b43-b4c9-36cbcd6ab60c">
-                    <propertyInstance
-                      Id="fd761a4b-0e4e-49aa-be3f-2f20477db329"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b8f5c400-70dd-4e2e-8f2d-ac12b81a8f53">
-                    <propertyInstance
-                      Id="69cfad1d-4889-44bc-9d10-b65c79e97e89"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="2df5eaeb-a4e4-4ddd-a7f0-6cd74c55b0bc">
-                    <propertyInstance
-                      Id="a5aa868d-d8b1-4485-8916-7d7a1348cf82"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="b52cfe90-0aba-43b4-8493-7c4f311211d2"
-                  name="gameTime"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="1998da84-d06e-4e95-b782-503e155197e2"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.ActionComponents Type%3DBorder Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="a83fa260-a49a-47b9-8ad6-7000100fc85b"
-                      LastKnownName="GameTime"
-                      LastKnownLocation="Package4_1438.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation
             Id="d374bc11-1280-422a-a9a3-b8c45258338f"
             name="Update"
@@ -1567,9 +1481,9 @@
             Id="e86acff7-3c7b-44f5-81ec-44251f84b16b"
             isSubstitutable="false">
             <classMoniker
-              Id="9c841827-dbef-4490-889c-71ce5fefd542"
-              LastKnownName="Sprite"
-              LastKnownLocation="Package_1438.uml" />
+              Id="3a1ecc3f-b53a-4521-9ba7-2029642ca0e4"
+              LastKnownName="AnimatedSprite"
+              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
@@ -3667,6 +3581,14 @@
               Id="0ca27475-b3b9-4492-b98d-e710b3a7c89e"
               LastKnownName="DrawableGameComponent"
               LastKnownLocation="Package4_1438.uml" />
+          </generalization>
+          <generalization
+            Id="15282c7a-c152-47b5-95dd-66ac5546cf24"
+            isSubstitutable="false">
+            <classMoniker
+              Id="3a1ecc3f-b53a-4521-9ba7-2029642ca0e4"
+              LastKnownName="AnimatedSprite"
+              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <targetEnds>
