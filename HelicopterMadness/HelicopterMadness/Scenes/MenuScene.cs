@@ -45,7 +45,7 @@ namespace HelicopterMadness.Scenes
             menu = new MenuComponent(game, spriteBatch, regularFont, highlightFont, menuItems,
                 selectionChangeSound);
 
-            string helpMessage = "Use Arrow Keys To Navigate And Enter To Select";
+            string helpMessage = "Use Arrow Keys to Navigate and Enter to Select";
 
             Vector2 helpPosition =
                 new Vector2((SharedSettings.Stage.X - highlightFont.MeasureString(helpMessage).X) / 2, 10);

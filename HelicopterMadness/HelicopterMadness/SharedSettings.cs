@@ -41,6 +41,11 @@ namespace HelicopterMadness
         public const int MAX_NAME_CHARS = 3;
 
         /// <summary>
+        ///     The blink delay for flashing text displays
+        /// </summary>
+        public const int BLINK_RATE = 100;
+
+        /// <summary>
         ///     The Color for highlight text
         /// </summary>
         public static readonly Color HighlightTextColor = Color.DarkRed;

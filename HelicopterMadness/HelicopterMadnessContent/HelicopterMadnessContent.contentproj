@@ -107,13 +107,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fonts\HighScoreHelp.spritefont">
-      <Name>HighScoreHelp</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sounds\BorderCollision.wav">
       <Name>BorderCollision</Name>
       <Importer>WavImporter</Importer>

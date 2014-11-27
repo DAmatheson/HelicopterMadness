@@ -6,7 +6,6 @@
  *      Sean Coombes, 2014.11.14: Added GetAlphaCharacterInput
  */
 
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace HelicopterMadness
@@ -21,12 +20,10 @@ namespace HelicopterMadness
         /// </summary>
         /// <param name="ms">Current MouseState</param>
         /// <param name="previousState">Previous MouseState</param>
-        /// <param name="game">Game to check if active</param>
-        /// <returns></returns>
-        public static bool LeftMouseNewClick(this MouseState ms, MouseState previousState, Game game)
+        /// <returns>True if the left mouse button was newly clicked</returns>
+        public static bool LeftMouseNewClick(this MouseState ms, MouseState previousState)
         {
-            return game.IsActive &&
-                ms.LeftButton == ButtonState.Pressed &&
+            return ms.LeftButton == ButtonState.Pressed &&
                 previousState.LeftButton == ButtonState.Released;
         }
 
@@ -46,7 +43,7 @@ namespace HelicopterMadness
         /// <param name="ks">Current KeyboardState</param>
         /// <param name="previousState">Previous KeyboardState</param>
         /// <param name="key">Key to check for press</param>
-        /// <returns></returns>
+        /// <returns>True if the key was newly pressed</returns>
         public static bool NewKeyPress(this KeyboardState ks, KeyboardState previousState, Keys key)
         {
             return ks.IsKeyDown(key) && previousState.IsKeyUp(key);

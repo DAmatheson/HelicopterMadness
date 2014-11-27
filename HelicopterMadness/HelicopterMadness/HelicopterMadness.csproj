@@ -106,7 +106,7 @@
     <Compile Include="Scenes\ActionComponents\Helicopter.cs" />
     <Compile Include="Scenes\BaseScene\GameScene.cs" />
     <Compile Include="Scenes\CommonComponents\ScreenLoopSprite.cs" />
-    <Compile Include="Scenes\HighScoreComponents\FlashingTextDisplay.cs" />
+    <Compile Include="Scenes\CommonComponents\FlashingTextDisplay.cs" />
     <Compile Include="Scenes\HighScoreComponents\HighScoreSceneStates.cs" />
     <Compile Include="Scenes\HighScoreComponents\HighScoreEntry.cs" />
     <Compile Include="Scenes\CommonComponents\TextDisplay.cs" />

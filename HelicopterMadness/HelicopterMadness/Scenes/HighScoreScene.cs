@@ -29,11 +29,10 @@ namespace HelicopterMadness.Scenes
         private const int NUMBER_OF_SCORE_ENTRIES = 5;
         private const int TOP_DUMMY_SCORE = 100;
         private const int DUMMY_SCORE_DIFFERENCE = 10;
-        private const int BLINKRATE = 100;
 
-        private const string CONTINUE = "Click the left mouse button to play another game";
+        private const string CONTINUE = "Click or Press Up to Play Again";
         private const string WINNER_MESSAGE =
-            "Congratulations you got a new highscore! Enter a 3 letter name and press enter";
+            "Congratulations You Got a New Highscore! Enter a 3 Letter Name and Press Enter";
 
         private static int highestScore;
 
@@ -99,7 +98,7 @@ namespace HelicopterMadness.Scenes
             SetUpHighScoreEntries();
 
             SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/HighScoreHeader");
-            SpriteFont winnerFont = game.Content.Load<SpriteFont>("Fonts/HighScoreHelp");
+            SpriteFont helpFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
             SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/HighScoreRegular");
 
             invalidKeySound = Game.Content.Load<SoundEffect>("Sounds/InvalidKeyPress").CreateInstance();
@@ -118,8 +117,8 @@ namespace HelicopterMadness.Scenes
             };
 
             //displays blinking string alerting the player they got a new highscore 
-            helpMessage = new FlashingTextDisplay(game, spriteBatch, winnerFont,
-                SharedSettings.WinnerTextColor, BLINKRATE);
+            helpMessage = new FlashingTextDisplay(game, spriteBatch, helpFont,
+                SharedSettings.WinnerTextColor, SharedSettings.BLINK_RATE);
             
             //display the actual scores
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
@@ -165,11 +164,10 @@ namespace HelicopterMadness.Scenes
         public override void Update(GameTime gameTime)
         {
             MouseState mouseState = Mouse.GetState();
+            KeyboardState keyboardState = Keyboard.GetState();
 
             if (state == HighScoreSceneStates.NewScoreEntry)
             {
-                KeyboardState keyboardState = Keyboard.GetState();
-
                 char? key = keyboardState.GetAlphaCharacterInput(oldKeyboardState);
 
                 if (key != null && inputIndex < SharedSettings.MAX_NAME_CHARS)
@@ -206,17 +204,17 @@ namespace HelicopterMadness.Scenes
                         invalidKeySound.Play();
                     }
                 }
-
-                oldKeyboardState = keyboardState;
             }
 
-            if (mouseState.LeftMouseNewClick(oldMouseState, Game) &&
+            if ((mouseState.LeftMouseNewClick(oldMouseState) ||
+                keyboardState.NewKeyPress(oldKeyboardState, Keys.Up)) &&
                 state == HighScoreSceneStates.NewScoreAdded)
             {
                 state = HighScoreSceneStates.Action;
             }
 
             oldMouseState = mouseState;
+            oldKeyboardState = keyboardState;
 
             base.Update(gameTime);
         }

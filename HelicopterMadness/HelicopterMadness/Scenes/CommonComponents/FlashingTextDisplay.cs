@@ -5,11 +5,10 @@
  *      Sean Coombes, 2014.11.20: Created
  */
 
-using HelicopterMadness.Scenes.CommonComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace HelicopterMadness.Scenes.HighScoreComponents
+namespace HelicopterMadness.Scenes.CommonComponents
 {
     /// <summary>
     ///     Displays flashing text on screen
@@ -17,6 +16,7 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
     public class FlashingTextDisplay : TextDisplay
     {
         private readonly int delay;
+
         private int delayCounter;
         private bool toDraw;
 
@@ -85,6 +85,9 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
         {
             Enabled = false;
             Visible = false;
+
+            delayCounter = 0;
+            toDraw = true;
         }
     }
 }

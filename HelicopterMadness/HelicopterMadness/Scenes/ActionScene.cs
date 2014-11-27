@@ -25,6 +25,7 @@ namespace HelicopterMadness.Scenes
     public class ActionScene : GameScene
     {
         private const int NUMBER_OF_OBSTACLES = 7;
+        private const string START_MESSAGE = "Click or Press Up to Start Play";
 
         private readonly float minObstacleXSpacing;
         private readonly float maxObstacleXSpacing;
@@ -35,7 +36,7 @@ namespace HelicopterMadness.Scenes
 
         private readonly TextDisplay scoreDisplay;
         private readonly TextDisplay highScoreDisplay;
-        private readonly TextDisplay midScreenMessage;
+        private readonly FlashingTextDisplay midScreenMessage;
 
         private readonly SoundEffect beatHighestScoreSound;
 
@@ -129,10 +130,11 @@ namespace HelicopterMadness.Scenes
                 Message = highestScore
             };
 
-            midScreenMessage = new TextDisplay(Game, spriteBatch, highlightFont,
-                SharedSettings.StageCenter, Color.WhiteSmoke)
+            midScreenMessage = new FlashingTextDisplay(Game, spriteBatch, highlightFont,
+                Color.WhiteSmoke, SharedSettings.BLINK_RATE)
             {
-                Message = "Click To Start Playing"
+                Message = START_MESSAGE,
+                Position = SharedSettings.StageCenter
             };
 
             UpdateScoreDisplays();
@@ -166,8 +168,9 @@ namespace HelicopterMadness.Scenes
             {
                 ResumeGame();
             }
-            else if (State == ActionSceneStates.PreStart &&
-                mouseState.LeftMouseNewClick(oldMouseState, Game))
+            else if (State == ActionSceneStates.PreStart && 
+                (mouseState.LeftMouseNewClick(oldMouseState) ||
+                keyboardState.NewKeyPress(oldKeyboardState, Keys.Up)))
             {
                 StartGame();
             }
@@ -189,7 +192,8 @@ namespace HelicopterMadness.Scenes
                 UpdateScoreDisplays();
             }
             else if (State == ActionSceneStates.GameOver &&
-                mouseState.LeftMouseNewClick(oldMouseState, Game))
+                (mouseState.LeftMouseNewClick(oldMouseState) ||
+                keyboardState.NewKeyPress(oldKeyboardState, Keys.Up)))
             {
                 ResetToInitialState();
             }
@@ -212,10 +216,15 @@ namespace HelicopterMadness.Scenes
                 oldMouseState.ScrollWheelValue, ButtonState.Pressed, oldMouseState.RightButton,
                 oldMouseState.MiddleButton, oldMouseState.XButton1, oldMouseState.XButton2);
 
+            // Same reasoning as the oldMouseState
+            oldKeyboardState = new KeyboardState(Keys.Up);
+
             if (State == ActionSceneStates.GameOver)
             {
                 ResetToInitialState();
             }
+
+            midScreenMessage.Start();
 
             base.Show();
         }
@@ -229,6 +238,8 @@ namespace HelicopterMadness.Scenes
             {
                 PauseGame();
             }
+
+            midScreenMessage.Stop();
 
             base.Hide();
         }
@@ -275,7 +286,9 @@ namespace HelicopterMadness.Scenes
         {
             state = ActionSceneStates.PreStart;
 
-            midScreenMessage.Message = "Click to start";
+            midScreenMessage.Message = START_MESSAGE;
+
+            midScreenMessage.Start();
 
             SharedSettings.StageSpeed.X = SharedSettings.DEFAULT_STAGE_SPEED_X;
 
@@ -397,10 +410,11 @@ namespace HelicopterMadness.Scenes
             state = ActionSceneStates.InPlay;
 
             midScreenMessage.Message = string.Empty;
+            midScreenMessage.Stop();
 
             foreach (IGameComponent component in Components)
             {
-                if (component.GetType() == typeof(Explosion))
+                if (component.GetType() == typeof(Explosion) || component == midScreenMessage)
                 {
                     continue;
                 }
@@ -431,9 +445,11 @@ namespace HelicopterMadness.Scenes
         {
             state = ActionSceneStates.GameOver;
 
-            midScreenMessage.Message = "Game Over";
+            midScreenMessage.Message = string.Format("Game Over - Final Score: {0}", GetScore());
 
             DisableComponents();
+
+            midScreenMessage.Start();
         }
 
         /// <summary>
@@ -443,9 +459,11 @@ namespace HelicopterMadness.Scenes
         {
             state = ActionSceneStates.Paused;
 
-            midScreenMessage.Message = "Press Space to Unpause.";
+            midScreenMessage.Message = "Press Space to Unpause";
 
             DisableComponents();
+
+            midScreenMessage.Start();
         }
 
         /// <summary>
@@ -464,6 +482,7 @@ namespace HelicopterMadness.Scenes
             }
 
             midScreenMessage.Message = string.Empty;
+            midScreenMessage.Stop();
 
             state = ActionSceneStates.InPlay;
         }
