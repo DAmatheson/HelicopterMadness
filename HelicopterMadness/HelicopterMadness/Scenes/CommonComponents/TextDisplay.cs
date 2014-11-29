@@ -50,8 +50,9 @@ namespace HelicopterMadness.Scenes.CommonComponents
         /// <param name="font">The font used for the TextDisplay</param>
         /// <param name="position">The position of the TextDisplay on screen</param>
         /// <param name="color">The color of the TextDisplay's text</param>
+        /// <param name="message">The text to be displayed</param>
         public TextDisplay(Game game, SpriteBatch spriteBatch, SpriteFont font,
-            Vector2 position, Color color)
+            Vector2 position, Color color, string message)
             : base(game)
         {
             this.spriteBatch = spriteBatch;
@@ -62,7 +63,7 @@ namespace HelicopterMadness.Scenes.CommonComponents
 
             Enabled = false;
 
-            Message = string.Empty;
+            Message = message;
         }
 
         /// <summary>
@@ -72,8 +73,9 @@ namespace HelicopterMadness.Scenes.CommonComponents
         /// <param name="spriteBatch">The SpriteBatch the TextDisplay will draw itself with</param>
         /// <param name="font">The font used for the TextDisplay</param>
         /// <param name="color">The color of the TextDisplay's text</param>
+        /// <param name="message">The text to be displayed</param>
         public TextDisplay(Game game, SpriteBatch spriteBatch, SpriteFont font, Color color)
-            : this(game, spriteBatch, font, Vector2.Zero, color)
+            : this(game, spriteBatch, font, Vector2.Zero, color, string.Empty)
         { }
 
         /// <summary>

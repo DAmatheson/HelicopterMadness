@@ -97,7 +97,7 @@ namespace HelicopterMadness.Scenes
 
             SetUpHighScoreEntries();
 
-            SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/HighScoreHeader");
+            SpriteFont headerFont = game.Content.Load<SpriteFont>("Fonts/Header");
             SpriteFont helpFont = game.Content.Load<SpriteFont>("Fonts/Highlight");
             SpriteFont scoreFont = game.Content.Load<SpriteFont>("Fonts/HighScoreRegular");
 
@@ -106,15 +106,13 @@ namespace HelicopterMadness.Scenes
 
             newHighScoreSound = Game.Content.Load<SoundEffect>("Sounds/NewHighScore").CreateInstance();
             newHighScoreSound.Volume = 0.6f;
-            
-            titleDimensions = headerFont.MeasureString("HIGHSCORES");
-            Vector2 scorePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 0);
 
-            TextDisplay headerDisplay = new TextDisplay(game, spriteBatch, headerFont, scorePos,
-                SharedSettings.HighlightTextColor)
-            {
-                Message = "HIGHSCORES"
-            };
+            titleDimensions = headerFont.MeasureString("High Scores");
+
+            Vector2 titlePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 50f);
+
+            TextDisplay titleDisplay = new TextDisplay(game, spriteBatch, headerFont, titlePos,
+                SharedSettings.TitleTextColor, "High Scores");
 
             //displays blinking string alerting the player they got a new highscore 
             helpMessage = new FlashingTextDisplay(game, spriteBatch, helpFont,
@@ -131,7 +129,7 @@ namespace HelicopterMadness.Scenes
 
             UpdateScoreDisplays();
 
-            Components.Add(headerDisplay);
+            Components.Add(titleDisplay);
             Components.Add(helpMessage);
 
             foreach (TextDisplay scores in scoreDisplays)

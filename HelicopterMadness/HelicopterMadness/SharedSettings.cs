@@ -45,6 +45,8 @@ namespace HelicopterMadness
         /// </summary>
         public const int BLINK_RATE = 100;
 
+        public static readonly Color TitleTextColor = Color.Black;
+
         /// <summary>
         ///     The Color for highlight text
         /// </summary>

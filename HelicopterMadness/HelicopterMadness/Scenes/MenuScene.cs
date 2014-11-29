@@ -24,7 +24,7 @@ namespace HelicopterMadness.Scenes
     {
         private readonly MenuComponent menu;
         private readonly SceneManager sceneManager;
-        private readonly TextDisplay helpDisplay;
+        private readonly FlashingTextDisplay helpDisplay;
 
         /// <summary>
         ///     Initializes a new instance of MenuScene with the provided parameters
@@ -40,22 +40,34 @@ namespace HelicopterMadness.Scenes
 
             SpriteFont regularFont = Game.Content.Load<SpriteFont>("Fonts/Regular");
             SpriteFont highlightFont = Game.Content.Load<SpriteFont>("Fonts/Highlight");
+            SpriteFont headerFont = Game.Content.Load<SpriteFont>("Fonts/Header");
             SoundEffect selectionChangeSound = Game.Content.Load<SoundEffect>("Sounds/MenuSelectionChange");
 
             menu = new MenuComponent(game, spriteBatch, regularFont, highlightFont, menuItems,
                 selectionChangeSound);
 
+            string titleMessage = "Helicopter Madness";
+
+            Vector2 titlePosition = new Vector2((SharedSettings.Stage.X - headerFont.MeasureString(titleMessage).X) / 2f, 50f);
+
+            TextDisplay title = new TextDisplay(
+                game, spriteBatch, headerFont, titlePosition, SharedSettings.TitleTextColor, titleMessage);
+
             string helpMessage = "Use Arrow Keys to Navigate and Enter to Select";
 
-            Vector2 helpPosition =
-                new Vector2((SharedSettings.Stage.X - highlightFont.MeasureString(helpMessage).X) / 2, 10);
+            Vector2 helpPosition = new Vector2((SharedSettings.Stage.X - highlightFont.MeasureString(helpMessage).X) / 2f,
+                    (SharedSettings.Stage.Y - SharedSettings.Stage.Y / 4f));
 
-            helpDisplay = new TextDisplay(game, spriteBatch, highlightFont, helpPosition, Color.Black)
+            helpDisplay = new FlashingTextDisplay(game, spriteBatch, highlightFont, Color.Black, SharedSettings.BLINK_RATE)
             {
-                Message = helpMessage
+                Message = helpMessage,
+                Position = helpPosition
             };
 
+            helpDisplay.Start();
+
             Components.Add(menu);
+            Components.Add(title);
             Components.Add(helpDisplay);
         }
 
@@ -87,7 +99,7 @@ namespace HelicopterMadness.Scenes
 
         private void RemoveHelpMessage()
         {
-            helpDisplay.Visible = false;
+            helpDisplay.Stop();
 
             Components.Remove(helpDisplay);
         }

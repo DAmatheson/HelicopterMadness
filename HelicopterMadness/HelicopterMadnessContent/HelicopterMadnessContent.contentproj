@@ -93,8 +93,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fonts\HighScoreHeader.spritefont">
-      <Name>HighScoreHeader</Name>
+    <Compile Include="Fonts\Header.spritefont">
+      <Name>Header</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>

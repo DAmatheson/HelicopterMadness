@@ -124,11 +124,9 @@ namespace HelicopterMadness.Scenes
             Vector2 highScorePosition = new Vector2(SharedSettings.Stage.X - 
                 highlightFont.MeasureString(highestScore).X, 0);
 
-            highScoreDisplay = new TextDisplay(game, spriteBatch, highlightFont, highScorePosition,
-                Color.Gold)
-            {
-                Message = highestScore
-            };
+            highScoreDisplay = new TextDisplay(
+                game, spriteBatch, highlightFont, highScorePosition,
+                Color.Gold, highestScore);
 
             midScreenMessage = new FlashingTextDisplay(Game, spriteBatch, highlightFont,
                 Color.WhiteSmoke, SharedSettings.BLINK_RATE)
