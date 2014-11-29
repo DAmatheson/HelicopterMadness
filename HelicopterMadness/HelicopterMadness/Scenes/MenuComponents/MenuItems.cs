@@ -5,7 +5,7 @@
  *      Drew Matheson, 2014.11.05: Created
  */ 
 
-namespace HelicopterMadness
+namespace HelicopterMadness.Scenes.MenuComponents
 {
     /// <summary>
     ///     Identifies a particular menu item from the main menu

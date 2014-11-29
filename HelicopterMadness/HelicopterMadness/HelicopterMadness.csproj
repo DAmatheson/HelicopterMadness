@@ -121,7 +121,7 @@
     <Compile Include="HelicopterGame.cs" />
     <Compile Include="SceneManager.cs" />
     <Compile Include="Scenes\HighScoreScene.cs" />
-    <Compile Include="MenuItems.cs" />
+    <Compile Include="Scenes\MenuComponents\MenuItems.cs" />
     <Compile Include="SharedSettings.cs" />
     <Compile Include="Scenes\MenuScene.cs" />
     <Compile Include="Scenes\CommonComponents\Sprite.cs" />

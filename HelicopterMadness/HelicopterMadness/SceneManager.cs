@@ -11,6 +11,7 @@ using HelicopterMadness.Scenes.ActionComponents;
 using HelicopterMadness.Scenes.CommonComponents;
 using HelicopterMadness.Scenes.HighScoreComponents;
 using HelicopterMadness.Scenes.BaseScene;
+using HelicopterMadness.Scenes.MenuComponents;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
