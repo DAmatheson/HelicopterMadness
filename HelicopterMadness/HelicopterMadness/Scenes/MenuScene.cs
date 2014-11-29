@@ -22,6 +22,9 @@ namespace HelicopterMadness.Scenes
     /// </summary>
     public class MenuScene : GameScene
     {
+        private const string TITLE_MESSAGE = "Helicopter Madness";
+        private const string HELP_MESSAGE = "Use Arrow Keys to Navigate and Enter to Select";
+
         private readonly MenuComponent menu;
         private readonly SceneManager sceneManager;
         private readonly FlashingTextDisplay helpDisplay;
@@ -46,21 +49,21 @@ namespace HelicopterMadness.Scenes
             menu = new MenuComponent(game, spriteBatch, regularFont, highlightFont, menuItems,
                 selectionChangeSound);
 
-            string titleMessage = "Helicopter Madness";
+            Vector2 titlePosition = new Vector2(
+                (SharedSettings.Stage.X - headerFont.MeasureString(TITLE_MESSAGE).X) / 2f,
+                SharedSettings.TITLE_POSITION_Y);
 
-            Vector2 titlePosition = new Vector2((SharedSettings.Stage.X - headerFont.MeasureString(titleMessage).X) / 2f, 50f);
+            TextDisplay title = new TextDisplay(game, spriteBatch, headerFont, titlePosition,
+                SharedSettings.TitleTextColor, TITLE_MESSAGE);
 
-            TextDisplay title = new TextDisplay(
-                game, spriteBatch, headerFont, titlePosition, SharedSettings.TitleTextColor, titleMessage);
+            Vector2 helpPosition = new Vector2(
+                (SharedSettings.Stage.X - highlightFont.MeasureString(HELP_MESSAGE).X) / 2f,
+                SharedSettings.Stage.Y - SharedSettings.Stage.Y / 4f);
 
-            string helpMessage = "Use Arrow Keys to Navigate and Enter to Select";
-
-            Vector2 helpPosition = new Vector2((SharedSettings.Stage.X - highlightFont.MeasureString(helpMessage).X) / 2f,
-                    (SharedSettings.Stage.Y - SharedSettings.Stage.Y / 4f));
-
-            helpDisplay = new FlashingTextDisplay(game, spriteBatch, highlightFont, Color.Black, SharedSettings.BLINK_RATE)
+            helpDisplay = new FlashingTextDisplay(game, spriteBatch, highlightFont, Color.Black,
+                SharedSettings.BLINK_RATE)
             {
-                Message = helpMessage,
+                Message = HELP_MESSAGE,
                 Position = helpPosition
             };
 

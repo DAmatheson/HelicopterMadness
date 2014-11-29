@@ -37,6 +37,7 @@ namespace HelicopterMadness.Scenes.MenuComponents
         /// <param name="regularFont">The regular font for the unselected menu entries</param>
         /// <param name="highlightFont">The highlight font for the selected menu entry</param>
         /// <param name="menuEntries">The list of strings for the menu entries</param>
+        /// <param name="selectionChangeSound">The sound to play when the menu selection is changed</param>
         public MenuComponent(Game game, SpriteBatch spriteBatch, SpriteFont regularFont,
             SpriteFont highlightFont, IList<string> menuEntries, SoundEffect selectionChangeSound)
             : base(game)

@@ -37,6 +37,8 @@ namespace HelicopterMadness.Scenes
         private static int highestScore;
 
         private readonly string scorepath;
+        private readonly string saveFolderPath;
+
         private readonly List<HighScoreEntry> highScoreEntries;
         private readonly TextDisplay[] scoreDisplays;
         private readonly FlashingTextDisplay helpMessage;
@@ -52,8 +54,6 @@ namespace HelicopterMadness.Scenes
 
         private int newScoreIndex;
         private int inputIndex;
-
-        private Vector2 titleDimensions;
 
         private KeyboardState oldKeyboardState;
         private MouseState oldMouseState;
@@ -92,8 +92,11 @@ namespace HelicopterMadness.Scenes
         {
             highScoreEntries = new List<HighScoreEntry>();
 
-            scorepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                SharedSettings.HIGHSCORE_FILE_NAME);
+            saveFolderPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                SharedSettings.SAVE_FOLDER_NAME);
+
+            scorepath = Path.Combine(saveFolderPath, SharedSettings.HIGHSCORE_FILE_NAME);
 
             SetUpHighScoreEntries();
 
@@ -107,9 +110,9 @@ namespace HelicopterMadness.Scenes
             newHighScoreSound = Game.Content.Load<SoundEffect>("Sounds/NewHighScore").CreateInstance();
             newHighScoreSound.Volume = 0.6f;
 
-            titleDimensions = headerFont.MeasureString("High Scores");
-
-            Vector2 titlePos = new Vector2((SharedSettings.Stage.X - titleDimensions.X) / 2, 50f);
+            Vector2 titlePos = new Vector2(
+                (SharedSettings.Stage.X - headerFont.MeasureString("High Scores").X) / 2,
+                SharedSettings.TITLE_POSITION_Y);
 
             TextDisplay titleDisplay = new TextDisplay(game, spriteBatch, headerFont, titlePos,
                 SharedSettings.TitleTextColor, "High Scores");
@@ -258,13 +261,13 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         private void SetUpHighScoreEntries()
         {           
-            // TODO: this needs to be removed before handing in
-#if DEBUG
-            File.Delete(scorepath);
-#endif
-
             if (File.Exists(scorepath))
             {
+
+#if DEBUG       // TODO: this needs to be removed before handing in
+                File.Delete(scorepath);
+#endif
+
                 try
                 {
                     using (StreamReader scores = File.OpenText(scorepath))
@@ -328,27 +331,30 @@ namespace HelicopterMadness.Scenes
         /// </summary>
         private void UpdateScoreDisplays()
         {
-            float yCoord = titleDimensions.Y * 2;
-            float xCoord = 0;
+            if (scoreDisplays.Length <= 0 || highScoreEntries.Count <= 0)
+            {
+                return;
+            }
 
+            Vector2 scoreDisplaySize = scoreDisplays[0].Font.MeasureString(
+                string.Format("{0}. {1}", 1, highScoreEntries[0]));
+
+            float lineHeight = scoreDisplaySize.Y;
+
+            float yCoord = SharedSettings.StageCenter.Y - (lineHeight * NUMBER_OF_SCORE_ENTRIES / 2f) - 
+                lineHeight;
+
+            float xCoord = (SharedSettings.Stage.X - scoreDisplaySize.X) / 2f;
+            
             for (int i = 0; i < NUMBER_OF_SCORE_ENTRIES; i++)
             {
                 TextDisplay currentScoreDisplay = scoreDisplays[i];
 
                 currentScoreDisplay.Message = string.Format("{0}. {1}", i + 1, highScoreEntries[i]);
 
-                Vector2 scoreDisplaySize = currentScoreDisplay.Font.MeasureString(currentScoreDisplay.Message);
+                yCoord += lineHeight;
 
-                if (i == 0)
-                {
-                    xCoord = scoreDisplaySize.X / 2;
-                }
-                else
-                {
-                    yCoord += scoreDisplaySize.Y;
-                }
-
-                currentScoreDisplay.Position = new Vector2(SharedSettings.Stage.X / 2 - xCoord, yCoord);
+                currentScoreDisplay.Position = new Vector2(xCoord, yCoord);
             }
         }
 
@@ -390,6 +396,11 @@ namespace HelicopterMadness.Scenes
         {
             try
             {
+                if (!Directory.Exists(saveFolderPath))
+                {
+                    Directory.CreateDirectory(saveFolderPath);
+                }
+                
                 using (StreamWriter scoresWriter = new StreamWriter(scorepath))
                 {
                     foreach (HighScoreEntry itemEntry in highScoreEntries)
@@ -398,7 +409,7 @@ namespace HelicopterMadness.Scenes
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception ignored)
             {
                 // TODO: Decide whether we display a message on screen or not
             }
@@ -407,13 +418,12 @@ namespace HelicopterMadness.Scenes
         /// <summary>
         ///     Sets the position for the new highscore message
         /// </summary>
-        /// <returns>the position for the string</returns>
         private void RepositionHelpMessage()
         {
             Vector2 helpDimensions = helpMessage.Font.MeasureString(helpMessage.Message);
 
             helpMessage.Position = new Vector2(SharedSettings.StageCenter.X - helpDimensions.X / 2,
-                SharedSettings.Stage.Y - SharedSettings.Stage.Y / 4);
+                SharedSettings.Stage.Y - SharedSettings.Stage.Y / 4f);
         }
     }
 }

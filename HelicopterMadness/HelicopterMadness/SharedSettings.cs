@@ -36,6 +36,11 @@ namespace HelicopterMadness
         public const string HIGHSCORE_FILE_NAME = "Highscore.txt";
 
         /// <summary>
+        ///     The folder name for the game
+        /// </summary>
+        public const string SAVE_FOLDER_NAME = "Helicopter Madness";
+
+        /// <summary>
         ///     The maximum number of characters in a highscore name
         /// </summary>
         public const int MAX_NAME_CHARS = 3;
@@ -45,6 +50,14 @@ namespace HelicopterMadness
         /// </summary>
         public const int BLINK_RATE = 100;
 
+        /// <summary>
+        ///     The Y Position for title messages
+        /// </summary>
+        public const float TITLE_POSITION_Y = 52f;
+
+        /// <summary>
+        ///     The color for title text
+        /// </summary>
         public static readonly Color TitleTextColor = Color.Black;
 
         /// <summary>

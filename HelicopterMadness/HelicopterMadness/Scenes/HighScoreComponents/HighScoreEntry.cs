@@ -18,11 +18,11 @@ namespace HelicopterMadness.Scenes.HighScoreComponents
 
         private readonly int paddingWidth;
 
+        private string name;
+
         /// <summary>
         ///     The player name for the entry
         /// </summary>
-        private string name;
-
         public string Name
         {
             get

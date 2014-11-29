@@ -29,6 +29,9 @@ namespace HelicopterMadness.Scenes.ActionComponents
 
         private Vector2 speed;
 
+        /// <summary>
+        ///     Flag representing if the helicopter has collided and crashed
+        /// </summary>
         public bool HasCrashed { get; private set; }
 
         /// <summary>
@@ -97,6 +100,11 @@ namespace HelicopterMadness.Scenes.ActionComponents
             }
         }
 
+        /// <summary>
+        /// Called when the Enabled property changes. Raises the EnabledChanged event.
+        /// </summary>
+        /// <param name="sender">The GameComponent.</param>
+        /// <param name="args">Arguments to the EnabledChanged event.</param>
         protected override void OnEnabledChanged(object sender, EventArgs args)
         {
             soundEffect.Pause();

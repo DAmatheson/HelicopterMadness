@@ -5,7 +5,13 @@
  *      Drew Matheson, 2014.11.05: Created
  */
 
-using System;
+#if DEBUG
+
+    #define SHOW_FPS
+    using System;
+
+#endif
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,7 +22,7 @@ namespace HelicopterMadness
     /// </summary>
     public class HelicopterGame : Game
     {
-#if DEBUG
+#if SHOW_FPS
         SpriteFont spriteFont;
 
         int frameRate = 0;
@@ -67,7 +73,7 @@ namespace HelicopterMadness
 
             sceneManager = new SceneManager(this, spriteBatch);
 
-#if DEBUG
+#if SHOW_FPS
             spriteFont = Content.Load<SpriteFont>("Fonts/FrameRate");
 #endif
             Components.Add(sceneManager);
@@ -82,7 +88,8 @@ namespace HelicopterMadness
             if (IsActive) // TODO: Worth doing? Pauses game when the window is not in focus
             {
                 base.Update(gameTime);
-#if DEBUG
+
+#if SHOW_FPS
                 elapsedTime += gameTime.ElapsedGameTime;
 
                 if (elapsedTime > TimeSpan.FromSeconds(1))
@@ -104,16 +111,17 @@ namespace HelicopterMadness
             GraphicsDevice.Clear(bufferColor);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-#if DEBUG
+
+            base.Draw(gameTime);
+
+#if SHOW_FPS
             frameCounter++;
 
             string fps = string.Format("fps: {0}", frameRate);
-#endif
-            base.Draw(gameTime);
-#if DEBUG           
+         
             spriteBatch.DrawString(spriteFont, fps, new Vector2(33, 33), Color.Black);
-            spriteBatch.DrawString(spriteFont, fps, new Vector2(32, 32), Color.White);
 #endif
+
             spriteBatch.End();
         }
     }
