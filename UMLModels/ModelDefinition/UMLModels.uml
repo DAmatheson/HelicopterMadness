@@ -2097,6 +2097,16 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="59eb9452-bd81-445c-afc2-92c758af9ab8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
+              LastKnownName="DrawableGameComponent"
+              LastKnownLocation="UMLModels.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="bf1c466a-f560-45e7-bfa8-2907cb8c4cb4"
@@ -4954,6 +4964,120 @@
           </enumerationLiteral>
         </ownedLiterals>
       </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
+        name="DrawableGameComponent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ac351524-b50c-4ed0-a666-c7237243c96f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fd9cfb96-5bf5-49df-97ee-40e60c4920f9">
+                <propertyInstance
+                  Id="8333e7e3-9298-48af-aaa9-4a809e3f0081"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="beb8dadb-4f86-4a94-af1a-777ab70af040">
+                <propertyInstance
+                  Id="b7bb9067-7b33-4e09-a9ac-0641ee5e1510"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9d4a7719-2cb2-4bed-8a70-45098b7cfa09">
+                <propertyInstance
+                  Id="3751b887-b34f-4790-bce7-e67617c51987"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0f10a612-b8f3-4cf2-86ab-68424254ecdb">
+                <propertyInstance
+                  Id="d4784eaa-f05f-4c44-a476-b0fd302898f6"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5ba7bd17-5e52-4639-b59c-8acd0ecf1587">
+                <propertyInstance
+                  Id="38e3f710-4a62-4958-8a5b-f260d93bc2df"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="0fab8664-baa0-4d98-afdd-8b4e8e4e1473"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b33bc760-7d8c-4303-b4dc-396d0535c41d"
+              LastKnownName="GameComponent"
+              LastKnownLocation="UMLModels.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b33bc760-7d8c-4303-b4dc-396d0535c41d"
+        name="GameComponent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="481a81c9-a80a-42fb-a39a-05e850c680ae"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4b2d8323-323f-47f6-9e47-04c1c0cafb35">
+                <propertyInstance
+                  Id="fdca0aed-af09-44d9-94b8-8c0445bbf60e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1505f024-087b-4c5f-98a5-ad1e437140d9">
+                <propertyInstance
+                  Id="1d42226a-2b4b-4af3-912e-21905eaab6ff"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="258dd769-2f93-42fa-9a56-227a8205921b">
+                <propertyInstance
+                  Id="b6a7bd7e-141f-4835-8b44-6f732a8fcd26"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ae7ba050-df9e-4ac2-8191-446fc094e387">
+                <propertyInstance
+                  Id="baa67b62-fcec-4930-990a-dc5d53d6de38"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="35fbcd4d-a1c0-4316-8201-ae7e4754344e">
+                <propertyInstance
+                  Id="56bb0b69-e2cc-489c-a53c-a84584feb55d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
