@@ -593,6 +593,14 @@
               LastKnownName="Game"
               LastKnownLocation="Package4_1438.uml" />
           </generalization>
+          <generalization
+            Id="997682fa-9e7c-4fd9-becf-383fca59a99d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0a2a4cd8-704f-4e33-9e66-238cc88d68ce"
+              LastKnownName="Game"
+              LastKnownLocation="UMLModels.uml" />
+          </generalization>
         </generalsInternal>
         <targetEnds>
           <association

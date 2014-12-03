@@ -5079,6 +5079,58 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0a2a4cd8-704f-4e33-9e66-238cc88d68ce"
+        name="Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b7e1e9aa-03df-4ac5-81e1-5c1cec1b5834"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e0b904cc-aa23-4b3d-9988-aff7ee8d4d3a">
+                <propertyInstance
+                  Id="764abe00-ec9d-442d-adca-b2053bbbe941"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="89175193-f338-4e55-990d-01002ebad032">
+                <propertyInstance
+                  Id="c415bbd5-24ae-4743-8ee0-86ecbe0e1461"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1b37a275-3732-473c-9a8e-58376a976c7e">
+                <propertyInstance
+                  Id="c006cfec-d857-45f2-95a9-1f867409a610"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7284673a-711d-4344-a0a4-5d93bb93448e">
+                <propertyInstance
+                  Id="2579e915-a1e5-4ce2-bb27-a299742bc478"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="685e46ff-9c6c-44e9-b13c-384f9e806791">
+                <propertyInstance
+                  Id="575eb85a-93f2-415c-b7f8-b8b230a6e6da"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
