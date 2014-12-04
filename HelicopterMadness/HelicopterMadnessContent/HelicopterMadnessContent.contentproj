@@ -44,13 +44,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\HelpScene.png">
-      <Name>HelpScene</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\CreditsScene.png">
       <Name>CreditsScene</Name>
       <Importer>TextureImporter</Importer>
@@ -184,6 +177,13 @@
   <ItemGroup>
     <Compile Include="Images\HowToPlayScene.png">
       <Name>HowToPlayScene</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\HelpScene.png">
+      <Name>HelpScene</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
