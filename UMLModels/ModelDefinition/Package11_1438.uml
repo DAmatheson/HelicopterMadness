@@ -76,6 +76,14 @@
               LastKnownName="DrawableGameComponent"
               LastKnownLocation="Package4_1438.uml" />
           </generalization>
+          <generalization
+            Id="1c1402d1-5edc-4758-a957-1388056fde25"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
+              LastKnownName="DrawableGameComponent"
+              LastKnownLocation="UMLModels.uml" />
+          </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
           <property

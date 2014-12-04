@@ -43,6 +43,11 @@ namespace HelicopterMadness.Scenes.ActionComponents
 
                 foreach (var collidable in collidingComponents)
                 {
+                    if (!collidable.Enabled)
+                    {
+                        continue;
+                    }
+
                     if (playerBounds.Intersects(collidable.GetBounds()))
                     {
                         collidable.OnCollision(playerComponent);

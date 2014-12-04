@@ -12,7 +12,7 @@ namespace HelicopterMadness.Scenes.ActionComponents
     /// <summary>
     ///     Represents an object that can collide with other objects
     /// </summary>
-    public interface ICollidable : IGameComponent, IDrawable, IUpdateable
+    public interface ICollidable : IUpdateable
     {
         /// <summary>
         ///     Gets the bounds of the collidable object

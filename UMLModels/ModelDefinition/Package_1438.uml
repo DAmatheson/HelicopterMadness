@@ -82,6 +82,14 @@
               LastKnownName="DrawableGameComponent"
               LastKnownLocation="Package4_1438.uml" />
           </generalization>
+          <generalization
+            Id="d9174d7f-bfe1-4a89-8c22-39910faf7fb6"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
+              LastKnownName="DrawableGameComponent"
+              LastKnownLocation="UMLModels.uml" />
+          </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
           <property
@@ -584,6 +592,14 @@
               Id="eb875852-3d3d-43df-add2-9aba4d5c077d"
               LastKnownName="Game"
               LastKnownLocation="Package4_1438.uml" />
+          </generalization>
+          <generalization
+            Id="997682fa-9e7c-4fd9-becf-383fca59a99d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0a2a4cd8-704f-4e33-9e66-238cc88d68ce"
+              LastKnownName="Game"
+              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -1269,6 +1285,14 @@
               Id="0ca27475-b3b9-4492-b98d-e710b3a7c89e"
               LastKnownName="DrawableGameComponent"
               LastKnownLocation="Package4_1438.uml" />
+          </generalization>
+          <generalization
+            Id="ef31083a-eae1-412e-b2d0-e9582f16b83a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
+              LastKnownName="DrawableGameComponent"
+              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <targetEnds>
