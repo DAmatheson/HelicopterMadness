@@ -5131,6 +5131,50 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="b1771651-bfe5-4ff0-833c-96d5d6986209"
+        name="IUpdateable"
+        isAbstract="false"
+        isLeaf="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="1b40e89f-5b34-4588-b34e-0e20760fdc5a"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9dacfd62-2ead-41e9-ae3d-4903d940004e">
+                <propertyInstance
+                  Id="57934689-7393-4e1f-8895-e3e8929cd819"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1999eb46-e19a-4004-a984-47cb6f1174a6">
+                <propertyInstance
+                  Id="359eee0a-d17b-4d45-a18d-4591a6875f21"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7d37bc18-4bf7-4ddc-917d-e5d463a2ac31">
+                <propertyInstance
+                  Id="e02daffb-87ff-445c-ac9c-3aadf3948139"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e2c5a988-22dc-4733-8860-b364c9fdc652">
+                <propertyInstance
+                  Id="3078e7ef-ad9e-444e-91a4-f86090087971"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

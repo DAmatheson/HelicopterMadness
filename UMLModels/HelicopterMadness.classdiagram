@@ -6752,6 +6752,12 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="db2d8862-b39c-42b5-b716-187e7b7282a8" />
+        <generalsInternal>
+          <generalization Id="506dada3-66b4-4f1e-a019-e4516e431d16" isSubstitutable="false">
+            <interfaceMoniker Id="98c5abde-911d-4845-8b75-36cc9f7b9137" LastKnownName="IUpdateable" />
+            <elementDefinition Id="c20772ac-beeb-4dd0-acd5-3c10d8f9c37f" />
+          </generalization>
+        </generalsInternal>
         <ownedOperations>
           <operation Id="b3ed1b0c-6fc1-4cd0-8193-c1feec81b39d" name="OnCollision" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <referencesInternal>
@@ -13758,6 +13764,42 @@
         </appliedStereotypesInternal>
         <elementDefinition Id="0a2a4cd8-704f-4e33-9e66-238cc88d68ce" />
       </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="98c5abde-911d-4845-8b75-36cc9f7b9137" name="IUpdateable" isAbstract="false" isLeaf="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="49b585c5-ccec-46d3-8dce-65606c05bfc0" name="interface" profile="CSharpProfile">
+            <elementDefinition Id="1b40e89f-5b34-4588-b34e-0e20760fdc5a" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="0f3d812b-a386-4491-9d82-2af553d37e10">
+                <propertyInstance Id="8c6aae47-3109-4efd-8d77-63a76adffc23" name="ClrAttributes">
+                  <elementDefinition Id="57934689-7393-4e1f-8895-e3e8929cd819" />
+                </propertyInstance>
+                <elementDefinition Id="9dacfd62-2ead-41e9-ae3d-4903d940004e" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="b12e593a-d994-4da1-a246-c9b1c63e6f39">
+                <propertyInstance Id="16dfd1aa-7da2-4a49-979c-87ff62369787" name="IsPartial" value="false">
+                  <elementDefinition Id="359eee0a-d17b-4d45-a18d-4591a6875f21" />
+                </propertyInstance>
+                <elementDefinition Id="1999eb46-e19a-4004-a984-47cb6f1174a6" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="ad63fb1d-493b-4d74-90d4-9c8791c0cbbd">
+                <propertyInstance Id="9c4ec4c3-b8a1-4dbc-8cca-b41a0b156e44" name="IsUnsafe" value="false">
+                  <elementDefinition Id="e02daffb-87ff-445c-ac9c-3aadf3948139" />
+                </propertyInstance>
+                <elementDefinition Id="7d37bc18-4bf7-4ddc-917d-e5d463a2ac31" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="bc3ac151-d3e5-404c-920d-985b240ba5d7">
+                <propertyInstance Id="707d0623-2c21-48a7-b746-4ed384558b87" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="3078e7ef-ad9e-444e-91a4-f86090087971" />
+                </propertyInstance>
+                <elementDefinition Id="e2c5a988-22dc-4733-8860-b364c9fdc652" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="b1771651-bfe5-4ff0-833c-96d5d6986209" />
+      </Interface>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="5a3c2d9b-3aac-4108-8ed2-9217a7fc531d" name="UMLModels">

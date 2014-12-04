@@ -409,9 +409,12 @@ namespace HelicopterMadness.Scenes
                     }
                 }
             }
-            catch (Exception ignored)
+            catch (Exception ex)
             {
-                // TODO: Decide whether we display a message on screen or not
+                if (ex is OutOfMemoryException)
+                {
+                    throw;
+                }
             }
         }
 

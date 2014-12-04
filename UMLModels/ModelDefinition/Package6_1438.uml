@@ -3355,6 +3355,14 @@
               LastKnownName="IUpdateable"
               LastKnownLocation="Package4_1438.uml" />
           </generalization>
+          <generalization
+            Id="c20772ac-beeb-4dd0-acd5-3c10d8f9c37f"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="b1771651-bfe5-4ff0-833c-96d5d6986209"
+              LastKnownName="IUpdateable"
+              LastKnownLocation="UMLModels.uml" />
+          </generalization>
         </generalsInternal>
         <ownedOperations>
           <operation
