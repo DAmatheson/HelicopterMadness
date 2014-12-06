@@ -77,15 +77,15 @@ namespace HelicopterMadness.Scenes.ActionComponents
                 {
                     // Avg time between updates = ~0.0166667
                     // Desired base up movement speed = -0.42 
-                    // 0.42 * (VERTICAL_SPEED / 0.0166667) = 3.60
-                    accelerate = -(VERTICAL_SPEED * 3.60f * (float)gameTime.ElapsedGameTime.TotalSeconds *
+                    // 0.42 / (VERTICAL_SPEED / 0.0166667) = 3.6
+                    accelerate = -(VERTICAL_SPEED * 3.6f * (float)gameTime.ElapsedGameTime.TotalSeconds *
                         stageSpeedChange);
                 }
                 else
                 {
                     // Avg time between updates = ~0.0166667
                     // Desired base down movement speed = 0.7 
-                    // 0.7 * (VERTICAL_SPEED / 0.0166667) = ~6
+                    // 0.7 / (VERTICAL_SPEED / 0.0166667) = ~6
                     accelerate = VERTICAL_SPEED * 6f * (float)gameTime.ElapsedGameTime.TotalSeconds * 
                         stageSpeedChange;
                 }

@@ -309,7 +309,7 @@
             <classMoniker
               Id="220d67b6-4da5-4408-b3ce-37bd0c7c62b7"
               LastKnownName="TextDisplay"
-              LastKnownLocation="UMLModels.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -2896,7 +2896,7 @@
             <classMoniker
               Id="11088f5c-9312-40d3-90d1-2bfa3115f0ca"
               LastKnownName="HighScoreEntry"
-              LastKnownLocation="UMLModels.uml" />
+              LastKnownLocation="Package_2049.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -2948,7 +2948,7 @@
             <classMoniker
               Id="220d67b6-4da5-4408-b3ce-37bd0c7c62b7"
               LastKnownName="TextDisplay"
-              LastKnownLocation="UMLModels.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -3000,7 +3000,7 @@
             <classMoniker
               Id="f1d4c8d2-73a5-490a-96f9-d1799c713e1e"
               LastKnownName="FlashingTextDisplay"
-              LastKnownLocation="UMLModels.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -3804,7 +3804,7 @@
             <classMoniker
               Id="220d67b6-4da5-4408-b3ce-37bd0c7c62b7"
               LastKnownName="TextDisplay"
-              LastKnownLocation="UMLModels.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -4263,6 +4263,18 @@
           </operation>
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="943ff571-fc6e-4786-b6f6-95aab10d7f4a"
+        LastKnownName="CommonComponents"
+        LastKnownLocation="Package_2048.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="79fa5f0a-135e-490c-aad0-4aa9096c1cb5"
+        LastKnownName="HighScoreComponents"
+        LastKnownLocation="Package_2049.uml" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

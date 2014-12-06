@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="79fa5f0a-135e-490c-aad0-4aa9096c1cb5"
+  name="HighScoreComponents" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="11088f5c-9312-40d3-90d1-2bfa3115f0ca"
+        name="HighScoreEntry"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="cd2cd814-375d-4a01-9bbb-c69cce9ac260"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0e16dc8f-4ff2-497d-9952-13c399258ac5"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="15a1167f-6257-4597-ad51-32bf55b6d22e">
+                <propertyInstance
+                  Id="bf3ec80b-acf2-4ad6-835f-726bba77e11e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e7595dc4-ab5a-4dac-a132-4707f1463e37">
+                <propertyInstance
+                  Id="756a6458-7f64-44b2-9b4e-76868cfb002f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5e3f06be-85ef-45c5-b6a2-73f3e652dfe1">
+                <propertyInstance
+                  Id="08ff7a07-1d7c-415a-aaf7-e68cb8cf01ae"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c1d6e32f-0f09-4ce1-95ee-1b9f4bf9515d">
+                <propertyInstance
+                  Id="59d8b32c-e0d4-458f-bcb5-d1e2c7363694"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f6503eae-fda0-4739-824e-e82ea33d8d50">
+                <propertyInstance
+                  Id="5c728eaa-9ee6-4288-8dba-4bab9b3a9ef9"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="670eccd6-211d-40c7-b59f-29fc4f3908e9"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6cff89ec-ab3f-4a7e-af72-d12aacdff5c5"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9dde6248-a64d-43f3-b8d3-7f4f640be083"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49ec256a-c2cf-41ab-8b5c-0d3a12400650">
+                    <propertyInstance
+                      Id="2c5a79a5-bd2b-478b-8db5-8a202dfaecc2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3bf90c86-bcaa-4e58-acd4-a9c7e8d0bd9e">
+                    <propertyInstance
+                      Id="9edad9bc-5f1b-4172-9872-bb861a088507"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fac2418-3465-4fbc-b167-122b4e258305">
+                    <propertyInstance
+                      Id="a5d7eef9-977d-4726-b86d-99512523bb27"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8e3baef-93a0-4904-8418-0ce4242628f9">
+                    <propertyInstance
+                      Id="f0b0fd25-851e-4c6f-b0f0-456b528f4520"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dcc6e17a-6e37-4a42-877c-7734f5babb36">
+                    <propertyInstance
+                      Id="cfb5e32f-af09-4dad-87ae-d5e39e25c36e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd634bcd-89e9-45ca-b12c-96ff44c80a7c">
+                    <propertyInstance
+                      Id="105a62ce-91ea-4ac9-9699-0abe03e6505e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3eefad8-11c6-4b43-aeca-014614ece970">
+                    <propertyInstance
+                      Id="efd3ae94-4690-453d-82fa-fd3690f24d24"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UMLModels.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="69599bd8-2e7f-49a9-be3f-23211dd01ee9"
+            name="Score"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="10fb1576-9607-481f-99bc-5be54223dc87"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DScore"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c1dfc154-40b2-4b5f-90e0-e96fe1039f2f"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a1cdb11-da93-4792-b51f-658171e745e5">
+                    <propertyInstance
+                      Id="86a74046-46fa-47e6-be97-d797041327fd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0413089e-ec57-40a1-8447-509ee121ed23">
+                    <propertyInstance
+                      Id="1fef2dfd-1f7f-4e70-982e-648875f5d73d"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d76bf34c-d443-48b2-bc84-40ad1a06fa22">
+                    <propertyInstance
+                      Id="0f8be3bd-b474-453a-9099-1fbdf95d0b72"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87ea3ba1-8b14-4782-ae49-c1c3423c156d">
+                    <propertyInstance
+                      Id="57fbc1d1-9e23-49eb-b732-0f873fe060fb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86d8859a-93e9-4fba-b786-575c1bee8e1b">
+                    <propertyInstance
+                      Id="19ed5be8-e407-4605-82bd-f206a074861a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2ab4de2-d36b-4ba0-9bfb-3b87151550ec">
+                    <propertyInstance
+                      Id="ef7e4bd5-ce03-48fd-9825-c93b907cdd09"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="923ca01f-cd85-4a61-9853-ed88ddeffc87">
+                    <propertyInstance
+                      Id="cfd49c5d-4f36-4c51-b0ee-fbe6461b3abb"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="UMLModels.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6bcd9a67-7bda-424d-8847-9ae04b1afbba"
+            name="name"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3897eb2d-3063-4bf7-8f1a-770a8b2bbdc3"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3Dname"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="35ca5008-9338-40a9-9122-ab9c33aeacd6"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="28316c19-80ec-4688-9919-6229d56ef022">
+                    <propertyInstance
+                      Id="dc2847fb-9b8b-444c-8312-077a1803d3f5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36807f94-b951-4061-8eaa-d4984f5651df">
+                    <propertyInstance
+                      Id="043b57d5-6763-442f-98d3-30d20b2844b8"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8ff7659-0c0e-4a1b-bf40-4a500c9df0ea">
+                    <propertyInstance
+                      Id="e47d8657-96c9-48f2-b138-e6f7802bccab"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f03af0c0-efa6-4345-aed5-727100068b83">
+                    <propertyInstance
+                      Id="84b8efbd-66a9-41d1-b270-3a72323aa5a8"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9115068f-c659-4aea-a175-ae72ac643c39">
+                    <propertyInstance
+                      Id="0012ea44-9811-4d3f-b008-64d43f9e4457"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="UMLModels.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="25711335-bccc-47b5-a75e-3304291205e5"
+            name="paddingWidth"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="56977a6e-8a2c-4d55-bb23-7edd30a146bc"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DpaddingWidth"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6f19e077-3e7c-40df-a5c3-2e43db3d8eb6"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17369b34-ff22-4aa5-a931-cfd13b59e2a8">
+                    <propertyInstance
+                      Id="615f3975-20cf-45fe-8cc8-0bff34baea84"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3a24cfaf-c902-49b0-84cb-82aeba0e500a">
+                    <propertyInstance
+                      Id="e5626338-b701-4a67-8293-de0a59569656"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="762863ef-f87b-4c4a-8e13-764472f1bced">
+                    <propertyInstance
+                      Id="316436e7-575c-4abb-a641-f873938208b2"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="58bcb8c6-ee5f-4a2c-a567-0bbfcc23514e">
+                    <propertyInstance
+                      Id="b5f150d2-88aa-4258-8605-1360bc4e5418"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3166f145-facd-4c98-aad8-b9ebe5282e54">
+                    <propertyInstance
+                      Id="0fe79cbb-43f8-45b1-9778-1b9ebed67eb3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="UMLModels.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="83e34aed-f01f-410a-850a-be38db25f557"
+            name="validNameRegex"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7b7caf63-264f-4fdc-a0dc-ea50932a36bd"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DvalidNameRegex"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="86e13348-cb52-4c93-9c5f-8f24d6929e50"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1efef565-d8a6-4b25-a1e0-a0243e6b02fc">
+                    <propertyInstance
+                      Id="c34305ad-234e-4ba0-a023-2db4bd619555"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9107299d-e8b2-4c15-931b-8927a28239ed">
+                    <propertyInstance
+                      Id="db8eb404-2c4c-47bc-a847-a48edada300b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e378b7f5-fba8-49f9-9bdc-fa5c59bd6a96">
+                    <propertyInstance
+                      Id="df53286c-966a-407e-886b-9254a6c5990a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="538a6267-b9b0-4cdd-ba78-09ea6de3724d">
+                    <propertyInstance
+                      Id="d08087fb-84be-4b5c-837f-5825d637a252"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d851faa7-236c-42ae-954a-d1ddfb58d699">
+                    <propertyInstance
+                      Id="830af808-2149-4518-a9af-7cfb1ddcdd5a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="328df0f1-d1d8-4c8b-970f-f27f6959387f"
+                LastKnownName="UMLModels::System::Text::RegularExpressions::Regex"
+                LastKnownLocation="UMLModels.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="df7948e6-e44c-4cb3-a86c-aa9851ebd16f"
+            name="HighScoreEntry"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ee3cc9d7-d515-47f6-935e-bf4b87193361"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="838b372c-c289-491f-bc3f-282c56c89bd7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d81514f2-4de8-4cc8-93ba-cadd0ee12f3d">
+                    <propertyInstance
+                      Id="a0ec3d6a-7f21-415e-9e56-5d1d94357bf1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad8ebdd9-7233-43e0-93a9-d89c8f4b26c7">
+                    <propertyInstance
+                      Id="865f0696-060b-4773-a89f-bb1c55af3ab9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3f61a11-b002-44c2-9db3-e159643bc47f">
+                    <propertyInstance
+                      Id="51ffc34a-cd4a-4bad-88ea-248921a00ff5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15386323-08c2-45c6-8775-7011d7d70623">
+                    <propertyInstance
+                      Id="f2371f13-df2a-41c0-ab29-e31e3432eb1c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ade53ef6-aefe-4b30-bad2-5dd06e2adcf6">
+                    <propertyInstance
+                      Id="e30bc2ba-e29d-4b1c-bd48-ed843dcea4e4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4e57588-ec51-4aaa-b28d-abe305a18866">
+                    <propertyInstance
+                      Id="0fb185c0-b577-4f33-8bde-51c34c96e0a7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="92ee9199-a959-497e-8bc8-298860dcbf5a"
+                  name="name"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="279578c5-6673-4534-a5d1-15a361505a17"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dname"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7a87a44a-e30b-484c-8884-9ca61116348a"
+                  name="score"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="47f8db21-3fa6-411a-af6d-ee6603bae7b8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dscore"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="559b50cf-cc3d-4651-aeb5-b3fbe40bb035"
+                  name="paddingWidth"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ec6d0f0a-1a1b-4a23-b17b-4edc98acd9a2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DpaddingWidth"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4553cfce-7f1f-4b9a-989a-ce768745b4c8"
+            name="HighScoreEntry"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a73a4ad1-b224-4b88-8ab0-2a0e12ff325b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f2191adc-be78-4185-a63e-94008ef43492"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ad5e794-c47b-4666-8a92-d6370ceff06f">
+                    <propertyInstance
+                      Id="2a42bbfd-2845-4180-968a-098f9ac5ab98"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="adc7c32a-b2d8-4a66-9b88-8bad661cc43f">
+                    <propertyInstance
+                      Id="d8ea661e-bbda-4435-8b75-d31cc35b580d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f52ff63a-b4a8-46d8-a602-ecceb22cb84f">
+                    <propertyInstance
+                      Id="d62bfbdb-b600-405e-a6b7-d21eee5aa031"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e99b3320-0582-4105-9b9a-f3c1160f88a5">
+                    <propertyInstance
+                      Id="26490b8c-3a9d-448c-b98c-70df1340867b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa28538f-ea33-466e-87e8-7f73bb559a60">
+                    <propertyInstance
+                      Id="e3814011-3aa5-49e5-91d2-05cc44de8ba0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="abc4d73a-5a6f-447e-a35e-84145f4c3934">
+                    <propertyInstance
+                      Id="bd2c0b47-1c60-49a9-a8d4-2582e9418407"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="768d0630-e1ee-43fd-8a65-4da4c8e065f0"
+                  name="score"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2b610d04-50c4-4a51-9c3d-fb9854aa8b54"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dscore"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="02f51fd7-bd51-4930-aa44-2ddb1d4e4a33"
+                  name="paddingWidth"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="511a8f42-50a9-46ae-8ca7-d90e19977168"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DpaddingWidth"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8dfc633c-ea5b-47ed-9256-78394de5ee3b"
+            name="RemoveCharFromName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="063ca1ca-c37c-48b2-a75c-02cc8126c1b9"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3DRemoveCharFromName OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="916192e6-595f-40c1-9e10-5ec12c1faf53"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a4ff08b4-a666-404f-a3f6-132defbf4040">
+                    <propertyInstance
+                      Id="fb53f25f-ada4-4eb1-b3ec-c4446d90d883"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fcbfa5cd-eff2-4b81-8d61-37d39a0512fa">
+                    <propertyInstance
+                      Id="b5dbf2f0-5c05-41ca-bc5b-b9c99edf71fa"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08f99663-438b-46ed-9964-536607b6913e">
+                    <propertyInstance
+                      Id="a20ebf32-12ba-428e-a2ea-16155c479b80"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e4de3e6-db90-44c6-82df-9138e5962a1a">
+                    <propertyInstance
+                      Id="b03b97c6-139e-42d2-9678-1ed61bddece1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="695c59d1-ae4c-4f37-9daf-54e5714013f5">
+                    <propertyInstance
+                      Id="f5efc16c-4207-4e12-8c8c-5ee72d9d6bf3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="994d89e0-f022-4c9f-89ed-f8304cd6fa8d">
+                    <propertyInstance
+                      Id="fbed04c3-3267-4e09-951f-32ad90b97b78"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8a1ec38f-3f98-49df-b864-868b135f999e"
+                  name="charIndex"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="157ace86-a603-4479-bbc6-fb6a84741e3f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3DRemoveCharFromName OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DcharIndex"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ffda2f0b-b378-405d-af8c-2e5256df9ed9"
+            name="ReplaceChar"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="778c19ac-907b-455d-aa10-11b21883a37b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3DReplaceChar OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DChar)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b16d6154-9d30-48b6-a910-2b2389542a36"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6103866d-663b-4bd0-a22d-79e7668a33bc">
+                    <propertyInstance
+                      Id="8f6d994b-a47a-4b93-8c4e-35cb7a932158"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96709a9b-7aa4-4d1d-b243-bdf04cc61423">
+                    <propertyInstance
+                      Id="6ab5ed1f-b69b-40c7-9f49-a7972194b8a4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e264473-7218-44ee-8f21-1b1b65bceff1">
+                    <propertyInstance
+                      Id="b97beced-675f-4f7d-98c0-55d3ec469962"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a6b5b2c-6112-4937-8de5-7025173bdb71">
+                    <propertyInstance
+                      Id="9a5539ca-2850-4852-b666-0c415d98931a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48647df7-12c4-4cf8-8af7-b8af82b324e5">
+                    <propertyInstance
+                      Id="84106a6c-8ecf-47c8-9008-e121747e07e5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="973c9c0b-00b1-4172-ba53-bac32e1bbf1a">
+                    <propertyInstance
+                      Id="501b7b38-2ea9-4797-91ef-e66e17de74fc"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed63c4f1-205a-4820-8f92-a296d9119c03"
+                  name="charIndex"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="998aa435-990d-450e-956b-7a0eb876cc1f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3DReplaceChar OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DChar)]) ParameterIdentifier%3DcharIndex"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a380219e-989b-4a9a-82a0-5ef2b7c4cace"
+                  name="replacementChar"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d909ad8b-7e53-43c0-9053-392e208cb5c9"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3D(Name%3DReplaceChar OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DChar)]) ParameterIdentifier%3DreplacementChar"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="90632203-b37c-4ee6-9010-b8711f6c55f0"
+                      LastKnownName="UMLModels::System::Char"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d6199bda-ec86-4eed-845e-30aa957b8e48"
+            name="SetNameForEntry"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e0eedf73-05b3-479c-9e07-bdf3401420b9"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DSetNameForEntry"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="980aee1b-6ab2-4784-a638-cce7cce8afb7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57cbfeb5-0227-4707-8179-0d66c57af7b1">
+                    <propertyInstance
+                      Id="f5c96867-055b-43b8-b086-13f6d75ee91b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6851b5d-f63b-4d2f-81e6-91f879458558">
+                    <propertyInstance
+                      Id="bc6bfedc-45f4-451d-abf4-03354ec5619c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c704f74-5447-4b6a-91c1-b6e1817ed267">
+                    <propertyInstance
+                      Id="8d4519ec-a260-4543-a5ef-f45bffe39f84"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b131b8b-0d10-4874-b8d6-3fdbbbfe01db">
+                    <propertyInstance
+                      Id="c7b0108a-14df-4bc1-bd99-42848dbc97a4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="995d5114-6937-4e38-8bbd-4da6e4d9a332">
+                    <propertyInstance
+                      Id="d245a38e-3544-40df-bb63-3f829f17ae38"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d3358616-c856-4e1e-932c-2fda300af330">
+                    <propertyInstance
+                      Id="6c4f5589-e634-44f5-95e5-6260f9ea8603"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="0d832dac-057f-40d1-8469-6a1851a9555d"
+            name="ToSaveString"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="da8e7265-4479-4796-9dab-0cdf5b3352c4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DToSaveString"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="edec0f80-6be0-4c49-9b0c-bf067754fbc9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="da0466df-ce2d-47f0-a8a4-8c11292dd6e2">
+                    <propertyInstance
+                      Id="08471e1a-9d94-40a9-859c-cf4971881a34"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4378c188-3a18-483d-9250-845ce6d674d6">
+                    <propertyInstance
+                      Id="70e1d8f3-24c7-4fb3-bda5-881710a1cbf6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d32ea75-9a8e-42b9-aa89-2c03095a9237">
+                    <propertyInstance
+                      Id="ed2e71f3-dfbb-4099-864c-592deb1ad2eb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40920bbb-6737-4411-bc8b-1a999d42054c">
+                    <propertyInstance
+                      Id="b8bf6c36-ddd1-46ea-b5aa-8b203a43b2c4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e1fa9f5-f7f2-4ca5-a6dd-e09cca99a34d">
+                    <propertyInstance
+                      Id="caef715b-7a31-49c9-a009-f3903b5d2160"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d84966ff-1201-436b-beca-0f02547de2ff">
+                    <propertyInstance
+                      Id="ae44673c-8356-4eb7-8961-834abe7413da"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="360fe060-70ee-4537-8162-a48eb6fb3ce0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ae316266-9af8-4b8b-97d5-0d403e83b7bc"
+            name="ToString"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="80843914-28fb-4b0f-91ba-9bfc29581c92"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreEntry Member%3DToString"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="13fa81ce-1b8b-4e63-bbb2-6cdb4c6d5206"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="26f6bbeb-ae65-49cb-ba4a-1069967064f3">
+                    <propertyInstance
+                      Id="0e40ac80-c7f4-4599-998b-f65ecf534ed3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="724e9ab2-2ab8-43d5-9a6c-20e18afbfee5">
+                    <propertyInstance
+                      Id="70518f61-a218-4c4d-9d6b-14d69c910028"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54552b59-d13d-413a-acf5-4d63a2cc7cb8">
+                    <propertyInstance
+                      Id="0a32fe22-d278-4734-9acc-8cd83164a19a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="912abd0b-f320-42a6-894a-5f9ca1430b2d">
+                    <propertyInstance
+                      Id="7da6ea45-55ca-4013-9834-9da4e18f19a9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10dd8d61-7aa8-4ddc-9027-d5f46e13dc65">
+                    <propertyInstance
+                      Id="da5c1e0b-bc34-4854-8280-a7a2ff77526a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa232a06-bb99-4622-ab94-d505b2fac2be">
+                    <propertyInstance
+                      Id="9ed2c863-8455-48f2-9ac4-abcb55ef498d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e2a7f0d7-4d51-4f06-aa53-26c1eb677a48"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="3c1bab95-dbcd-4765-9e80-8a7da9469d1d"
+        name="HighScoreSceneStates"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="2abcef9c-ab13-4d3d-b5a5-193e36d6b8b5"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreSceneStates"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8efffe4b-eea2-4574-8fd5-83bfb56d9d48"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2f438591-7fa3-4e57-8d69-19704c74e317">
+                <propertyInstance
+                  Id="48296e6c-df49-4b7a-967e-3c44b0de0773"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e733f0d8-8110-4710-af03-58f43db90cb1">
+                <propertyInstance
+                  Id="c3b71242-3a80-4111-80da-0ba1e2178749"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2528ee23-0908-41c6-b780-402963b01b80">
+                <propertyInstance
+                  Id="d5fd8337-d9dd-412e-bb37-aa33ef5dc962"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="92ffa069-dc0d-4676-8d8f-5f26df5ae226"
+            name="Action">
+            <referencesInternal>
+              <reference
+                Id="2b4de3a5-968d-401f-8198-4c5378326122"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreSceneStates Member%3DAction"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="6c808ead-3e16-4e71-8cd3-9b496eac16df"
+            name="NewScoreAdded">
+            <referencesInternal>
+              <reference
+                Id="257ec9e0-64b4-446f-ba79-8552478831c7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreSceneStates Member%3DNewScoreAdded"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="038a4bb3-a47e-441f-8ffc-0ff21a7b77f4"
+            name="NewScoreEntry">
+            <referencesInternal>
+              <reference
+                Id="5f9a2ccb-2eca-4b8d-8304-1136fabb9da3"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreSceneStates Member%3DNewScoreEntry"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="bbd3d7c1-4f98-419a-976d-f51f89e18021"
+            name="View">
+            <referencesInternal>
+              <reference
+                Id="ab2f3865-d1cc-477d-95f4-3774e83a3dbb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness.Scenes.HighScoreComponents Type%3DHighScoreSceneStates Member%3DView"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

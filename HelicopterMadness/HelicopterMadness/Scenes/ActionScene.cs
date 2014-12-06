@@ -412,7 +412,7 @@ namespace HelicopterMadness.Scenes
 
             foreach (IGameComponent component in Components)
             {
-                if (component.GetType() == typeof(Explosion) || component == midScreenMessage)
+                if (component == midScreenMessage || component.GetType() == typeof(Explosion))
                 {
                     continue;
                 }

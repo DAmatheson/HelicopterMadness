@@ -19,517 +19,6 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
-        Id="9c841827-dbef-4490-889c-71ce5fefd542"
-        name="Sprite"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <referencesInternal>
-          <reference
-            Id="a98852bb-0d1e-4bfa-97b6-cf4d64ac4a86"
-            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite"
-            tag="ViewCode" />
-        </referencesInternal>
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="89b71139-0661-4d02-a432-fe35410487ec"
-            name="class"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="3f42f525-f9ce-4773-8c85-44d2c7c1153b">
-                <propertyInstance
-                  Id="d1fcfbeb-af5f-48a1-94c6-8f03a02fc460"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="d3533dca-69c0-4dfc-a910-8f22b63849aa">
-                <propertyInstance
-                  Id="89a32b14-97df-4136-9aa1-abcf2852e3b3"
-                  name="IsPartial"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="83b17b27-5790-450d-b917-fb34774d90e3">
-                <propertyInstance
-                  Id="0f86eeb0-d265-43e6-8cbf-55bf40ef3e04"
-                  name="IsStatic"
-                  value="False" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="4409c8f9-4e1b-4f60-a9af-985b4d88b027">
-                <propertyInstance
-                  Id="e9a04d80-c497-4119-805a-e7c1672e95b7"
-                  name="IsUnsafe"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="280a251c-882a-414e-878f-87cc748ca01b">
-                <propertyInstance
-                  Id="6f3ee4b5-95d2-408f-9305-7ecf53ea4f56"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <generalsInternal>
-          <generalization
-            Id="88987587-1ac6-478e-9f52-aa80b083a61c"
-            isSubstitutable="false">
-            <classMoniker
-              Id="0ca27475-b3b9-4492-b98d-e710b3a7c89e"
-              LastKnownName="DrawableGameComponent"
-              LastKnownLocation="Package4_1438.uml" />
-          </generalization>
-          <generalization
-            Id="d9174d7f-bfe1-4a89-8c22-39910faf7fb6"
-            isSubstitutable="false">
-            <classMoniker
-              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
-              LastKnownName="DrawableGameComponent"
-              LastKnownLocation="UMLModels.uml" />
-          </generalization>
-        </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="ccc4daa1-718a-41fa-a6ff-880b841395b6"
-            name="spriteBatch"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <referencesInternal>
-              <reference
-                Id="44a01202-643e-42cb-928c-5fc3720d7978"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3DspriteBatch"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="83d76114-acf4-4757-ba85-81735b3cb496"
-                name="field"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="1b62f973-2ddd-4c7d-a788-a3ee2f99f092">
-                    <propertyInstance
-                      Id="b1676340-d468-4665-96ff-a2a4d39571d9"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="44a8a668-5adf-4103-9255-63fe5185f082">
-                    <propertyInstance
-                      Id="378cc9ae-83a9-497b-a1fc-66e06fe560b9"
-                      name="IsConst"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="93a73e9f-98dc-4cfe-8a0c-e9257681344a">
-                    <propertyInstance
-                      Id="a1fe59b3-7a3a-4b27-bc12-38c59af93515"
-                      name="IsNullable"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a5328109-7438-41d2-afcd-9b4daae195e7">
-                    <propertyInstance
-                      Id="53c70a29-2622-4c3f-87df-a1d90e221501"
-                      name="IsVolatile"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="fccf9b1c-f82d-48de-8a25-52440e1fd013">
-                    <propertyInstance
-                      Id="954aefe0-6ec3-49e8-bd5f-3fb29b795d44"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <classMoniker
-                Id="bd9ea370-1351-4a3f-b40e-ed735e52b5f7"
-                LastKnownName="SpriteBatch"
-                LastKnownLocation="Package5_1438.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="7b90bbbd-a9f5-4a0b-ba7d-2584aa22b0e3"
-            name="texture"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <referencesInternal>
-              <reference
-                Id="c41c915b-eb74-44e9-b925-3459fc049bc8"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3Dtexture"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="f6e8e215-4d2a-4d45-88f4-2f52804d222d"
-                name="field"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="598e99bd-5e50-479e-965b-b79a67f51219">
-                    <propertyInstance
-                      Id="c5906b48-5731-404a-ad7c-151b5f9469fb"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="df16b30f-27ec-434e-98a6-dc59996a99c8">
-                    <propertyInstance
-                      Id="f7f5e5bd-3a59-4904-80f0-03afa3570365"
-                      name="IsConst"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a803023d-d816-4098-94f2-9c2f19dbab32">
-                    <propertyInstance
-                      Id="4eb059c6-6f72-4be0-9c1a-c1fbaac52c1b"
-                      name="IsNullable"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="57bc9942-a4ca-449d-bdf1-1fd63bd238f9">
-                    <propertyInstance
-                      Id="81800180-a2c0-4440-8910-a96b89bb66b5"
-                      name="IsVolatile"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b1907ac8-27ee-4bbd-a69d-4bf8c0ac1f8c">
-                    <propertyInstance
-                      Id="4bbfb94d-fe89-4b5f-ad4c-35ba4a0b7876"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <classMoniker
-                Id="449e8362-626a-44af-8d50-e70e018afa7a"
-                LastKnownName="Texture2D"
-                LastKnownLocation="Package5_1438.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="24e7a388-fc4f-4a62-b8d5-7513e02493c2"
-            name="position"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <referencesInternal>
-              <reference
-                Id="69defdf1-37c6-4b71-a9b7-42b122968312"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3Dposition"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="4145e762-c383-4b8a-a7e6-c52dec665869"
-                name="field"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b64e1ef1-d010-43f7-a4d3-60185f6befe4">
-                    <propertyInstance
-                      Id="7800a626-23e0-41cb-8a29-34d1e2d51d79"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d73bc601-f52a-406d-8e1e-2f38b7ae8061">
-                    <propertyInstance
-                      Id="5e44dfa3-00ad-40f5-a4f0-aece11b7462f"
-                      name="IsConst"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d9d1fe7d-dbbf-45f2-8b36-94e56c56145b">
-                    <propertyInstance
-                      Id="cf0552e4-64e0-4be7-a418-585f25ec611e"
-                      name="IsNullable"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="0c701718-6501-4cec-b793-14da9c4caad4">
-                    <propertyInstance
-                      Id="2f071ed6-5d30-474f-9130-1e943dbae6ce"
-                      name="IsVolatile"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="457d0c56-a33a-4068-8f15-5ef0e16aa341">
-                    <propertyInstance
-                      Id="856e053b-0917-42c2-8629-ac61c3c4cfab"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <classMoniker
-                Id="55f0778d-09e2-4d97-85b3-f327e1fbd447"
-                LastKnownName="Vector2"
-                LastKnownLocation="Package4_1438.uml" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="3d6ea849-fbdb-4306-9be3-03c3318f5dfe"
-            name="Draw"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <referencesInternal>
-              <reference
-                Id="1e5cd213-0630-41dd-92ba-207a7f760d64"
-                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="44d15521-c788-411e-b14c-60b081d46028"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="131bba51-9c39-4e27-9802-abbd545acacd">
-                    <propertyInstance
-                      Id="e8d093c6-50a6-4b7f-bd5c-5e27e68a9d07"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="ab598345-f42e-4119-b27b-0f7ce296ac9c">
-                    <propertyInstance
-                      Id="878b57dd-be59-4297-945e-28644ae03854"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="bcc028d8-4123-4cf0-b9f7-fe18271a9781">
-                    <propertyInstance
-                      Id="d81ae759-6add-4398-bb05-74a99b1ad6d9"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="5ee7be26-85ac-4589-8203-70b932d06882">
-                    <propertyInstance
-                      Id="5787564a-a181-40e4-a726-61e21e106e23"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="5ac540b3-7a4f-4ca2-b774-11a59ac18f6c">
-                    <propertyInstance
-                      Id="103ffa8d-15fa-41c0-ab2e-8793777ff878"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="8f119584-26b3-4605-b05c-ee28f2a8388b">
-                    <propertyInstance
-                      Id="96a3b8c3-4bc2-41ca-a94e-feff67c5cb02"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="7f39f585-ab4a-40fe-9e2b-f496b15cf37a"
-                  name="gameTime"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="57217566-84bc-4a66-ae28-a3db90d32532"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="a83fa260-a49a-47b9-8ad6-7000100fc85b"
-                      LastKnownName="GameTime"
-                      LastKnownLocation="Package4_1438.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="549c12ef-9897-43a9-bf9b-6716c059ee37"
-            name="Sprite"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <referencesInternal>
-              <reference
-                Id="1f6fb823-c970-4984-9695-f151db0c7720"
-                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)])"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="588a6553-8c8a-4b3e-8df9-419620183d4b"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="dd53da72-5489-4e32-ad4c-db2e032f7fd9">
-                    <propertyInstance
-                      Id="5d6dd9f1-d6c7-4ce6-ab57-ae634c79f509"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a29a3154-a80d-4cad-ad71-336c9d73d976">
-                    <propertyInstance
-                      Id="b3481b71-d9e2-4ec0-b754-f5d510e7b3aa"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="a0c68d7c-1214-468b-abdb-359170977762">
-                    <propertyInstance
-                      Id="ad21aff2-aa9b-4dc7-8bac-675f43a0c63c"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="14562085-0906-439d-9d2a-fac579c6ec0e">
-                    <propertyInstance
-                      Id="b2608ed2-68da-4624-9e03-eec187c1dd03"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="2222a65e-73dc-44db-aea4-a13a58e6becc">
-                    <propertyInstance
-                      Id="126d5998-0d62-4fe4-a04f-be2fe2a7cb57"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="38c449ff-c97f-4070-b0b7-207f73f71534">
-                    <propertyInstance
-                      Id="1515a615-cff4-46e7-a0b3-7a9cd44fda1b"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="3edb5e6c-94e2-4d5a-83b6-638efe86df4b"
-                  name="game"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="9bb46a16-685b-4421-ae5e-c01b091eb8a2"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3Dgame"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="eb875852-3d3d-43df-add2-9aba4d5c077d"
-                      LastKnownName="Game"
-                      LastKnownLocation="Package4_1438.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="dccbf535-49ed-4d31-83be-0b53c3056a83"
-                  name="spriteBatch"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="a328ac78-c634-455a-bcc7-971d4b04d8d9"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3DspriteBatch"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="bd9ea370-1351-4a3f-b40e-ed735e52b5f7"
-                      LastKnownName="SpriteBatch"
-                      LastKnownLocation="Package5_1438.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="decb4f9f-3562-407d-b794-339d6aa43d27"
-                  name="texture"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="65006a74-4e4b-4569-a2ad-866909dfaebf"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3Dtexture"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="449e8362-626a-44af-8d50-e70e018afa7a"
-                      LastKnownName="Texture2D"
-                      LastKnownLocation="Package5_1438.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="4ab822b6-0e8f-4086-b27b-d85b2aa0a648"
-                  name="position"
-                  direction="In">
-                  <referencesInternal>
-                    <reference
-                      Id="c9903613-629b-4be6-972c-e6f71b577fff"
-                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DSprite Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3Dposition"
-                      tag="ViewCode" />
-                  </referencesInternal>
-                  <type_NamedElement>
-                    <classMoniker
-                      Id="55f0778d-09e2-4d97-85b3-f327e1fbd447"
-                      LastKnownName="Vector2"
-                      LastKnownLocation="Package4_1438.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
         Id="62193de9-01fc-451c-9acf-30cc4210d6c9"
         name="HelicopterGame"
         isAbstract="false"
@@ -592,14 +81,6 @@
               Id="eb875852-3d3d-43df-add2-9aba4d5c077d"
               LastKnownName="Game"
               LastKnownLocation="Package4_1438.uml" />
-          </generalization>
-          <generalization
-            Id="997682fa-9e7c-4fd9-becf-383fca59a99d"
-            isSubstitutable="false">
-            <classMoniker
-              Id="0a2a4cd8-704f-4e33-9e66-238cc88d68ce"
-              LastKnownName="Game"
-              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -1279,20 +760,12 @@
         </appliedStereotypesInternal>
         <generalsInternal>
           <generalization
-            Id="39dca72b-a16b-426d-8d63-f779313a98e1"
+            Id="ef31083a-eae1-412e-b2d0-e9582f16b83a"
             isSubstitutable="false">
             <classMoniker
               Id="0ca27475-b3b9-4492-b98d-e710b3a7c89e"
               LastKnownName="DrawableGameComponent"
               LastKnownLocation="Package4_1438.uml" />
-          </generalization>
-          <generalization
-            Id="ef31083a-eae1-412e-b2d0-e9582f16b83a"
-            isSubstitutable="false">
-            <classMoniker
-              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
-              LastKnownName="DrawableGameComponent"
-              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -2092,7 +1565,7 @@
                     <enumerationMoniker
                       Id="c096a43c-e899-49a4-840f-edbafea8c8db"
                       LastKnownName="MenuItems"
-                      LastKnownLocation="Package_1438.uml" />
+                      LastKnownLocation="Package12_1438.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -2166,111 +1639,6 @@
           </operation>
         </ownedOperationsInternal>
       </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <enumeration
-        Id="c096a43c-e899-49a4-840f-edbafea8c8db"
-        name="MenuItems"
-        isAbstract="false"
-        isLeaf="false">
-        <referencesInternal>
-          <reference
-            Id="60218019-3671-43e4-ad50-f45ff33652a0"
-            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems"
-            tag="ViewCode" />
-        </referencesInternal>
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="9733e3a5-afe8-4144-925d-ff836c6a1d58"
-            name="enum"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="f10b588b-8150-401c-ac51-2d43e965d7d7">
-                <propertyInstance
-                  Id="098a8b34-20f1-4e27-a57f-4168c0ab2d6d"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="231a07c3-685c-44df-b0d3-8374f974c949">
-                <propertyInstance
-                  Id="ca273f38-8701-4e10-b7fa-a5193c1b1c2a"
-                  name="BaseType"
-                  value="int" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="7685bfd0-b280-462d-8852-1521bb613453">
-                <propertyInstance
-                  Id="6514dd87-d13f-48da-8e6f-705553e65f2a"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <ownedLiterals>
-          <enumerationLiteral
-            Id="f5b879ad-c643-4a18-aa09-8b81c387d086"
-            name="Credit">
-            <referencesInternal>
-              <reference
-                Id="ec165e80-ec25-4e9b-afdb-1049b28ee794"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems Member%3DCredit"
-                tag="ViewCode" />
-            </referencesInternal>
-          </enumerationLiteral>
-          <enumerationLiteral
-            Id="3a8a60f7-4f6b-48a7-b1c6-9b620d18fc48"
-            name="Help">
-            <referencesInternal>
-              <reference
-                Id="0513955d-ef9a-4e67-b363-a33278489b63"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems Member%3DHelp"
-                tag="ViewCode" />
-            </referencesInternal>
-          </enumerationLiteral>
-          <enumerationLiteral
-            Id="f96c57e6-429c-4c28-ada3-6a0b5038bf4b"
-            name="HighScore">
-            <referencesInternal>
-              <reference
-                Id="46587fdb-a044-40cd-b63a-7bc82f6cc292"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems Member%3DHighScore"
-                tag="ViewCode" />
-            </referencesInternal>
-          </enumerationLiteral>
-          <enumerationLiteral
-            Id="7dcd544b-da88-4267-b654-4f927b2ab019"
-            name="HowToPlay">
-            <referencesInternal>
-              <reference
-                Id="431ca2da-a7aa-48ff-9457-3f6f09ec5768"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems Member%3DHowToPlay"
-                tag="ViewCode" />
-            </referencesInternal>
-          </enumerationLiteral>
-          <enumerationLiteral
-            Id="7b109e4c-8bcd-466e-8507-03b915efad78"
-            name="Quit">
-            <referencesInternal>
-              <reference
-                Id="210b35ff-af82-4961-9667-d7b9d6b3809e"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems Member%3DQuit"
-                tag="ViewCode" />
-            </referencesInternal>
-          </enumerationLiteral>
-          <enumerationLiteral
-            Id="2187b7e9-f3be-4771-948b-ca1518eb20e6"
-            name="StartGame">
-            <referencesInternal>
-              <reference
-                Id="da0af502-aa36-4b85-8f55-90733672024d"
-                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DMenuItems Member%3DStartGame"
-                tag="ViewCode" />
-            </referencesInternal>
-          </enumerationLiteral>
-        </ownedLiterals>
-      </enumeration>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -2528,6 +1896,553 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="652e75e6-b1b3-47f4-a83f-5d22a5b93989"
+        name="InputHelper"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="43886a2a-0fe0-410f-aab9-19e51a9cf499"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="cc007573-cf85-43ad-9266-d6143c1415d4"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="472004dc-7701-4aa7-9449-81e95272f7a0">
+                <propertyInstance
+                  Id="02419349-1672-472f-b603-5f4899364e54"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="faea0e3a-570a-4761-a1ce-192e40dbbddd">
+                <propertyInstance
+                  Id="20095966-50cc-418b-8da0-539fc29cdb4f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="74611194-cc50-4ceb-bc45-9fe8602a9ee9">
+                <propertyInstance
+                  Id="619b5516-027a-4faa-be54-c53154792da9"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="37ce94d1-a911-402c-80a6-687b74478659">
+                <propertyInstance
+                  Id="2a149a11-2b67-4ddd-aae6-a5f42cec33f8"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="642bd451-7f9f-49ab-ba7f-0dceef05bed8">
+                <propertyInstance
+                  Id="90c3e42e-e5cf-40e7-a6ac-455147dd67a5"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a5ce2f94-59a1-4e2e-9b81-408e330bd86a"
+            name="GetAlphaCharacterInput"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e17a769d-bf2e-4166-a7c3-37d422ccd8ee"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DGetAlphaCharacterInput OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7a245ac4-156f-486b-9ed7-9f292c433ff8"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="64a4e9ee-f473-408d-9ae0-353bfc756a0f">
+                    <propertyInstance
+                      Id="1e9f0aca-c0bc-4ecf-991d-cd962a13187e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89bf0104-303c-400b-a30d-c6a9c1a31873">
+                    <propertyInstance
+                      Id="80694176-ab6f-4c88-a59f-9272f2a26553"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ab2f0e5-3b0e-4bea-8df8-0ba897885816">
+                    <propertyInstance
+                      Id="747af814-227e-4a2b-b084-58a4ee19a40e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4e3e4eb-0dd7-4b73-831c-b5899f058230">
+                    <propertyInstance
+                      Id="37604aaa-3b53-4482-afc1-448cbf76a544"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0ae1bcd-dddd-41fb-8052-4582cecda84a">
+                    <propertyInstance
+                      Id="0df33a34-f9ea-4b4f-b641-d83682de1540"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b41d4237-63eb-4248-84da-2aab258a6a9c">
+                    <propertyInstance
+                      Id="7feb0123-38a5-4f36-8100-cede23c00266"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="77cb0035-46ba-4e25-9b0d-84eb3cf47cb3"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="201bc932-9db1-4fcc-99f4-9524ba80ca3e"
+                      LastKnownName="UMLModels::System::Nullable&lt;Char‎&gt;"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="07aff7d7-a4c4-40bc-9281-1f4c507c1792"
+                  name="keyboardState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="25d8553d-ca14-494e-a321-b5a5a6b278b2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DGetAlphaCharacterInput OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)]) ParameterIdentifier%3DkeyboardState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f7f70a04-982c-4fed-a728-b94095300790"
+                      LastKnownName="KeyboardState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ede2d758-a221-4aca-8da8-eddb9f068317"
+                  name="oldState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="64c8a041-2c63-4c35-a8c7-ca45fee5045b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DGetAlphaCharacterInput OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)]) ParameterIdentifier%3DoldState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f7f70a04-982c-4fed-a728-b94095300790"
+                      LastKnownName="KeyboardState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0ba8d9bf-01d3-4f8c-8b23-d1da00ddfc6d"
+            name="LeftMouseClicked"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e569bcc7-277f-4e91-8513-285f5c5b5676"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DLeftMouseClicked OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7b10c81d-ad44-474e-8ffc-8ff845798188"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d0cef0c-4069-4067-a7ec-b8d7ca3b9889">
+                    <propertyInstance
+                      Id="7f7a5aef-8444-4f44-9a4a-b04bc5f95483"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="910a6ac1-ac52-4846-9c68-ac2bb6476cc5">
+                    <propertyInstance
+                      Id="b0539a95-fc4e-4ab4-b1bb-e5e79fae26c3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81fa585a-9cc0-4ff7-96ab-81145ed898db">
+                    <propertyInstance
+                      Id="3acf3588-3da6-4c95-9777-c96538e85ca1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8c2fbe0-2368-4a16-a16a-7efafdd8ed72">
+                    <propertyInstance
+                      Id="7d02c823-b54f-49d1-a832-7775f900f07f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f42063fb-ba9a-4967-b110-c8b5e4f5796f">
+                    <propertyInstance
+                      Id="0b85cac0-09f3-469a-bafd-da410f5ab245"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="726e2a23-9f6e-498f-99e8-cd54f2e56a25">
+                    <propertyInstance
+                      Id="715e2f5a-9486-4a6f-8d4d-bb1db4a11e9a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e6a2749-5f24-45db-a015-455bbc9346fb"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3e4e4a01-43d8-499b-a4df-438bc9a64215"
+                  name="mouseState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2ea29880-2729-40ee-838e-e17e95a9f34b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DLeftMouseClicked OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)]) ParameterIdentifier%3DmouseState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1c62682c-1e8b-4a49-9f4e-6d543c76c8a7"
+                      LastKnownName="MouseState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e5b35d35-ea61-4f9a-85ee-205680ec9334"
+            name="LeftMouseNewClick"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9e00bcdc-9c5e-4ac6-9d9a-b86d2cf89059"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DLeftMouseNewClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8d441fe2-e9dc-4cc0-8226-c1896404d136"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b71e1ed3-96ea-4d3b-8e87-308e76026c9d">
+                    <propertyInstance
+                      Id="d854d318-5037-48f4-911d-5801842b38de"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="667ffbaf-d69a-43b3-9ca6-8e29f821ccc6">
+                    <propertyInstance
+                      Id="2b95475c-a1a7-4a15-b3f5-f850abfb4ce4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8fc94309-10ca-4528-8e69-ee23eaf7569b">
+                    <propertyInstance
+                      Id="9256ba50-1eea-4029-93a5-6c323db24aba"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9cbaad0-8e97-4cd9-bd04-c180cbdd2c1f">
+                    <propertyInstance
+                      Id="024a03ac-2f33-4632-9151-bcd103356cb7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a1c920e6-0ef1-4aed-8f84-a1c45514a298">
+                    <propertyInstance
+                      Id="09553f3e-5650-444a-9085-f164d7bdd04a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a626b31-cbcf-41b1-8140-5e33a5fab7a9">
+                    <propertyInstance
+                      Id="1453cbf9-c9ed-42be-947b-39419a8f27bf"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eb74870f-697a-47b9-a04f-f7e7d20e2035"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="49fac1f9-c2f4-442f-9095-84e80166cacc"
+                  name="ms"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="bfdcc30e-c35f-40cc-a512-58f09fd09d42"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DLeftMouseNewClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)]) ParameterIdentifier%3Dms"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1c62682c-1e8b-4a49-9f4e-6d543c76c8a7"
+                      LastKnownName="MouseState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="34cc0578-3fed-4388-bd68-c6de1e1ff706"
+                  name="previousState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0f997e95-ef61-4334-90b8-cebea77a8996"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DLeftMouseNewClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)]) ParameterIdentifier%3DpreviousState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1c62682c-1e8b-4a49-9f4e-6d543c76c8a7"
+                      LastKnownName="MouseState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="11faf3b1-57b8-431f-9e60-fb71bcc38649"
+                  name="game"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d4a37221-528f-4335-b203-3ee2168bfd07"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DLeftMouseNewClick OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DMouseState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)]) ParameterIdentifier%3Dgame"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="eb875852-3d3d-43df-add2-9aba4d5c077d"
+                      LastKnownName="Game"
+                      LastKnownLocation="Package4_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="dae248a9-3f97-4236-acb3-23e0aeb04dfd"
+            name="NewKeyPress"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bbdf94fd-e665-4906-8ce8-96912e94f11f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DNewKeyPress OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeys)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9b5758b1-8ea1-45c8-affa-a6e882be5ba2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec5cdd28-65e3-45c3-ab9b-a7206352bac2">
+                    <propertyInstance
+                      Id="94b0b11f-4be6-4150-88be-49098c41f3fe"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c175926e-5135-4db2-b12d-bb75369b70c7">
+                    <propertyInstance
+                      Id="08cea66f-be72-4301-993d-564070d361f0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9acf97d-1209-46ec-8743-884cb6060023">
+                    <propertyInstance
+                      Id="5a095300-db41-44e5-a110-989f2cc658eb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="605a5730-7836-4ced-8dd0-3bcfbb06e3dd">
+                    <propertyInstance
+                      Id="6d053467-a5d1-4bc6-8e7a-d9051e6d08e0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7741a25c-b34e-442f-8232-980b2c88f551">
+                    <propertyInstance
+                      Id="14110ed9-f32f-4b2c-8842-ff3dbaaedad3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f96f2828-fbb7-4910-ab82-3f7fa855f365">
+                    <propertyInstance
+                      Id="7a878eab-da8a-4a95-9c8a-202ffdfd286a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8b45d585-71d3-4fa9-a189-8f7a394be25a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7e26e261-82ed-4f94-8f6a-2dd52b0949f6"
+                  name="ks"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="bbb7a4f3-325f-4b99-8fd2-c3d339e75669"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DNewKeyPress OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeys)]) ParameterIdentifier%3Dks"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f7f70a04-982c-4fed-a728-b94095300790"
+                      LastKnownName="KeyboardState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8c2a2d0c-c938-42ba-8591-a540aa7a4771"
+                  name="previousState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9fefaed6-9559-4f7f-8436-91614abbb00b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DNewKeyPress OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeys)]) ParameterIdentifier%3DpreviousState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="f7f70a04-982c-4fed-a728-b94095300790"
+                      LastKnownName="KeyboardState"
+                      LastKnownLocation="Package10_1438.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40ad51e9-e693-4c26-a660-84102c36097d"
+                  name="key"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="85b4ae7f-8534-4f13-8e66-0dc875e0a0dc"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMy Documents%2FDropbox%2FConestoga%2FG Drive%2FTerm 3%2FPROG2370%2FAssignments%2FHelicopterMadness%2FHelicopterMadness%2FHelicopterMadness%2Fbin%2Fx86%2FDebug%2FHelicoperMadness.exe&quot; Namespace%3DHelicopterMadness Type%3DInputHelper Member%3D(Name%3DNewKeyPress OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeyboardState)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Input Type%3DKeys)]) ParameterIdentifier%3Dkey"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c4d68af5-3cc6-4bd4-b9cd-fb7f6c056287"
+                      LastKnownName="UMLModels::Microsoft::Xna::Framework::Input::Keys"
+                      LastKnownLocation="UMLModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
   </packagedElements>

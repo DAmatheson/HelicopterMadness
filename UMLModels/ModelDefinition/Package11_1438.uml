@@ -69,20 +69,12 @@
         </appliedStereotypesInternal>
         <generalsInternal>
           <generalization
-            Id="3dcc4e27-1289-43c2-b87d-a9d4b4270e9c"
+            Id="1c1402d1-5edc-4758-a957-1388056fde25"
             isSubstitutable="false">
             <classMoniker
               Id="0ca27475-b3b9-4492-b98d-e710b3a7c89e"
               LastKnownName="DrawableGameComponent"
               LastKnownLocation="Package4_1438.uml" />
-          </generalization>
-          <generalization
-            Id="1c1402d1-5edc-4758-a957-1388056fde25"
-            isSubstitutable="false">
-            <classMoniker
-              Id="a28df335-f5e5-4219-ae18-28dd8b38c110"
-              LastKnownName="DrawableGameComponent"
-              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <ownedAttributesInternal>

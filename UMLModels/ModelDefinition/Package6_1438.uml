@@ -827,20 +827,12 @@
         </appliedStereotypesInternal>
         <generalsInternal>
           <generalization
-            Id="f56bb995-4166-4f64-be22-2bcbefaa0d41"
+            Id="edec91e0-392a-4600-9f96-958dc8b73a6c"
             isSubstitutable="false">
             <classMoniker
               Id="851a1888-a427-47bd-9f65-59929c79f6a8"
               LastKnownName="GameComponent"
               LastKnownLocation="Package4_1438.uml" />
-          </generalization>
-          <generalization
-            Id="edec91e0-392a-4600-9f96-958dc8b73a6c"
-            isSubstitutable="false">
-            <classMoniker
-              Id="b33bc760-7d8c-4303-b4dc-396d0535c41d"
-              LastKnownName="GameComponent"
-              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <targetEnds>
@@ -3348,20 +3340,12 @@
               LastKnownLocation="Package4_1438.uml" />
           </generalization>
           <generalization
-            Id="a4deda13-f2d4-43d6-bc80-1a42aba94c95"
+            Id="c20772ac-beeb-4dd0-acd5-3c10d8f9c37f"
             isSubstitutable="false">
             <interfaceMoniker
               Id="772067b0-968b-42c0-b61b-9efbe576a7c6"
               LastKnownName="IUpdateable"
               LastKnownLocation="Package4_1438.uml" />
-          </generalization>
-          <generalization
-            Id="c20772ac-beeb-4dd0-acd5-3c10d8f9c37f"
-            isSubstitutable="false">
-            <interfaceMoniker
-              Id="b1771651-bfe5-4ff0-833c-96d5d6986209"
-              LastKnownName="IUpdateable"
-              LastKnownLocation="UMLModels.uml" />
           </generalization>
         </generalsInternal>
         <ownedOperations>
@@ -3590,14 +3574,6 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <generalsInternal>
-          <generalization
-            Id="057e31c6-74a2-4ff3-99de-2ecf5b79207c"
-            isSubstitutable="false">
-            <classMoniker
-              Id="0ca27475-b3b9-4492-b98d-e710b3a7c89e"
-              LastKnownName="DrawableGameComponent"
-              LastKnownLocation="Package4_1438.uml" />
-          </generalization>
           <generalization
             Id="15282c7a-c152-47b5-95dd-66ac5546cf24"
             isSubstitutable="false">
