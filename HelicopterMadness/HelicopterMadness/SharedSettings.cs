@@ -71,9 +71,14 @@ namespace HelicopterMadness
         public static readonly Color NormalTextColor = Color.Yellow;
 
         /// <summary>
-        ///     The Color for normal text
+        ///     The Color for blinking help text
         /// </summary>
-        public static readonly Color WinnerTextColor = Color.Azure;
+        public static readonly Color HelpTextColor = Color.Azure;
+
+        /// <summary>
+        ///     The Color for the highest score text in the action scene
+        /// </summary>
+        public static readonly Color HighestScoreColor = Color.GreenYellow;
 
         /// <summary>
         ///     Gets the speed change from the starting speed to the current speed

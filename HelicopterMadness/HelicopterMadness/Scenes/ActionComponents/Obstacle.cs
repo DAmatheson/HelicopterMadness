@@ -111,13 +111,24 @@ namespace HelicopterMadness.Scenes.ActionComponents
         /// <param name="closestXPosition">The X position to offset the Obstacle from</param>
         /// <param name="minXSpacing">The minimum X spacing between this and the closest ICollidable</param>
         /// <param name="maxXSpacing">The maximum X spacing between this and the closest ICollidable</param>
-        public void GenerateRandomPosition(float closestXPosition, float minXSpacing, float maxXSpacing)
+        /// <param name="heliCenterY">The Y axis center of the helicopter</param>
+        public void GenerateRandomPosition(float closestXPosition, float minXSpacing, float maxXSpacing, float heliCenterY)
         {
             float paddingXSpace = (float) SharedSettings.Random.NextDouble() *
                 (maxXSpacing - minXSpacing) + minXSpacing;
 
             float positionY = (float) SharedSettings.Random.NextDouble() *
                 (SharedSettings.Stage.Y - texture.Height);
+
+            // Nudge the obstacle towards the helicopter
+            if (positionY > heliCenterY + texture.Height)
+            {
+                positionY -= texture.Height / 2f;
+            }
+            else if (positionY + texture.Height < heliCenterY - texture.Height)
+            {
+                positionY += texture.Height / 2f;
+            }
 
             position = new Vector2(closestXPosition + paddingXSpace, positionY);
         }

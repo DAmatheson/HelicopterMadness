@@ -126,10 +126,10 @@ namespace HelicopterMadness.Scenes
 
             highScoreDisplay = new TextDisplay(
                 game, spriteBatch, highlightFont, highScorePosition,
-                Color.Gold, highestScore);
+                SharedSettings.HighestScoreColor, highestScore);
 
             midScreenMessage = new FlashingTextDisplay(Game, spriteBatch, highlightFont,
-                Color.WhiteSmoke, SharedSettings.BLINK_RATE)
+                SharedSettings.HelpTextColor, SharedSettings.BLINK_RATE)
             {
                 Message = START_MESSAGE,
                 Position = SharedSettings.StageCenter
@@ -250,6 +250,7 @@ namespace HelicopterMadness.Scenes
         private void GenerateObstacles(Texture2D obstacleTexture, SoundEffect collisionSound)
         {
             Vector2 obstaclePosition = Vector2.Zero;
+            float heliCenterY = helicopter.GetBounds().Center.Y;
 
             for (int i = 0; i <= NUMBER_OF_OBSTACLES; i++)
             {
@@ -259,13 +260,13 @@ namespace HelicopterMadness.Scenes
                 {
                     obstacle = new Obstacle(Game, spriteBatch, obstacleTexture, collisionSound);
 
-                    obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0);
+                    obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0, heliCenterY);
                 }
                 else
                 {
                     obstacle = new Obstacle(Game, spriteBatch, obstacleTexture, collisionSound);
 
-                    obstacle.GenerateRandomPosition(obstaclePosition.X, minObstacleXSpacing, maxObstacleXSpacing);
+                    obstacle.GenerateRandomPosition(obstaclePosition.X, minObstacleXSpacing, maxObstacleXSpacing, heliCenterY);
                 }
 
                 obstacle.Enabled = false;
@@ -292,7 +293,7 @@ namespace HelicopterMadness.Scenes
 
             durationScore = 0;
             scoreDisplay.Message = "0";
-            highScoreDisplay.Color = Color.Gold;
+            highScoreDisplay.Color = SharedSettings.HighestScoreColor;
 
             helicopter.Reset();
             bottomBorder.Enabled = false;
@@ -346,6 +347,7 @@ namespace HelicopterMadness.Scenes
         {
             float minObstacleXSpace = minObstacleXSpacing;
             float maxObstacleXSpace = maxObstacleXSpacing * SharedSettings.StageSpeedChange;
+            float heliCenterY = helicopter.GetBounds().Center.Y;
 
             for (int i = 0; i < obstacles.Count; i++)
             {
@@ -358,17 +360,17 @@ namespace HelicopterMadness.Scenes
 
                 if (gameReset && i == 0)
                 {
-                    obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0);
+                    obstacle.GenerateRandomPosition(SharedSettings.Stage.X, 0, 0, heliCenterY);
                 }
                 else if (i == 0)
                 {
                     obstacle.GenerateRandomPosition(obstacles.Last().Position.X,
-                        minObstacleXSpace, maxObstacleXSpace);
+                        minObstacleXSpace, maxObstacleXSpace, heliCenterY);
                 }
                 else
                 {
                     obstacle.GenerateRandomPosition(obstacles[i - 1].Position.X,
-                        minObstacleXSpace, maxObstacleXSpace);
+                        minObstacleXSpace, maxObstacleXSpace, heliCenterY);
                 }
 
                 if (!gameReset)

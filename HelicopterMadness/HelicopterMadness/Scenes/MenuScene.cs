@@ -60,8 +60,8 @@ namespace HelicopterMadness.Scenes
                 (SharedSettings.Stage.X - highlightFont.MeasureString(HELP_MESSAGE).X) / 2f,
                 SharedSettings.Stage.Y - SharedSettings.Stage.Y / 4f);
 
-            helpDisplay = new FlashingTextDisplay(game, spriteBatch, highlightFont, Color.Black,
-                SharedSettings.BLINK_RATE)
+            helpDisplay = new FlashingTextDisplay(game, spriteBatch, highlightFont,
+                SharedSettings.HelpTextColor, SharedSettings.BLINK_RATE)
             {
                 Message = HELP_MESSAGE,
                 Position = helpPosition

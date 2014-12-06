@@ -119,7 +119,7 @@ namespace HelicopterMadness.Scenes
 
             //displays blinking string alerting the player they got a new highscore 
             helpMessage = new FlashingTextDisplay(game, spriteBatch, helpFont,
-                SharedSettings.WinnerTextColor, SharedSettings.BLINK_RATE);
+                SharedSettings.HelpTextColor, SharedSettings.BLINK_RATE);
             
             //display the actual scores
             scoreDisplays = new TextDisplay[NUMBER_OF_SCORE_ENTRIES];
