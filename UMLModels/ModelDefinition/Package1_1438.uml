@@ -2154,7 +2154,7 @@
             <classMoniker
               Id="9c841827-dbef-4490-889c-71ce5fefd542"
               LastKnownName="Sprite"
-              LastKnownLocation="Package_1438.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -2525,7 +2525,7 @@
             <classMoniker
               Id="9c841827-dbef-4490-889c-71ce5fefd542"
               LastKnownName="Sprite"
-              LastKnownLocation="Package_1438.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -3388,7 +3388,7 @@
             <classMoniker
               Id="9c841827-dbef-4490-889c-71ce5fefd542"
               LastKnownName="Sprite"
-              LastKnownLocation="Package_1438.uml" />
+              LastKnownLocation="Package_2048.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -3823,6 +3823,45 @@
                 <memberEnd
                   Id="f4790d27-5d14-4676-9860-e7bf0ed270d0"
                   name="TextDisplay"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5457749e-d2d8-41d8-8af4-1477e77118e4"
+            isDerived="false"
+            sourceEndRoleName="MenuScene"
+            targetEndRoleName="FlashingTextDisplay"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f1d4c8d2-73a5-490a-96f9-d1799c713e1e"
+              LastKnownName="FlashingTextDisplay"
+              LastKnownLocation="Package_2048.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5b95a376-6cbb-473f-ae5f-20d2e517fd68"
+                  name="MenuScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6f768ce2-2dbe-4748-8c53-16378cdf60d9"
+                  name="FlashingTextDisplay"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"

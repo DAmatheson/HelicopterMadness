@@ -7787,6 +7787,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="8501863f-e630-485a-9b55-fe295cb61913" />
           </association>
+          <association Id="a5bd4e9d-9a69-4eda-9444-e2fbdc5ef8a4" isDerived="false" sourceEndRoleName="MenuScene" targetEndRoleName="FlashingTextDisplay" isLeaf="false" isAbstract="false">
+            <classMoniker Id="17c8da16-cf10-42f9-9493-46e3c7c2a633" LastKnownName="FlashingTextDisplay" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cfc8bfd8-8a38-442e-b52c-cda74f5a2527" name="MenuScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5b95a376-6cbb-473f-ae5f-20d2e517fd68" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d08d3181-e868-4062-8a1c-db2b8f138fa9" name="FlashingTextDisplay" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="6f768ce2-2dbe-4748-8c53-16378cdf60d9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5457749e-d2d8-41d8-8af4-1477e77118e4" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="0dbf1e79-91a1-43c1-9129-b065fb55e919" name="menu" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
