@@ -56,7 +56,6 @@ namespace HelicopterMadness
             Song menuMusic = Game.Content.Load<Song>("Sounds/MenuMusic");
 
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.3f;
             MediaPlayer.Play(menuMusic);
 
             menuScene = new MenuScene(game, spriteBatch, this, menuEntries);
@@ -76,7 +75,8 @@ namespace HelicopterMadness
                 { MenuItems.Credit, creditScene }
             };
 
-            gameBackground = new ScreenLoopSprite(game, spriteBatch, Game.Content.Load<Texture2D>("Images/Background"), 0.65f);
+            gameBackground = new ScreenLoopSprite(game, spriteBatch,
+                Game.Content.Load<Texture2D>("Images/Background"), 0.65f);
 
             HideAllScenes();
 
@@ -93,7 +93,7 @@ namespace HelicopterMadness
         {
             KeyboardState keyState = Keyboard.GetState();
 
-            if (keyState.IsKeyDown(Keys.Escape) && !menuScene.Enabled && !menuScene.Visible)
+            if (keyState.IsKeyDown(Keys.Escape) && enabledScene != menuScene)
             {
                 HideAllScenes();
 
@@ -105,23 +105,18 @@ namespace HelicopterMadness
             }
 
             if (enabledScene == actionScene && actionScene.State == ActionSceneStates.GameOver &&
-                highScoreScene.State == HighScoreSceneStates.View)
+                highScoreScene.State == HighScoreSceneStates.View &&
+                actionScene.GetScore() > highScoreScene.LowestScore)
             {
-                int gameScore = actionScene.GetScore();
+                enabledScene.Hide();
 
-                if (gameScore > highScoreScene.LowestScore)
-                {
-                    enabledScene.Hide();
-
-                    enabledScene = highScoreScene;
+                enabledScene = highScoreScene;
                   
-                    highScoreScene.Show();
+                highScoreScene.Show();
 
-                    highScoreScene.AddScoreEntry(actionScene.GetScore());
-                }
+                highScoreScene.AddScoreEntry(actionScene.GetScore());
             }
-            
-            if (enabledScene == highScoreScene && highScoreScene.State == HighScoreSceneStates.Action)
+            else if (enabledScene == highScoreScene && highScoreScene.State == HighScoreSceneStates.Action)
             {
                 enabledScene.Hide();
 

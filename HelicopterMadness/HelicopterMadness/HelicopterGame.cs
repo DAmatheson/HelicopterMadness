@@ -5,13 +5,6 @@
  *      Drew Matheson, 2014.11.05: Created
  */
 
-#if DEBUG
-
-    #define SHOW_FPS
-    using System;
-
-#endif
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -22,14 +15,6 @@ namespace HelicopterMadness
     /// </summary>
     public class HelicopterGame : Game
     {
-#if SHOW_FPS
-        SpriteFont spriteFont;
-
-        int frameRate = 0;
-        int frameCounter = 0;
-        TimeSpan elapsedTime = TimeSpan.Zero;
-#endif
-
         private readonly GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
@@ -73,9 +58,6 @@ namespace HelicopterMadness
 
             sceneManager = new SceneManager(this, spriteBatch);
 
-#if SHOW_FPS
-            spriteFont = Content.Load<SpriteFont>("Fonts/FrameRate");
-#endif
             Components.Add(sceneManager);
         }
 
@@ -85,20 +67,9 @@ namespace HelicopterMadness
         /// <param name="gameTime">Provides a snapshot of timing values</param>
         protected override void Update(GameTime gameTime)
         {
-            if (IsActive) // TODO: Worth doing? Pauses game when the window is not in focus
+            if (IsActive)
             {
                 base.Update(gameTime);
-
-#if SHOW_FPS
-                elapsedTime += gameTime.ElapsedGameTime;
-
-                if (elapsedTime > TimeSpan.FromSeconds(1))
-                {
-                    elapsedTime -= TimeSpan.FromSeconds(1);
-                    frameRate = frameCounter;
-                    frameCounter = 0;
-                }
-#endif
             }
         }
 
@@ -113,14 +84,6 @@ namespace HelicopterMadness
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 
             base.Draw(gameTime);
-
-#if SHOW_FPS
-            frameCounter++;
-
-            string fps = string.Format("fps: {0}", frameRate);
-         
-            spriteBatch.DrawString(spriteFont, fps, new Vector2(33, 33), Color.Black);
-#endif
 
             spriteBatch.End();
         }

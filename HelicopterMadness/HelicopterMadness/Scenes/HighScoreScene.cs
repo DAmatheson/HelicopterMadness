@@ -263,11 +263,6 @@ namespace HelicopterMadness.Scenes
         {           
             if (File.Exists(scorepath))
             {
-
-#if DEBUG       // TODO: this needs to be removed before handing in
-                File.Delete(scorepath);
-#endif
-
                 try
                 {
                     using (StreamReader scores = File.OpenText(scorepath))

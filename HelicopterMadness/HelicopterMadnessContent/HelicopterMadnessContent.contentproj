@@ -161,13 +161,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fonts\FrameRate.spritefont">
-      <Name>FrameRate</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Images\StageBorder.png">
       <Name>StageBorder</Name>
       <Importer>TextureImporter</Importer>
