@@ -1,4 +1,4 @@
-<h2>HelicopterMadness<h2>
+<strong>HelicopterMadness</strong>
 
 Final Project for my Object Oriented Game Programming class
 
